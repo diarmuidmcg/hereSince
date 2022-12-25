@@ -4,6 +4,8 @@ class CoreUserAttributes {
     var hasAccount = false;
     var hasTags = true;
     var userId = "look its me ";
+    var userEmail = "diarmuiddevs@proton.me";
+    var userDisplayName = "Diarmuid";
 
 
 
