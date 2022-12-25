@@ -54,3 +54,6 @@ android {
         targetSdk = 32
     }
 }
+dependencies {
+    implementation("com.google.firebase:protolite-well-known-types:18.0.0")
+}
