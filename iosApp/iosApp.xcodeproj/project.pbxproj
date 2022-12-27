@@ -10,6 +10,10 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		261550BC295B572600CEC9DC /* JarNoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BB295B572600CEC9DC /* JarNoDetails.swift */; };
+		261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegistered.swift */; };
+		261550C1295B57F000CEC9DC /* SingleJarMinimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */; };
+		261550C3295B602C00CEC9DC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* Settings.swift */; };
 		2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058329560CA9004BF8C4 /* ViewJar.swift */; };
 		2683058629560CB8004BF8C4 /* MyJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJars.swift */; };
 		2683058829560CC4004BF8C4 /* PreviousJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJars.swift */; };
@@ -38,6 +42,10 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		261550BB295B572600CEC9DC /* JarNoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarNoDetails.swift; sourceTree = "<group>"; };
+		261550BD295B574800CEC9DC /* NotRegistered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotRegistered.swift; sourceTree = "<group>"; };
+		261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleJarMinimized.swift; sourceTree = "<group>"; };
+		261550C2295B602C00CEC9DC /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2683058329560CA9004BF8C4 /* ViewJar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJar.swift; sourceTree = "<group>"; };
 		2683058529560CB8004BF8C4 /* MyJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJars.swift; sourceTree = "<group>"; };
 		2683058729560CC4004BF8C4 /* PreviousJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousJars.swift; sourceTree = "<group>"; };
@@ -68,6 +76,14 @@
 				058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		261550BF295B579700CEC9DC /* JarComponents */ = {
+			isa = PBXGroup;
+			children = (
+				261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */,
+			);
+			path = JarComponents;
 			sourceTree = "<group>";
 		};
 		2683058229560C89004BF8C4 /* Tabs */ = {
@@ -110,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				26FC5B4B295B4406001C4881 /* JarDetails.swift */,
+				261550BB295B572600CEC9DC /* JarNoDetails.swift */,
+				261550BD295B574800CEC9DC /* NotRegistered.swift */,
+				261550C2295B602C00CEC9DC /* Settings.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -134,6 +153,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				261550BF295B579700CEC9DC /* JarComponents */,
 				26FC5B4A295B43F9001C4881 /* Modals */,
 				2683058F29561025004BF8C4 /* GlobalStyles */,
 				2683058929560CED004BF8C4 /* ViewJar */,
@@ -247,15 +267,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				261550C1295B57F000CEC9DC /* SingleJarMinimized.swift in Sources */,
 				26830593295610A9004BF8C4 /* Extensions.swift in Sources */,
 				2683058B29560D00004BF8C4 /* HomePage.swift in Sources */,
+				261550C3295B602C00CEC9DC /* Settings.swift in Sources */,
 				2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */,
 				26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */,
+				261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */,
 				2683058629560CB8004BF8C4 /* MyJars.swift in Sources */,
 				2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */,
 				2683058829560CC4004BF8C4 /* PreviousJars.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				2683059129561039004BF8C4 /* Buttons.swift in Sources */,
+				261550BC295B572600CEC9DC /* JarNoDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

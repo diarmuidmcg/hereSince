@@ -7,10 +7,27 @@
 //
 
 import SwiftUI
+import shared
 
 struct PreviousJars: View {
+    let lotsOfSampleJars = JarAPI().lotsOfSampleJars
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        Text("Previous Jars")
+        VStack{
+            HStack{
+                Text("Previous Jars")
+                    .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+                    .padding(20)
+                    .padding(.top, 20)
+                Spacer()
+                   
+            }
+            List {
+                
+                ForEach(lotsOfSampleJars, id: \.self) { value in
+                    SingleJarMinimized(singleJar: value, isPrevious: true)
+                }
+            }
+        }
     }
 }
-

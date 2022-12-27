@@ -3,13 +3,28 @@ package com.diarmuiddevs.heresince.Objects
 
 class JarInfo(
     val jarId:String,
-    val jarOwnerName:String,
+    var jarOwnerName:String,
     val jarOwnerUserId:String,
-    val jarContentName:String,
-    val hereSince:String,
+    var jarContentName:String,
+    var hereSince:String,
 //    user determines what info they store -> ingredients, description, etc
-    val otherInfo:Map<String, String>,
+    var otherInfo:Map<String, String>,
     )  {
+
+    fun updateJar(jarOwnerName:String?, jarContentName: String?,hereSince: String?,otherInfo: Map<String, String>?) {
+        if (jarOwnerName != null) {
+            this.jarOwnerName = jarOwnerName
+        };
+        if (jarContentName != null) {
+            this.jarContentName = jarContentName
+        };
+        if (hereSince != null) {
+            this.hereSince = hereSince
+        };
+        if (otherInfo != null) {
+            this.otherInfo = otherInfo
+        };
+    }
 
 }
 

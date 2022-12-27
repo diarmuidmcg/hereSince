@@ -10,14 +10,10 @@ import SwiftUI
 import shared
 
 struct JarDetails: View {
-    let sampleJarInfo = JarAPI().sampleJarInfo
+    @State var jarInformation : JarInfo
     @Environment(\.colorScheme) var colorScheme
-    
-    // for the results of the search bar
-    let layout = [
-            GridItem(.flexible())
-        ]
    
+    @State var isEditing = false;
     
     var body: some View {
         VStack {
@@ -29,8 +25,8 @@ struct JarDetails: View {
 //                        .padding(.bottom, 20)
                 Spacer()
 //                if owned by current user
-                if sampleJarInfo.jarOwnerUserId == "123124213" {
-                    Button("Edit Me"){}
+                if jarInformation.jarOwnerUserId == "123124213" {
+                    Button("Edit Me"){isEditing.toggle()}
                         .buttonStyle(.borderless)
                         .padding()
                 }
@@ -40,22 +36,44 @@ struct JarDetails: View {
             
             List {
                 Section(header: Text("Name")) {
-                    Text(sampleJarInfo.jarContentName)
+                    if isEditing {
+                        TextField(jarInformation.jarContentName, text: $jarInformation.jarContentName)
+                    }
+                    else {Text(jarInformation.jarContentName)}
                 }
                 Section(header: Text("Here Since")) {
-                    Text(sampleJarInfo.hereSince)
+                    if isEditing {
+                        TextField(jarInformation.hereSince, text: $jarInformation.hereSince)
+                    }
+                    else {Text(jarInformation.hereSince)}
                 }
                 Section(header: Text("Owned By")) {
-                    Text(sampleJarInfo.jarOwnerName)
+                    if isEditing {
+                        TextField(jarInformation.jarOwnerName, text: $jarInformation.jarOwnerName)
+                    }
+                    else {Text(jarInformation.jarOwnerName)}
                 }
-                ForEach(sampleJarInfo.otherInfo.sorted(by: >), id: \.key) { key, value in
+                ForEach(jarInformation.otherInfo.sorted(by: >), id: \.key) { key, value in
                     Section(header: Text(key)) {
+//                        if isEditing {
+//                            TextField(value, text: $key)
+//                        }
+//                        else {Text(value)}
                         Text(value)
                     }
                 }
+                
+            }
+            .foregroundColor(isEditing ? Color.gray : Color.black)
+            if isEditing {
+                Button("Save"){isEditing = false}
+                    .foregroundColor(.blue)
+                    .buttonStyle(.borderless)
+                    
             }
             Spacer()
+                
         }
-        .ignoresSafeArea()
+        
     }
 }

@@ -7,9 +7,35 @@
 //
 
 import SwiftUI
+import shared
 
 struct MyJars: View {
+    let lotsOfSampleJars = JarAPI().lotsOfSampleJars
+    @State var launchSettingsModal = false
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        Text("My jars!")
+        VStack{
+            HStack{
+                Text("Jar Details")
+                    .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+                    .padding(20)
+                    .padding(.top, 20)
+                Spacer()
+                    Button("Settings"){
+                        launchSettingsModal = true
+                    }
+                        .buttonStyle(.borderless)
+                        .padding()
+            }
+            List {
+                
+                ForEach(lotsOfSampleJars, id: \.self) { value in
+                   SingleJarMinimized(singleJar: value)
+                }
+            }
+        }
+        .sheet(isPresented: $launchSettingsModal) {
+            Settings()
+        }
     }
 }

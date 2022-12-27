@@ -7,11 +7,14 @@
 //
 
 import SwiftUI
+import shared
 
 struct HomePage: View {
     @State var pressedButtonToLaunchNfc = false;
     @State var launchModal = false;
     @Environment(\.colorScheme) var colorScheme
+    
+    let sampleJarInfo = JarAPI().sampleJarInfo
     
     var body: some View {
         VStack {
@@ -27,6 +30,6 @@ struct HomePage: View {
             TapJarButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, launchModal: $launchModal)
             Spacer()
         }
-        .sheet(isPresented: $launchModal, content: { JarDetails()})
+        .sheet(isPresented: $launchModal, content: { JarDetails(jarInformation: sampleJarInfo)})
     }
 }
