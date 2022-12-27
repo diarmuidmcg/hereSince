@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomePage: View {
     @State var pressedButtonToLaunchNfc = false;
+    @State var launchModal = false;
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -23,8 +24,9 @@ struct HomePage: View {
                 Spacer()
             }
             Spacer()
-            TapJarButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
+            TapJarButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, launchModal: $launchModal)
             Spacer()
         }
+        .sheet(isPresented: $launchModal, content: { JarDetails()})
     }
 }

@@ -17,6 +17,7 @@
 		2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058D29560FDF004BF8C4 /* TapJarButton.swift */; };
 		2683059129561039004BF8C4 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683059029561039004BF8C4 /* Buttons.swift */; };
 		26830593295610A9004BF8C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26830592295610A9004BF8C4 /* Extensions.swift */; };
+		26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		2683058D29560FDF004BF8C4 /* TapJarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapJarButton.swift; sourceTree = "<group>"; };
 		2683059029561039004BF8C4 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		26830592295610A9004BF8C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		26FC5B4B295B4406001C4881 /* JarDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarDetails.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 			path = GlobalStyles;
 			sourceTree = "<group>";
 		};
+		26FC5B4A295B43F9001C4881 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				26FC5B4B295B4406001C4881 /* JarDetails.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +134,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				26FC5B4A295B43F9001C4881 /* Modals */,
 				2683058F29561025004BF8C4 /* GlobalStyles */,
 				2683058929560CED004BF8C4 /* ViewJar */,
 				2683058229560C89004BF8C4 /* Tabs */,
@@ -239,6 +250,7 @@
 				26830593295610A9004BF8C4 /* Extensions.swift in Sources */,
 				2683058B29560D00004BF8C4 /* HomePage.swift in Sources */,
 				2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */,
+				26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */,
 				2683058629560CB8004BF8C4 /* MyJars.swift in Sources */,
 				2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */,
 				2683058829560CC4004BF8C4 /* PreviousJars.swift in Sources */,

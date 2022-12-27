@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TapJarButton: View {
     @Binding var pressedButtonToLaunchNfc : Bool
+    @Binding var launchModal : Bool
     
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.08
@@ -20,6 +21,8 @@ struct TapJarButton: View {
         Button(action: {
             withAnimation {
                 pressedButtonToLaunchNfc = true
+//                this will be determined by nfc resp
+                launchModal = true;
             }
         }, label: {
             Image(systemName: "wave.3.forward.circle").resizable()

@@ -8,7 +8,8 @@ class JarInfo(
     val jarContentName:String,
     val hereSince:String,
 //    user determines what info they store -> ingredients, description, etc
-    val otherInfo:Any,
+    val otherInfo:Map<String, String>,
     )  {
 
 }
+
