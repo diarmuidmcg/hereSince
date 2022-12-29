@@ -21,6 +21,7 @@
 		2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058D29560FDF004BF8C4 /* TapJarButton.swift */; };
 		2683059129561039004BF8C4 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683059029561039004BF8C4 /* Buttons.swift */; };
 		26830593295610A9004BF8C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26830592295610A9004BF8C4 /* Extensions.swift */; };
+		26CA3C3E295E3E4B00A75534 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 26CA3C3D295E3E4B00A75534 /* Podfile */; };
 		26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		2683058D29560FDF004BF8C4 /* TapJarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapJarButton.swift; sourceTree = "<group>"; };
 		2683059029561039004BF8C4 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		26830592295610A9004BF8C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		26CA3C3D295E3E4B00A75534 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		26FC5B4B295B4406001C4881 /* JarDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarDetails.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				26CA3C3D295E3E4B00A75534 /* Podfile */,
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				7555FFB0242A642200829871 /* Frameworks */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CA3C3E295E3E4B00A75534 /* Podfile in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
@@ -257,7 +261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignPodAppleFrameworkForXcode\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

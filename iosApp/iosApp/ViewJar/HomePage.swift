@@ -15,6 +15,7 @@ struct HomePage: View {
     @Environment(\.colorScheme) var colorScheme
     
     let sampleJarInfo = JarAPI().sampleJarInfo
+    let jarRequested = JarAPI().getJarById(jarId: "0414F21AE66C81")
     
     var body: some View {
         VStack {
@@ -30,6 +31,6 @@ struct HomePage: View {
             TapJarButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, launchModal: $launchModal)
             Spacer()
         }
-        .sheet(isPresented: $launchModal, content: { JarDetails(jarInformation: sampleJarInfo)})
+        .sheet(isPresented: $launchModal, content: { JarDetails(jarInformation: jarRequested)})
     }
 }

@@ -1,11 +1,14 @@
 package com.diarmuiddevs.heresince.Networking
 
+import com.diarmuiddevs.heresince.CoreUserAttributes
 import com.diarmuiddevs.heresince.Objects.JarInfo
 
 // use Ktor
-
+//import io.realm.kotlin.mongodb.App
+//import kotlinx.coroutines.runBlocking
 
 class JarAPI {
+//    val app = App.create("heresincekotlin-mcafp")
 
     var sampleJarInfo = JarInfo(
         jarId = "215342134",
@@ -79,7 +82,25 @@ class JarAPI {
         ),
     )
 
-    fun getJarById(jarId:String) {}
+    fun getJarById(jarId:String) : JarInfo {
+//        lateinit var jarDetails : JarInfo;
+//            runBlocking {
+//                CoreUserAttributes().user.app.apply { jarDetails = getJarById(jarId) };
+//            }
+//        return jarDetails;
+        return JarInfo(
+            jarId = "215342134",
+            jarOwnerName = "Tom",
+            jarOwnerUserId = "123124213",
+            jarContentName = "Milk",
+            hereSince = "25 December 2022",
+            otherInfo = mapOf(
+                "Ingredients" to "Sugar, Fat, Salt",
+                "Description" to "Straight From the cow"
+            )
+        )
+
+    }
     fun getJarsByUser(userId:String) {}
 
     fun createJarById(jarId:String) {}
