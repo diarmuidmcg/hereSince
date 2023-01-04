@@ -15,7 +15,7 @@ struct TapJarButton: View {
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.08
     
-    
+    @ObservedObject var vm = IOSCounterViewModel()
     var body: some View {
         
         Button(action: {
@@ -23,6 +23,7 @@ struct TapJarButton: View {
                 pressedButtonToLaunchNfc = true
 //                this will be determined by nfc resp
                 launchModal = true;
+                vm.findJarById(jarId:"04C6E41AE66C80")
             }
         }, label: {
             Image(systemName: "wave.3.forward.circle").resizable()

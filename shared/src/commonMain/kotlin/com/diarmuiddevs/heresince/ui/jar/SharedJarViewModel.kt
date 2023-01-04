@@ -5,6 +5,7 @@ import CommonStateFlow
 import asCommonFlow
 import asCommonStateFlow
 import com.diarmuiddevs.heresince.model.JarRepository
+import com.diarmuiddevs.heresince.model.entity.Jar
 import kotlinx.coroutines.flow.map
 
 
@@ -50,11 +51,19 @@ class SharedJarViewModel: JarViewModel {
         repository.enableSync(false)
     }
 
+    override fun findJarById(jarId: String) {
+        repository.findJarById(jarId)
+    }
+
     override fun increment() {
         repository.adjust(1)
     }
 
     override fun decrement() {
         repository.adjust(-1)
+    }
+
+    override fun getCurrentJar(): Jar {
+       return repository.currentJar
     }
 }

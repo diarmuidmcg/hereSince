@@ -2,6 +2,7 @@ package com.diarmuiddevs.heresince.ui.jar
 
 import CommonFlow
 import CommonStateFlow
+import com.diarmuiddevs.heresince.model.entity.Jar
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
@@ -13,6 +14,8 @@ interface JarViewModel: SharedViewModel {
     fun observeWifiState(): CommonStateFlow<Boolean>
     fun enableWifi()
     fun disableWifi()
+    fun findJarById(jarId: String)
+    fun getCurrentJar() : Jar
 }
 
 interface SharedViewModel {

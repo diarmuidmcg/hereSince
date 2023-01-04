@@ -10,6 +10,7 @@ import io.realm.kotlin.ext.query
 import io.realm.kotlin.internal.platform.runBlocking
 import io.realm.kotlin.mongodb.App
 import io.realm.kotlin.mongodb.Credentials
+import io.realm.kotlin.mongodb.subscriptions
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.mongodb.syncSession
 import io.realm.kotlin.notifications.SingleQueryChange
@@ -30,6 +31,7 @@ class JarRepository {
     private var realm: Realm
     private val app: App = App.create("heresincekotlin-mcafp")
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
+    lateinit var currentJar: Jar
 
     init {
         // It is bad practise to use runBlocking here. Instead we should have a dedicated login
@@ -41,17 +43,34 @@ class JarRepository {
                 .initialSubscriptions { realm: Realm ->
                     // We only subscribe to a single object.
                     // The Counter object will have the _id of the user.
-                    add(realm.query<Jar>("_id = $0", user.id))
+                    findByQuery(realm.query<Jar>("jarOwnerUserId = $0", user.id))
                 }
                 .initialData {
                     // Create the initial counter object if needed. This allow the Realm to be
                     // opened and used while the device is offline.
                     // If the server already has an object, they will be merged.
-                    copyToRealm(Jar(user.id))
+//                    copyToRealm(Jar(user.id))
                 }
                 .build()
             Realm.open(config)
         }
+    }
+
+    /**
+     * Adjust the counter up and down.
+     */
+    fun findJarById(jarId: String) {
+        CoroutineScope(Dispatchers.Default).launch {
+//            realm.apply {
+                println("jar id is " + jarId)
+                realm.query<Jar>("jarId = $0", jarId).first().find()?.apply {
+                    println("am i ever called?")
+                    currentJar = return@apply
+                    println("jar id is " + currentJar.toString())
+                }
+
+            }
+//        }
     }
 
     /**
