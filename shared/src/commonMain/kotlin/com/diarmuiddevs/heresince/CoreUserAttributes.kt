@@ -14,6 +14,7 @@ class CoreUserAttributes {
 
 
     lateinit var user: io.realm.kotlin.mongodb.User
+//    val app = App.create("heresincekotlin-mcafp");
     init {
 //        // It is bad practise to use runBlocking here. Instead we should have a dedicated login
 //        // screen that can also prepare the Realm after login. Doing it here is just for simplicity.

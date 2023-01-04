@@ -20,7 +20,8 @@ struct ContentView: View {
     @State var throwFirstLaunchAlert = false
     // tells app there is no host
     @State var throwCreateAccount = false
-
+    
+    @ObservedObject var vm = IOSCounterViewModel()
     // main app
     var body: some View {
         ZStack{
