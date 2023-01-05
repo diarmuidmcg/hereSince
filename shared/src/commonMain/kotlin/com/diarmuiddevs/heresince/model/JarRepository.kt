@@ -38,17 +38,19 @@ class JarRepository {
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
             val user = app.login(Credentials.anonymous(reuseExisting = true))
+
             val config = SyncConfiguration.Builder(schema = setOf(Jar::class), user = user)
                 .initialSubscriptions { realm: Realm ->
                     // We only subscribe to a single object.
                     // The Counter object will have the _id of the user.
-                    findByQuery(realm.query<Jar>("jarOwnerUserId = $0", user.id))
+                    findByQuery(realm.query<Jar>())
                 }
                 .initialData {
                     // Create the initial counter object if needed. This allow the Realm to be
                     // opened and used while the device is offline.
-                    // If the server already has an object, they will be merged.
-//                    copyToRealm(Jar(user.id))
+                    // If the server already has an object, they will be merged
+
+                    copyToRealm(Jar(user.id))
                 }
                 .build()
             Realm.open(config)
@@ -62,7 +64,8 @@ class JarRepository {
 //        CoroutineScope(Dispatchers.Default).launch {
 //            realm.apply {
         println("jar id is " + jarId)
-        val  currentJar = realm.query<Jar>("jarId = $0", jarId).first().find()
+//        val  currentJar = realm.query<Jar>("jarId = $0", jarId).first().find()
+        val  currentJar = realm.query<Jar>().first().find()
         println("jar is " + currentJar.toString());
         return currentJar
 //            }
