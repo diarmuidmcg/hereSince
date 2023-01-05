@@ -51,8 +51,8 @@ class SharedJarViewModel: JarViewModel {
         repository.enableSync(false)
     }
 
-    override fun findJarById(jarId: String) {
-        repository.findJarById(jarId)
+    override fun findJarById(jarId: String): Jar? {
+        return repository.findJarById(jarId)
     }
 
     override fun increment() {
@@ -63,7 +63,4 @@ class SharedJarViewModel: JarViewModel {
         repository.adjust(-1)
     }
 
-    override fun getCurrentJar(): Jar {
-       return repository.currentJar
-    }
 }

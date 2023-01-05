@@ -14,8 +14,7 @@ interface JarViewModel: SharedViewModel {
     fun observeWifiState(): CommonStateFlow<Boolean>
     fun enableWifi()
     fun disableWifi()
-    fun findJarById(jarId: String)
-    fun getCurrentJar() : Jar
+    fun findJarById(jarId: String) : Jar?
 }
 
 interface SharedViewModel {

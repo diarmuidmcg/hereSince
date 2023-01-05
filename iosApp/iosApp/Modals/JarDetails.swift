@@ -15,8 +15,6 @@ struct JarDetails: View {
    
     @State var isEditing = false;
     
-    @ObservedObject var vm = IOSCounterViewModel()
-    
     var body: some View {
         VStack {
             HStack{
@@ -75,10 +73,6 @@ struct JarDetails: View {
             }
             Spacer()
                 
-        }
-        .onAppear{
-            print(vm.getCurrentJar() ?? "could not print")
-            
         }
         
         

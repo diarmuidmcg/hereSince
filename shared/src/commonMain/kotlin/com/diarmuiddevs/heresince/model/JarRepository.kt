@@ -31,7 +31,6 @@ class JarRepository {
     private var realm: Realm
     private val app: App = App.create("heresincekotlin-mcafp")
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
-    lateinit var currentJar: Jar
 
     init {
         // It is bad practise to use runBlocking here. Instead we should have a dedicated login
@@ -59,17 +58,14 @@ class JarRepository {
     /**
      * Adjust the counter up and down.
      */
-    fun findJarById(jarId: String) {
-        CoroutineScope(Dispatchers.Default).launch {
+    fun findJarById(jarId: String) : Jar? {
+//        CoroutineScope(Dispatchers.Default).launch {
 //            realm.apply {
-                println("jar id is " + jarId)
-                realm.query<Jar>("jarId = $0", jarId).first().find()?.apply {
-                    println("am i ever called?")
-                    currentJar = return@apply
-                    println("jar id is " + currentJar.toString())
-                }
-
-            }
+        println("jar id is " + jarId)
+        val  currentJar = realm.query<Jar>("jarId = $0", jarId).first().find()
+        println("jar is " + currentJar.toString());
+        return currentJar
+//            }
 //        }
     }
 
