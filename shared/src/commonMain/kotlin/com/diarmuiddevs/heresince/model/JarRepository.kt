@@ -2,6 +2,7 @@ package com.diarmuiddevs.heresince.model
 
 import com.diarmuiddevs.heresince.model.entity.Jar
 import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.asFlow
 //import io.realm.kotlin.demo.model.entity.Jar
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_ID
@@ -38,35 +39,32 @@ class JarRepository {
     init {
         // It is bad practise to use runBlocking here. Instead we should have a dedicated login
         // screen that can also prepare the Realm after login. Doing it here is just for simplicity.
-        realm = runBlocking {
-            // Log in user and open a synchronized Realm for that user.
-            val user = app.login(Credentials.anonymous(reuseExisting = true))
+//        realm = runBlocking {
+//            // Log in user and open a synchronized Realm for that user.
+//            val user = app.login(Credentials.anonymous(reuseExisting = true))
+//
+//            val config = SyncConfiguration.Builder(schema = setOf(Jar::class), user = user)
+//                .build()
+//            Realm.open(config)
+//        }
+        val config = RealmConfiguration.Builder(
+            schema = setOf(Jar::class)
+        ).build()
 
-            val config = SyncConfiguration.Builder(schema = setOf(Jar::class), user = user)
-                .initialSubscriptions { realm: Realm ->
-                    // We only subscribe to a single object.
-                    // The Counter object will have the _id of the user.
-                    findByQuery(realm.query<Jar>())
-                }
-                .initialData {
-                    // Create the initial counter object if needed. This allow the Realm to be
-                    // opened and used while the device is offline.
-                    // If the server already has an object, they will be merged
+        // Open Realm
+        realm = Realm.open(config)
 
-                    copyToRealm(Jar(user.id))
-                }
-                .build()
-            Realm.open(config)
-        }
     }
 
     /**
      * Adjust the counter up and down.
      */
     fun findJarById(jarId: String) {
-
-       _currJarStateFlow.value = realm.query<Jar>().first().find() ?: Jar("testId")
-        println("got jar of " + _currJarStateFlow.value.jarOwnerUserId)
+        println("looking for " + jarId)
+        CoroutineScope(Dispatchers.Default).launch {
+            _currJarStateFlow.value = realm.query<Jar>().first().find() ?: Jar("testId")
+            println("got jar of " + _currJarStateFlow.value._id)
+        }
     }
 
     /**
