@@ -6,15 +6,16 @@ import com.diarmuiddevs.heresince.model.entity.Jar
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.Flow
 
 interface JarViewModel: SharedViewModel {
-    fun observeCounter(): CommonFlow<String>
+//    fun observeCounter(): CommonFlow<String>
     fun increment()
     fun decrement()
     fun observeWifiState(): CommonStateFlow<Boolean>
     fun enableWifi()
     fun disableWifi()
-    fun findJarById(jarId: String) : Jar?
+    fun findJarById(jarId: String)
 }
 
 interface SharedViewModel {

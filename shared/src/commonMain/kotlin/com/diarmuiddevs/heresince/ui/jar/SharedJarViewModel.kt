@@ -6,6 +6,7 @@ import asCommonFlow
 import asCommonStateFlow
 import com.diarmuiddevs.heresince.model.JarRepository
 import com.diarmuiddevs.heresince.model.entity.Jar
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 
@@ -32,11 +33,11 @@ class SharedJarViewModel: JarViewModel {
     // it means the CounterViewModel can be mocked easily in the View Layer.
     private val repository = JarRepository()
 
-    override fun observeCounter(): CommonFlow<String> {
-        return repository.observeCounter()
-            .map { count -> count.toString() }
-            .asCommonFlow()
-    }
+//    override fun observeCounter(): CommonFlow<String> {
+//        return repository.observeCounter()
+//            .map { count -> count.toString() }
+//            .asCommonFlow()
+//    }
 
     override fun observeWifiState(): CommonStateFlow<Boolean> {
         return repository.observeSyncConnection()
@@ -51,8 +52,8 @@ class SharedJarViewModel: JarViewModel {
         repository.enableSync(false)
     }
 
-    override fun findJarById(jarId: String): Jar? {
-        return repository.findJarById(jarId)
+    override fun findJarById(jarId: String) {
+        repository.findJarById(jarId)
     }
 
     override fun increment() {

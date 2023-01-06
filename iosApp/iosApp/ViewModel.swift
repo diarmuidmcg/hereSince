@@ -57,7 +57,7 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         vm.enableWifi()
     }
     func findJarById(jarId: String){
-        currentJar = vm.findJarById(jarId: jarId)
+        vm.findJarById(jarId: jarId)
         
     }
     
@@ -65,9 +65,9 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     
     
     func start() {
-        addObserver(observer: vm.observeCounter().watch { jarValue in
-            self.jar = jarValue! as String
-        })
+//        addObserver(observer: vm.observeCounter().watch { jarValue in
+//            self.jar = jarValue! as String
+//        })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
                 self.enabled = true
