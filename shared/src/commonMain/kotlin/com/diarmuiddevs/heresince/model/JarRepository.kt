@@ -12,12 +12,13 @@ import io.realm.kotlin.ext.query
 import io.realm.kotlin.internal.platform.runBlocking
 import io.realm.kotlin.mongodb.*
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
+import io.realm.kotlin.notifications.InitialResults
 import io.realm.kotlin.notifications.ObjectChange
+import io.realm.kotlin.notifications.ResultsChange
 import io.realm.kotlin.notifications.SingleQueryChange
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import io.realm.kotlin.query.RealmResults
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 
 /**
  * Repository class. Responsible for storing the io.realm.kotlin.demo.model.entity.Counter and
@@ -39,22 +40,29 @@ class JarRepository {
     init {
         // It is bad practise to use runBlocking here. Instead we should have a dedicated login
         // screen that can also prepare the Realm after login. Doing it here is just for simplicity.
-//        realm = runBlocking {
-//            // Log in user and open a synchronized Realm for that user.
-//            val user = app.login(Credentials.anonymous(reuseExisting = true))
+        realm = runBlocking {
+            // Log in user and open a synchronized Realm for that user.
+            val user = app.login(Credentials.anonymous(reuseExisting = true))
+
+            val config = SyncConfiguration.Builder(user,schema = setOf(Jar::class))
+                .initialSubscriptions { realm: Realm ->
+                    add( realm.query<Jar>())
+                }
+                .build()
+            Realm.open(config)
+        }
+//        val config = RealmConfiguration.Builder(
+//            schema = setOf(Jar::class)
+//        ).build()
+
+
 //
-//            val config = SyncConfiguration.Builder(schema = setOf(Jar::class), user = user)
-//                .build()
-//            Realm.open(config)
-//        }
-        val config = RealmConfiguration.Builder(
-            schema = setOf(Jar::class)
-        ).build()
+            // Open Realm
+//            realm = Realm.open(config)
 
-        // Open Realm
-        realm = Realm.open(config)
+        }
 
-    }
+//    }
 
     /**
      * Adjust the counter up and down.
@@ -62,8 +70,23 @@ class JarRepository {
     fun findJarById(jarId: String) {
         println("looking for " + jarId)
         CoroutineScope(Dispatchers.Default).launch {
-            _currJarStateFlow.value = realm.query<Jar>().first().find() ?: Jar("testId")
-            println("got jar of " + _currJarStateFlow.value._id)
+            val frogsFlow: Flow<ResultsChange<Jar>> = realm.query<Jar>().asFlow()
+            val asyncCall: Deferred<Unit> = async {
+                frogsFlow.collect { results ->
+                    println("do i even get here")
+                    when (results) {
+                        // print out initial results
+                        is InitialResults<Jar> -> {
+                            for (frog in results.list) {
+                                println("Frog: ${frog._id}")
+                            }
+                        } else -> {
+                        // do nothing on changes
+                    }
+                    }
+                }
+            }
+
         }
     }
 

@@ -30,7 +30,6 @@ kotlin {
         homepage = "https://github.com/realm/realm-kotlin"
         ios.deploymentTarget = "14.1"
         osx.deploymentTarget = "11.0"
-        frameworkName = "shared"
     }
 
     sourceSets {

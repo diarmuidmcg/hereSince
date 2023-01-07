@@ -6,7 +6,8 @@ enum TabIdentifier: Hashable {
 }
 
 struct ContentView: View {
-    let hasTags = CoreUserAttributes().hasTags
+//    let hasTags = CoreUserAttributes().hasTags
+    let hasTags = true
     // current tab for entire app
     @State var selectedTab = TabIdentifier.view
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
