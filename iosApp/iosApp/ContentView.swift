@@ -29,10 +29,10 @@ struct ContentView: View {
             TabView(selection: $selectedTab) {
 //              if has jars associated
                 if hasTags {
-                    MyJars().tabItem { Label("My Jars", systemImage: "loupe")}.tag(TabIdentifier.mine)
+                    MyJars(vm: vm).tabItem { Label("My Jars", systemImage: "loupe")}.tag(TabIdentifier.mine)
                 }
-                ViewJar().tabItem { Label("View", systemImage: "tag.circle")}.tag(TabIdentifier.view)
-                PreviousJars().tabItem { Label("Previous", systemImage: "memories")}.tag(TabIdentifier.prev)
+                ViewJar(vm: vm).tabItem { Label("View", systemImage: "tag.circle")}.tag(TabIdentifier.view)
+                PreviousJars(vm: vm).tabItem { Label("Previous", systemImage: "memories")}.tag(TabIdentifier.prev)
             }
             .actionSheet(isPresented: $throwFirstLaunchAlert) {
                 ActionSheet(

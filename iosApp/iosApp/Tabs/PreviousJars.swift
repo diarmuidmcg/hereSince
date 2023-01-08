@@ -11,6 +11,7 @@ import shared
 
 struct PreviousJars: View {
     let lotsOfSampleJars = JarAPI().lotsOfSampleJars
+    @ObservedObject var vm : IOSCounterViewModel
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         VStack{
@@ -25,7 +26,7 @@ struct PreviousJars: View {
             List {
                 
                 ForEach(lotsOfSampleJars, id: \.self) { value in
-                    SingleJarMinimized(singleJar: value, isPrevious: true)
+                    SingleJarMinimized(singleJar: value,vm:vm, isPrevious: true)
                 }
             }
         }

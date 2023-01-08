@@ -10,6 +10,7 @@ import SwiftUI
 import shared
 
 struct HomePage: View {
+    @ObservedObject var vm : IOSCounterViewModel
     @State var pressedButtonToLaunchNfc = false;
     @State var launchModal = false;
     @Environment(\.colorScheme) var colorScheme
@@ -28,9 +29,9 @@ struct HomePage: View {
                 Spacer()
             }
             Spacer()
-            TapJarButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, launchModal: $launchModal)
+            TapJarButton(vm: vm, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, launchModal: $launchModal)
             Spacer()
         }
-        .sheet(isPresented: $launchModal, content: { JarDetails(jarInformation: jarRequested)})
+        .sheet(isPresented: $launchModal, content: { JarDetails(jarInformation: jarRequested, vm: vm)})
     }
 }

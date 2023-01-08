@@ -11,18 +11,21 @@ import shared
 
 struct JarDetails: View {
     @State var jarInformation : JarInfo
+    @ObservedObject var vm : IOSCounterViewModel
     @Environment(\.colorScheme) var colorScheme
    
     @State var isEditing = false;
     
+    
     var body: some View {
         VStack {
             HStack{
-                Text("Jar Details")
+                Text(vm.currentJar._id)
                     .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
                     .padding(20)
                     .padding(.top, 20)
 //                        .padding(.bottom, 20)
+               
                 Spacer()
 //                if owned by current user
                 if jarInformation.jarOwnerUserId == "123124213" {

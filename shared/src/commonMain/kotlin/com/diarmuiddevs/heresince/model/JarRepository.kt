@@ -34,8 +34,8 @@ class JarRepository {
 
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
 
-    private val _currJarStateFlow = MutableStateFlow(Jar("test"))
-    val currJarSF = _currJarStateFlow.asStateFlow()
+    private var _currJarStateFlow: MutableStateFlow<Jar> = MutableStateFlow(Jar("test"))
+//    val currJarSF = _currJarStateFlow.asStateFlow()
 
     init {
         // It is bad practise to use runBlocking here. Instead we should have a dedicated login
@@ -50,6 +50,7 @@ class JarRepository {
                 }
                 .build()
             Realm.open(config)
+
         }
 //        val config = RealmConfiguration.Builder(
 //            schema = setOf(Jar::class)
@@ -70,10 +71,37 @@ class JarRepository {
     fun findJarById(jarId: String) {
         println("looking for " + jarId)
         CoroutineScope(Dispatchers.Default).launch {
+            val singleJarFlow: Flow<ResultsChange<Jar>> = realm.query<Jar>(query = "_id == $0", jarId).asFlow()
+            val asyncCall: Deferred<Unit> = async {
+                singleJarFlow.collect { results ->
+                    when (results) {
+                        // print out initial results
+                        is InitialResults<Jar> -> {
+                            for (jar in results.list) {
+                                realm.writeBlocking {
+                                    _currJarStateFlow.value = jar
+                                }
+
+                                println("Jar: ${_currJarStateFlow.value.jarOwnerName}")
+                            }
+                        } else -> {
+                        // do nothing on changes
+                    }
+                    }
+                }
+            }
+
+        }
+    }
+
+    /**
+     * Adjust the counter up and down.
+     */
+    fun findAllJars() {
+        CoroutineScope(Dispatchers.Default).launch {
             val frogsFlow: Flow<ResultsChange<Jar>> = realm.query<Jar>().asFlow()
             val asyncCall: Deferred<Unit> = async {
                 frogsFlow.collect { results ->
-                    println("do i even get here")
                     when (results) {
                         // print out initial results
                         is InitialResults<Jar> -> {
@@ -107,13 +135,12 @@ class JarRepository {
     /**
      * Listen to changes to the counter.
      */
-//    fun observeCounter(): Flow<Long> {
-//        val userId = app.currentUser?.id ?: throw IllegalStateException("No user found")
-//        return realm.query<Jar>("_id = $0", userId).first().asFlow()
-//            .map { change: SingleQueryChange<Jar> ->
-////                change.obj?.value?.toLong() ?: 0
-//            }
-//    }
+    fun observeJar(): StateFlow<Jar> {
+
+        println("observing jar")
+        return _currJarStateFlow
+    }
+
 
     fun observeSyncConnection(): StateFlow<Boolean> {
         return syncEnabled

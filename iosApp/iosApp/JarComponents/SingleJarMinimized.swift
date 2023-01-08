@@ -11,6 +11,7 @@ import shared
 
 struct SingleJarMinimized: View {
     var singleJar : JarInfo
+    @ObservedObject var vm : IOSCounterViewModel
 //    if the jar is owned by others, you wanna see the owner name on prev jar tab
     var isPrevious : Bool?
     @State var launchModal = false
@@ -42,7 +43,7 @@ struct SingleJarMinimized: View {
             }
         })
         .sheet(isPresented: $launchModal) {
-            JarDetails(jarInformation: singleJar)
+            JarDetails(jarInformation: singleJar, vm: vm)
         }
         
         

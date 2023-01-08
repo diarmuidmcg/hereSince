@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct ViewJar: View {
+    @ObservedObject var vm : IOSCounterViewModel
+    
     var body: some View {
-        HomePage()
+        HomePage(vm:vm)
     }
 }
 

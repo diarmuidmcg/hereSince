@@ -11,6 +11,7 @@ import shared
 
 struct MyJars: View {
     let lotsOfSampleJars = JarAPI().lotsOfSampleJars
+    @ObservedObject var vm : IOSCounterViewModel
     @State var launchSettingsModal = false
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
@@ -30,7 +31,7 @@ struct MyJars: View {
             List {
                 
                 ForEach(lotsOfSampleJars, id: \.self) { value in
-                   SingleJarMinimized(singleJar: value)
+                    SingleJarMinimized(singleJar: value, vm:vm)
                 }
             }
         }

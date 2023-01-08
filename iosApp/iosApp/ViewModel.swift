@@ -27,7 +27,7 @@ class ObservableViewModel {
 class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     @Published var jar: String = "-"
     @Published var enabled: Bool = true
-    @Published var currentJar: Jar?
+    @Published var currentJar: Jar = Jar()
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
         
@@ -61,13 +61,17 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         
     }
     
+    func getCurrentJar() -> Jar{
+        return self.currentJar;
+    }
    
     
     
     func start() {
-//        addObserver(observer: vm.observeCounter().watch { jarValue in
-//            self.jar = jarValue! as String
-//        })
+        addObserver(observer: vm.observeJar().watch { jarValue in
+            self.currentJar = jarValue! as Jar
+            print("curr jar is " + self.currentJar._id)
+        })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
                 self.enabled = true
