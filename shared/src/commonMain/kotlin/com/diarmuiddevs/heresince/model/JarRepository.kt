@@ -80,8 +80,12 @@ class JarRepository {
                         is InitialResults<Jar> -> {
                             for (jar in results.list) {
                                 realm.write {
+                                    val newInfo1 = JarAdditionalInfo("Description","I got this last year!")
+                                    jar.additionalInfo.add(newInfo1)
                                     val newInfo = JarAdditionalInfo("ingredients","Corn syrup, sugar")
                                     jar.additionalInfo.add(newInfo)
+                                    val newInfo2 = JarAdditionalInfo("Story","Made with love!")
+                                    jar.additionalInfo.add(newInfo2)
                                     _currJarStateFlow.value = jar
                                 }
 
