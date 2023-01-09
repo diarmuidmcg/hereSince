@@ -28,7 +28,7 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     @Published var jar: String = "-"
     @Published var enabled: Bool = true
     @Published var currentJar: Jar = Jar()
-    @Published var currentAddInfo: Set<JarAddInfo> = Set<JarAddInfo>()
+    @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
         
@@ -71,10 +71,10 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     func start() {
         addObserver(observer: vm.observeJar().watch { jarValue in
             self.currentJar = jarValue! as Jar
-            for val in self.currentJar.additionalInfo {
-                self.currentAddInfo.insert(JarAddInfo(val as! JarAdditionalInfo))
-            }
-//            self.currentAddInfo = self.currentJar.additionalInfo as! Set<JarAddInfo>
+//            for val in self.currentJar.additionalInfo {
+//                self.currentAddInfo.insert(JarAddInfo(val as! JarAdditionalInfo))
+//            }
+            self.currentAddInfo = self.currentJar.additionalInfo as! Set<JarAdditionalInfo>
             print("curr jar is " + self.currentJar._id)
         })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
@@ -87,22 +87,30 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     }
 }
 
-// create extension of JarAdditionalInfo that implements Comparable so it can be
-// used in ForEach loops
-class JarAddInfo: JarAdditionalInfo, Comparable {
-//    minimum comparable method to implement
-    static func < (lhs: JarAddInfo, rhs: JarAddInfo) -> Bool {
+extension JarAdditionalInfo:Comparable {
+    public static func < (lhs: JarAdditionalInfo, rhs: JarAdditionalInfo) -> Bool {
 //        imp so ingredients always first?
-        if (rhs.infoName.uppercased() == "INGREDIENTS") {return false}
+        if (rhs.name.uppercased() == "INGREDIENTS") {return false}
         else {return true}
     }
-    var infoName: String
-    var infoContent: String
-    public init(_ obj: JarAdditionalInfo) {
-        self.infoName = obj.name
-        self.infoContent = obj.content
-        super.init()
-    }
-
-    
 }
+
+// create extension of JarAdditionalInfo that implements Comparable so it can be
+// used in ForEach loops
+//class JarAddInfo: JarAdditionalInfo, Comparable {
+////    minimum comparable method to implement
+//    static func < (lhs: JarAddInfo, rhs: JarAddInfo) -> Bool {
+////        imp so ingredients always first?
+//        if (rhs.infoName.uppercased() == "INGREDIENTS") {return false}
+//        else {return true}
+//    }
+//    var infoName: String
+//    var infoContent: String
+//    public init(_ obj: JarAdditionalInfo) {
+//        self.infoName = obj.name
+//        self.infoContent = obj.content
+//        super.init()
+//    }
+//
+//
+//}

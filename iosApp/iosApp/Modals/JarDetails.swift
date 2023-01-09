@@ -58,9 +58,9 @@ struct JarDetails: View {
                 }
                 
                 ForEach(vm.currentAddInfo.sorted(by: <), id: \.self) { element in
-                    Section(header: Text("\(element.infoName)"))
+                    Section(header: Text("\(element.name)"))
                         {
-                            Text("\(element.infoContent)")
+                            Text("\(element.content)")
                             
                         }
                     }
