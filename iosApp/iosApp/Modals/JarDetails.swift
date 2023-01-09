@@ -40,31 +40,31 @@ struct JarDetails: View {
             List {
                 Section(header: Text("Name")) {
                     if isEditing {
-                        TextField(jarInformation.jarContentName, text: $jarInformation.jarContentName)
+                        TextField(vm.currentJar.jarContentName, text: $vm.currentJar.jarContentName)
                     }
-                    else {Text(jarInformation.jarContentName)}
+                    else {Text(vm.currentJar.jarContentName)}
                 }
                 Section(header: Text("Here Since")) {
                     if isEditing {
-                        TextField(jarInformation.hereSince, text: $jarInformation.hereSince)
+                        TextField(vm.currentJar.hereSince, text: $vm.currentJar.hereSince)
                     }
-                    else {Text(jarInformation.hereSince)}
+                    else {Text(vm.currentJar.hereSince)}
                 }
                 Section(header: Text("Owned By")) {
                     if isEditing {
-                        TextField(jarInformation.jarOwnerName, text: $jarInformation.jarOwnerName)
+                        TextField(vm.currentJar.jarOwnerName, text: $vm.currentJar.jarOwnerName)
                     }
-                    else {Text(jarInformation.jarOwnerName)}
+                    else {Text(vm.currentJar.jarOwnerName)}
                 }
-                ForEach(jarInformation.otherInfo.sorted(by: >), id: \.key) { key, value in
-                    Section(header: Text(key)) {
-//                        if isEditing {
-//                            TextField(value, text: $key)
-//                        }
-//                        else {Text(value)}
-                        Text(value)
-                    }
-                }
+//                ForEach(vm.currentJar.additionalInfo.sorted(by: >), id: \.key) { key, value in
+//                    Section(header: Text(key)) {
+////                        if isEditing {
+////                            TextField(value, text: $key)
+////                        }
+////                        else {Text(value)}
+//                        Text(value)
+//                    }
+//                }
                 
             }
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
