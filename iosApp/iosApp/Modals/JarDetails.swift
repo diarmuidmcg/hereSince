@@ -20,7 +20,7 @@ struct JarDetails: View {
     var body: some View {
         VStack {
             HStack{
-                Text(vm.currentJar._id)
+                Text("Jar")
                     .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
                     .padding(20)
                     .padding(.top, 20)

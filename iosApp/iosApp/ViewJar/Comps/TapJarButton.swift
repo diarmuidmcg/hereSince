@@ -9,13 +9,14 @@
 import SwiftUI
 
 struct TapJarButton: View {
+    @ObservedObject var vm : IOSCounterViewModel
     @Binding var pressedButtonToLaunchNfc : Bool
     @Binding var launchModal : Bool
     
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.08
     
-    @ObservedObject var vm = IOSCounterViewModel()
+    
     var body: some View {
         
         Button(action: {

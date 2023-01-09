@@ -1,19 +1,34 @@
 package com.diarmuiddevs.heresince.model.entity
 
+import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
 import io.realm.kotlin.types.ObjectId
+import io.realm.kotlin.types.RealmList
 import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
 import io.realm.kotlin.types.annotations.PrimaryKey
 
 
 open class Jar(
     @PrimaryKey
     var _id: String = ObjectId.create().toString(),
-    var hereSince: String? = null,
-    var jarContentName: String? = null,
-    var jarOwnerName: String? = null,
-    var jarOwnerUserId: String? = null
+    var hereSince: String = "",
+    var jarContentName: String = "",
+    var jarOwnerName: String = "",
+    var jarOwnerUserId: String = "",
+    var additionalInfo: MutableSet<JarAdditionalInfo> = realmSetOf()
+//    var additionalInfo: RealmSet<JarAdditionalInfo> = realmSetOf<JarAdditionalInfo>()
 ) :RealmObject {
     constructor() : this(
         _id = ObjectId.create().toString(),
     ) // Empty constructor for Realm
+
 }
+
+open class JarAdditionalInfo(
+    var name: String = "",
+    var content: String = "",
+) :RealmObject {
+    constructor() : this("", "") // Empty constructor for Realm
+}
+
