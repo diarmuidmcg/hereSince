@@ -1,6 +1,7 @@
 package com.diarmuiddevs.heresince.model
 
 import com.diarmuiddevs.heresince.model.entity.Jar
+import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.asFlow
@@ -78,11 +79,13 @@ class JarRepository {
                         // print out initial results
                         is InitialResults<Jar> -> {
                             for (jar in results.list) {
-                                realm.writeBlocking {
+                                realm.write {
+                                    val newInfo = JarAdditionalInfo("ingredients","Corn syrup, sugar")
+                                    jar.additionalInfo.add(newInfo)
                                     _currJarStateFlow.value = jar
                                 }
 
-                                println("Jar: ${_currJarStateFlow.value.jarOwnerName}")
+                                println("Jar: ${_currJarStateFlow.value.additionalInfo.count()}")
                             }
                         } else -> {
                         // do nothing on changes

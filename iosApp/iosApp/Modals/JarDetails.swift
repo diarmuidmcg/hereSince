@@ -28,11 +28,11 @@ struct JarDetails: View {
                
                 Spacer()
 //                if owned by current user
-                if jarInformation.jarOwnerUserId == "123124213" {
+//                if jarInformation.jarOwnerUserId == "123124213" {
                     Button("Edit Me"){isEditing.toggle()}
                         .buttonStyle(.borderless)
                         .padding()
-                }
+//                }
             }
            
            
@@ -56,13 +56,22 @@ struct JarDetails: View {
                     }
                     else {Text(vm.currentJar.jarOwnerName)}
                 }
-//                ForEach(vm.currentJar.additionalInfo.sorted(by: >), id: \.key) { key, value in
-//                    Section(header: Text(key)) {
-////                        if isEditing {
-////                            TextField(value, text: $key)
-////                        }
-////                        else {Text(value)}
-//                        Text(value)
+                
+                ForEach(vm.currentAddInfo.sorted(by: <), id: \.self) { element in
+                    Section(header: Text("\(element.infoName)"))
+                        {
+                            Text("\(element.infoContent)")
+                            
+                        }
+                    }
+                
+                
+//                ForEach(0...vm.currentJar.additionalInfo.count, id: \.self) { key in
+////                    Section(header: Text("\(vm.currentJar.additionalInfo.mutableArrayValue(forKey: "name"))")) {
+////                    Text("\(vm.currentJar.additionalInfo.mutableArrayValue(forKey: "content"))")
+////                    }
+//                    Section(header: Text("\(vm.currentJar.additionalInfo.mutableArrayValue(forKey: "name"))")) {
+//                    Text("\(vm.currentJar.additionalInfo.mutableArrayValue(forKey: "content"))")
 //                    }
 //                }
                 

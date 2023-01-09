@@ -23,18 +23,18 @@ struct SingleJarMinimized: View {
             }
         }, label: {
             VStack {
-                Text(singleJar.jarContentName).font(.system(size: 26.0))
+                Text(vm.currentJar.jarContentName).font(.system(size: 26.0))
                     .foregroundColor(.gray)
                     .padding(5)
                 HStack {
-                    Text("Here Since: \(singleJar.hereSince)")
+                    Text("Here Since: \(vm.currentJar.hereSince)")
                         .foregroundColor(.gray)
                         .padding(.leading, 5)
                     Spacer()
                 }
                 if isPrevious ?? false {
                     HStack {
-                        Text("Owned By: \(singleJar.jarOwnerName)")
+                        Text("Owned By: \(vm.currentJar.jarOwnerName)")
                             .foregroundColor(.gray)
                             .padding(.leading, 5)
                         Spacer()

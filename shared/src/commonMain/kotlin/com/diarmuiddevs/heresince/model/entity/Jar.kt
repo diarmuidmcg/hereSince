@@ -9,6 +9,13 @@ import io.realm.kotlin.types.RealmSet
 import io.realm.kotlin.types.annotations.PrimaryKey
 
 
+open class JarAdditionalInfo(
+    var name: String = "",
+    var content: String = "",
+) :RealmObject {
+    constructor() : this("", "") // Empty constructor for Realm
+}
+
 open class Jar(
     @PrimaryKey
     var _id: String = ObjectId.create().toString(),
@@ -23,12 +30,5 @@ open class Jar(
         _id = ObjectId.create().toString(),
     ) // Empty constructor for Realm
 
-}
-
-open class JarAdditionalInfo(
-    var name: String = "",
-    var content: String = "",
-) :RealmObject {
-    constructor() : this("", "") // Empty constructor for Realm
 }
 
