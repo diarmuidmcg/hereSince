@@ -2,6 +2,7 @@ package com.diarmuiddevs.heresince.ui.jar
 
 import CommonFlow
 import CommonStateFlow
+import com.diarmuiddevs.heresince.model.JarOverview
 import com.diarmuiddevs.heresince.model.entity.Jar
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
@@ -10,6 +11,7 @@ import kotlinx.coroutines.cancel
 
 interface JarViewModel: SharedViewModel {
     fun observeJar(): CommonStateFlow<Jar>
+    fun observeJarOverview(): CommonStateFlow<JarOverview>
     fun increment()
     fun decrement()
     fun observeWifiState(): CommonStateFlow<Boolean>

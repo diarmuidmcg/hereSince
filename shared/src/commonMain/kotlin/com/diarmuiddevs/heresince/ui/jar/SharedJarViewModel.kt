@@ -4,6 +4,7 @@ import CommonFlow
 import CommonStateFlow
 import asCommonFlow
 import asCommonStateFlow
+import com.diarmuiddevs.heresince.model.JarOverview
 import com.diarmuiddevs.heresince.model.JarRepository
 import com.diarmuiddevs.heresince.model.entity.Jar
 import kotlinx.coroutines.flow.Flow
@@ -36,6 +37,10 @@ class SharedJarViewModel: JarViewModel {
 
     override fun observeJar(): CommonStateFlow<Jar> {
         return repository.observeJar()
+            .asCommonStateFlow()
+    }
+    override fun observeJarOverview(): CommonStateFlow<JarOverview> {
+        return repository.observeJarOverview()
             .asCommonStateFlow()
     }
 

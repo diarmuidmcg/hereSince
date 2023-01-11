@@ -36,6 +36,7 @@ class JarRepository {
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
 
     private var _currJarStateFlow: MutableStateFlow<Jar> = MutableStateFlow(Jar("test"))
+    private var _jarStateFlow: MutableStateFlow<JarOverview> = MutableStateFlow(JarOverview(JARTYPE.NOTREGISTERED, jar = Jar()))
 //    val currJarSF = _currJarStateFlow.asStateFlow()
 
     init {
@@ -87,11 +88,13 @@ class JarRepository {
                                     val newInfo2 = JarAdditionalInfo("Story","Made with love!")
                                     jar.additionalInfo.add(newInfo2)
                                     _currJarStateFlow.value = jar
+                                    _jarStateFlow.value = JarOperations().determineJarDetails(jar)
                                 }
 
                                 println("Jar: ${_currJarStateFlow.value.additionalInfo.count()}")
                             }
                         } else -> {
+                        println("im being written")
                         // do nothing on changes
                     }
                     }
@@ -143,9 +146,16 @@ class JarRepository {
      * Listen to changes to the counter.
      */
     fun observeJar(): StateFlow<Jar> {
-
         println("observing jar")
         return _currJarStateFlow
+    }
+
+    /**
+     * Listen to changes to the counter.
+     */
+    fun observeJarOverview(): StateFlow<JarOverview> {
+        println("observing jar")
+        return _jarStateFlow
     }
 
 

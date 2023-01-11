@@ -25,9 +25,11 @@ class ObservableViewModel {
 }
 
 class IOSCounterViewModel: ObservableViewModel, ObservableObject {
-    @Published var jar: String = "-"
+    @Published var loadingJar: Bool = false
+    @Published var launchModal: Bool = false
     @Published var enabled: Bool = true
     @Published var currentJar: Jar = Jar()
+    @Published var currentJarOverview: JarOverview = JarOverview(type: JARTYPE.notregistered, jar: Jar())
     @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
@@ -71,11 +73,19 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     func start() {
         addObserver(observer: vm.observeJar().watch { jarValue in
             self.currentJar = jarValue! as Jar
-//            for val in self.currentJar.additionalInfo {
-//                self.currentAddInfo.insert(JarAddInfo(val as! JarAdditionalInfo))
-//            }
             self.currentAddInfo = self.currentJar.additionalInfo as! Set<JarAdditionalInfo>
             print("curr jar is " + self.currentJar._id)
+        })
+        addObserver(observer: vm.observeJarOverview().watch { jarOverviewValue in
+            self.currentJarOverview = jarOverviewValue! as JarOverview
+
+            if (self.currentJarOverview.type == JARTYPE.jarhasdata) {
+                self.currentAddInfo = self.currentJarOverview.jar.additionalInfo as! Set<JarAdditionalInfo>
+                print("curr jar O is " + self.currentJarOverview.jar._id)
+            }
+            
+            self.loadingJar = false
+
         })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {

@@ -10,7 +10,6 @@ import SwiftUI
 import shared
 
 struct JarDetails: View {
-    @State var jarInformation : JarInfo
     @ObservedObject var vm : IOSCounterViewModel
     @Environment(\.colorScheme) var colorScheme
    

@@ -15,13 +15,10 @@ struct HomePage: View {
     @State var launchModal = false;
     @Environment(\.colorScheme) var colorScheme
     
-    let sampleJarInfo = JarAPI().sampleJarInfo
-    let jarRequested = JarAPI().getJarById(jarId: "0414F21AE66C81")
-    
     var body: some View {
         VStack {
             HStack{
-                Text("Here Since")
+                Text("JarRing")
                     .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
                     .padding(20)
                     .padding(.top, 20)
@@ -29,9 +26,9 @@ struct HomePage: View {
                 Spacer()
             }
             Spacer()
-            TapJarButton(vm: vm, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, launchModal: $launchModal)
+            TapJarButton(vm: vm, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
             Spacer()
         }
-        .sheet(isPresented: $launchModal, content: { JarDetails(jarInformation: jarRequested, vm: vm)})
+        .sheet(isPresented: $vm.launchModal, content: { JarModal(vm: vm)})
     }
 }

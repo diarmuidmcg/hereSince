@@ -12,7 +12,6 @@ import shared
 struct TapJarButton: View {
     @ObservedObject var vm : IOSCounterViewModel
     @Binding var pressedButtonToLaunchNfc : Bool
-    @Binding var launchModal : Bool
     
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.08
@@ -24,9 +23,9 @@ struct TapJarButton: View {
             withAnimation {
                 pressedButtonToLaunchNfc = true
 //                this will be determined by nfc resp
-                launchModal = true;
-//                JarOperations().readTag()
-                vm.findJarById(jarId:"04C6E41AE66C80")
+                vm.loadingJar = true
+                vm.launchModal = true
+                vm.findJarById(jarId: "")
             }
         }, label: {
             Image(systemName: "wave.3.forward.circle").resizable()

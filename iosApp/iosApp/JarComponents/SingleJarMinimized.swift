@@ -20,6 +20,7 @@ struct SingleJarMinimized: View {
         Button(action: {
             withAnimation {
                 launchModal = true;
+                vm.loadingJar = true
             }
         }, label: {
             VStack {
@@ -43,7 +44,7 @@ struct SingleJarMinimized: View {
             }
         })
         .sheet(isPresented: $launchModal) {
-            JarDetails(jarInformation: singleJar, vm: vm)
+            JarDetails(vm: vm)
         }
         
         

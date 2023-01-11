@@ -7,15 +7,15 @@ class JarOperations {
 //        use nfc to get UID
         val jarUid = "04C6E41AE66C80"
 //        send UID to backend
-        val jar = JarRepository().findJarById(jarId = jarUid)
+//        val jar = findJarById(jarId = jarUid)
 
     }
 
-    fun determineJarDetails(jar: Jar): ReadTagResponse {
+    fun determineJarDetails(jar: Jar): JarOverview {
         //        return readTagResponse
-        return if (jar == null) ReadTagResponse(type = ResponseToJar.NOTREGISTERED, response = Jar())
-        else if (jar.jarContentName == "") ReadTagResponse(type = ResponseToJar.JARNODATA, response = Jar())
-        else ReadTagResponse(type = ResponseToJar.JARHASDATA, response = jar)
+        return if (jar == null) JarOverview(JARTYPE.NOTREGISTERED,Jar())
+        else if (jar.jarContentName == "") JarOverview(type = JARTYPE.JARNODATA, jar = Jar())
+        else JarOverview(type = JARTYPE.JARHASDATA, jar = jar)
     }
 
 
@@ -23,9 +23,9 @@ class JarOperations {
 
 
 // this all may be used on backend too, will determine
-enum class ResponseToJar { JARHASDATA,JARNODATA,NOTREGISTERED}
+enum class JARTYPE { JARHASDATA,JARNODATA,NOTREGISTERED}
 
-class ReadTagResponse(
-    type: ResponseToJar,
-    response: Jar
+open class JarOverview(
+    val type: JARTYPE,
+    val jar: Jar
 )
