@@ -65,24 +65,17 @@ class JarRepository {
 //    }
 
     /**
-     * Adjust the counter up and down.
+     * Get a jar by its Id
      */
-
     fun findJarById(jarId: String) {
-//        wrap in coroutine
-        CoroutineScope(Dispatchers.Default).launch {
-//            wrap on async call
-            async {
-//            wrap try catch to avoid nothing being returned
-                try {
-//                        make query getting first (& only) jar w given jarId
+        CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
+            async { // wrap on async call
+                try { // wrap try catch to avoid nothing being returned
+//                  make query getting first (& only) jar w given jarId
                     var jar = realm.query<Jar>(query = "_id == $0", jarId).find().first()
-                    realm.write {
-                        _currJarStateFlow.value = jar
-//                            set stateflow for observer to update
+                    realm.write { // set stateflow for observer to update
                         _jarStateFlow.value = JarOperations().determineJarDetails(jar)
                     }
-
                 } catch (e: NoSuchElementException) {
 //                    if does not exist, set JARTYPE to not reg
                     _jarStateFlow.value = JarOverview(type = JARTYPE.NOTREGISTERED, jar = Jar())

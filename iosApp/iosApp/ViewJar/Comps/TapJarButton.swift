@@ -25,8 +25,11 @@ struct TapJarButton: View {
 //                this will be determined by nfc resp
                 vm.loadingJar = true
                 vm.launchModal = true
-                vm.findJarById(jarId: "")
-//                vm.findJarById(jarId: "04C6E41AE66C80")
+//                vm.findJarById(jarId: "")
+                vm.findJarById(jarId: "04C6E41AE66C80")
+//                vm.findJarById(jarId: "0414041AE66C85")
+                
+                
             }
         }, label: {
             Image(systemName: "wave.3.forward.circle").resizable()
@@ -36,7 +39,7 @@ struct TapJarButton: View {
 
         })
         .buttonStyle(BasicButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.gray, secondaryColor: .blue))
-        Text("Tap a Tag")
+        Text("Tap a Jar")
             .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
     }
     
