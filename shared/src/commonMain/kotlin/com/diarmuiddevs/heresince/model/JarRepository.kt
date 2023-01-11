@@ -30,11 +30,8 @@ class JarRepository {
 
 
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
-
-    private var _currJarStateFlow: MutableStateFlow<Jar> = MutableStateFlow(Jar("test"))
     private var _jarStateFlow: MutableStateFlow<JarOverview> =
         MutableStateFlow(JarOverview(JARTYPE.NOTREGISTERED, jar = Jar()))
-//    val currJarSF = _currJarStateFlow.asStateFlow()
 
     init {
         // It is bad practise to use runBlocking here. Instead we should have a dedicated login
@@ -105,11 +102,8 @@ class JarRepository {
                                     jar.additionalInfo.add(newInfo)
                                     val newInfo2 = JarAdditionalInfo("Story", "Made with love!")
                                     jar.additionalInfo.add(newInfo2)
-                                    _currJarStateFlow.value = jar
                                     _jarStateFlow.value = JarOperations().determineJarDetails(jar)
                                 }
-
-                                println("Jar: ${_currJarStateFlow.value.additionalInfo.count()}")
                             }
                         }
                         else -> {
@@ -167,15 +161,6 @@ class JarRepository {
             }
         }
     }
-
-    /**
-     * Listen to changes to the counter.
-     */
-    fun observeJar(): StateFlow<Jar> {
-        println("observing jar")
-        return _currJarStateFlow
-    }
-
     /**
      * Listen to changes to the counter.
      */

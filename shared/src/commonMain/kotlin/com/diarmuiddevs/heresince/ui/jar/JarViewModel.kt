@@ -10,7 +10,6 @@ import kotlinx.coroutines.cancel
 
 
 interface JarViewModel: SharedViewModel {
-    fun observeJar(): CommonStateFlow<Jar>
     fun observeJarOverview(): CommonStateFlow<JarOverview>
     fun increment()
     fun decrement()

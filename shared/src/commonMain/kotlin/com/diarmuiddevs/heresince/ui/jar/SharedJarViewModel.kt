@@ -35,10 +35,6 @@ class SharedJarViewModel: JarViewModel {
     // it means the CounterViewModel can be mocked easily in the View Layer.
     private val repository = JarRepository()
 
-    override fun observeJar(): CommonStateFlow<Jar> {
-        return repository.observeJar()
-            .asCommonStateFlow()
-    }
     override fun observeJarOverview(): CommonStateFlow<JarOverview> {
         return repository.observeJarOverview()
             .asCommonStateFlow()

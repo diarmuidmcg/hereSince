@@ -34,27 +34,27 @@ struct JarDetails: View {
             List {
                 Section(header: Text("Name")) {
 //                    if isEditing {
-//                        TextField(vm.currentJarOverview.jar.jarContentName, text: $vm.currentJar.jarContentName)
+//                        TextField(vm.currJar.jar.jarContentName, text: $vm.currJar.jarContentName)
 //                    }
 //                    else {
-                        Text(vm.currentJar.jarContentName)
+                    Text(vm.currJar.jar.jarContentName)
                         
 //                    }
                 }
                 Section(header: Text("Here Since")) {
 //                    if isEditing {
-//                        TextField(vm.currentJarOverview.jar.hereSince, text: $vm.currentJarOverview.jar.hereSince)
+//                        TextField(vm.currJar.jar.hereSince, text: $vm.currJar.jar.hereSince)
 //                    }
 //                    else {
-                        Text(vm.currentJarOverview.jar.hereSince)
+                        Text(vm.currJar.jar.hereSince)
 //                    }
                 }
                 Section(header: Text("Owned By")) {
 //                    if isEditing {
-//                        TextField(vm.currentJarOverview.jar.jarOwnerName, text: $vm.currentJarOverview.jar.jarOwnerName)
+//                        TextField(vm.currJar.jar.jarOwnerName, text: $vm.currJar.jar.jarOwnerName)
 //                    }
 //                    else {
-                        Text(vm.currentJarOverview.jar.jarOwnerName)
+                        Text(vm.currJar.jar.jarOwnerName)
 //                    }
                 }
                 ForEach(vm.currentAddInfo.sorted(by: <), id: \.self) { element in

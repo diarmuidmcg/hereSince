@@ -21,10 +21,10 @@ struct JarModal: View {
             
         }
         else {
-            if (vm.currentJarOverview.type == JARTYPE.jarhasdata) {
+            if (vm.currJar.type == JARTYPE.jarhasdata) {
                 JarDetails(vm: vm)
             }
-            else if (vm.currentJarOverview.type == JARTYPE.jarnodata) {
+            else if (vm.currJar.type == JARTYPE.jarnodata) {
                 JarNoDetails()
             }
             else {
