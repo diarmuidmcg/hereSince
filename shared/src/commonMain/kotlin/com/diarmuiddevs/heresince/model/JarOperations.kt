@@ -1,6 +1,7 @@
 package com.diarmuiddevs.heresince.model
 
 import com.diarmuiddevs.heresince.model.entity.Jar
+import io.realm.kotlin.query.RealmResults
 
 class JarOperations {
     fun readTag() {

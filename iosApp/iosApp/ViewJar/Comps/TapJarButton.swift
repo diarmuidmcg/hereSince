@@ -26,6 +26,7 @@ struct TapJarButton: View {
                 vm.loadingJar = true
                 vm.launchModal = true
                 vm.findJarById(jarId: "")
+//                vm.findJarById(jarId: "04C6E41AE66C80")
             }
         }, label: {
             Image(systemName: "wave.3.forward.circle").resizable()
