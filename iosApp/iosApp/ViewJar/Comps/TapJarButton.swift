@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import shared
 
 struct TapJarButton: View {
     @ObservedObject var vm : IOSCounterViewModel
@@ -24,6 +25,7 @@ struct TapJarButton: View {
                 pressedButtonToLaunchNfc = true
 //                this will be determined by nfc resp
                 launchModal = true;
+//                JarOperations().readTag()
                 vm.findJarById(jarId:"04C6E41AE66C80")
             }
         }, label: {
