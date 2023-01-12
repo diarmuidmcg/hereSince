@@ -22,6 +22,21 @@ struct HomePage: View {
                     .padding(.top, 20)
 //                        .padding(.bottom, 20)
                 Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    ZStack{
+    //                    if no account
+                        Image(systemName: "person.crop.circle.fill.badge.plus")
+                            .font(.system(size: 30))
+    //                    else has account
+    //                    Image(systemName: "person.crop.circle.fill")
+//                            .font(.system(size: 30))
+                    }
+                    .padding(20)
+                    .padding(.top, 20)
+
+                })
             }
             Spacer()
             TapJarButton(vm: vm)

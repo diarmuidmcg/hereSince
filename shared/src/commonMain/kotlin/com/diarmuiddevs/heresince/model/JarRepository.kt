@@ -3,6 +3,7 @@ package com.diarmuiddevs.heresince.model
 import com.diarmuiddevs.heresince.model.entity.Jar
 import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
 //import io.realm.kotlin.demo.model.entity.Jar
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_ID
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_PASSWORD
@@ -19,7 +20,7 @@ import kotlinx.coroutines.flow.*
 import kotlin.coroutines.suspendCoroutine
 
 /**
- * Repository class. Responsible for storing the io.realm.kotlin.demo.model.entity.Counter and
+ * Repository class. Responsible for storing the io.realm.kotlin.demo.model.entity.Jar and
  * expose updates to it.
  */
 
@@ -32,20 +33,25 @@ class JarRepository {
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
     private var _jarStateFlow: MutableStateFlow<JarOverview> =
         MutableStateFlow(JarOverview(JARTYPE.NOTREGISTERED, jar = Jar()))
+    private var _previousJars: MutableStateFlow<MutableList<Jar>> =
+        MutableStateFlow(mutableListOf())
+    private var _ownedJars: MutableStateFlow<MutableList<Jar>> =
+        MutableStateFlow(mutableListOf())
 
     init {
-        // It is bad practise to use runBlocking here. Instead we should have a dedicated login
-        // screen that can also prepare the Realm after login. Doing it here is just for simplicity.
+//        set up the realm on app launch
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
-            val user = app.login(Credentials.anonymous(reuseExisting = true))
+//            val user = app.login(Credentials.anonymous(reuseExisting = true))
+//            val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
+//                .initialSubscriptions { realm: Realm ->
+//                    add(realm.query<Jar>())
+//                }
+//                .build()
+//            Realm.open(config)
 
-            val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
-                .initialSubscriptions { realm: Realm ->
-                    add(realm.query<Jar>())
-                }
-                .build()
-            Realm.open(config)
+            val configuration = RealmConfiguration.create(schema = setOf(Jar::class))
+            Realm.open(configuration)
 
         }
     }
@@ -62,7 +68,12 @@ class JarRepository {
 //                  make query getting first (& only) jar w given jarId
                     var jar = realm.query<Jar>(query = "_id == $0", jarId).find().first()
                     realm.write { // set stateflow for observer to update
-                        _jarStateFlow.value = JarOperations().determineJarDetails(jar)
+//                        set the current jar to the JarOverview (includes type)
+                        _jarStateFlow.value = determineJarDetails(jar)
+//                        if the jar has data, make sure its not already a previous jar & add it
+                        if (_jarStateFlow.value.type == JARTYPE.JARHASDATA) {
+                            if (jar !in  _previousJars.value) _previousJars.value.add(jar)
+                        }
                     }
                 } catch (e: NoSuchElementException) {
 //                    if does not exist, set JARTYPE to not reg
@@ -93,7 +104,7 @@ class JarRepository {
                                     jar.additionalInfo.add(newInfo)
                                     val newInfo2 = JarAdditionalInfo("Story", "Made with love!")
                                     jar.additionalInfo.add(newInfo2)
-                                    _jarStateFlow.value = JarOperations().determineJarDetails(jar)
+                                    _jarStateFlow.value = determineJarDetails(jar)
                                 }
                             }
                         }
@@ -177,6 +188,19 @@ class JarRepository {
             }
         }
     }
+
+    fun determineJarDetails(jar: Jar): JarOverview {
+        //        return readTagResponse
+        return if (jar == null) JarOverview(JARTYPE.NOTREGISTERED,Jar())
+        else if (jar.jarContentName == "") JarOverview(type = JARTYPE.JARNODATA, jar = Jar())
+        else JarOverview(type = JARTYPE.JARHASDATA, jar = jar)
+    }
 }
 
+// this all may be used on backend too, will determine
+enum class JARTYPE { JARHASDATA,JARNODATA,NOTREGISTERED}
 
+open class JarOverview(
+    val type: JARTYPE,
+    val jar: Jar
+)
