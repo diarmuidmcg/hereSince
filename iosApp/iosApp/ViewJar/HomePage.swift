@@ -11,8 +11,6 @@ import shared
 
 struct HomePage: View {
     @ObservedObject var vm : IOSCounterViewModel
-    @State var pressedButtonToLaunchNfc = false;
-    @State var launchModal = false;
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -26,7 +24,7 @@ struct HomePage: View {
                 Spacer()
             }
             Spacer()
-            TapJarButton(vm: vm, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
+            TapJarButton(vm: vm)
             Spacer()
         }
         .sheet(isPresented: $vm.launchModal, content: { JarModal(vm: vm)})

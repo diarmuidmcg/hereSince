@@ -24,20 +24,30 @@ import UIKit
 
 
 
-class ReadNFC: NSObject, NFCTagReaderSessionDelegate {
+class ReadNFC: NSObject, ObservableObject, NFCTagReaderSessionDelegate {
     
+    @ObservedObject var vm : IOSCounterViewModel
     // to return jar uid
     @Published var jarUid:String = ""
     var session: NFCTagReaderSession?
     
+    init(vm: IOSCounterViewModel) {
+        self.vm = vm
+        
+    }
+    
     
     // function that fires when button is pressed
-    @objc func beginNfcScan(_ sender: Any) {
-        self.session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
+    @IBAction func beginNfcScan(_ sender: Any) {
+        print("begin nfc started")
+        self.session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self, queue: nil)
         // this createss nfc alert
         self.session?.alertMessage = "Tap the Fonz Coaster"
         // this begins the alert
+        print("about to begin")
         self.session?.begin()
+        print("isReady: \(String(describing: self.session?.isReady))")
+        
     }
     // function that fires without button
     func launchNfcScanWithoutButton() {
@@ -86,8 +96,9 @@ class ReadNFC: NSObject, NFCTagReaderSessionDelegate {
                 session.invalidate()
                 
                 DispatchQueue.main.async {
+                    self.vm.findJarById(jarId: uidFromTag.uppercased())
                     // sets vars to return to user
-                    self.jarUid = uidFromTag
+//                    self.jarUid = uidFromTag
                 }
             }
         }

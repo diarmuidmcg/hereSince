@@ -58,17 +58,10 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         vm.enableWifi()
     }
     func findJarById(jarId: String){
+        self.launchModal = true
         vm.findJarById(jarId: jarId)
     }
     
-    func launchNFCRead() {
-        var readJar = ReadNFC()
-        readJar.launchNfcScanWithoutButton()
-        print("jar id is " + readJar.jarUid)
-//        if i somehow get uid
-//        self.launchModal = true
-//        findJarById(jarId: readJar.jarUid)
-    }
        
     
     func start() {

@@ -11,7 +11,12 @@ import shared
 
 struct TapJarButton: View {
     @ObservedObject var vm : IOSCounterViewModel
-    @Binding var pressedButtonToLaunchNfc : Bool
+    @ObservedObject var readNfc : ReadNFC
+  
+    init(vm:IOSCounterViewModel) {
+        self.vm = vm
+        self.readNfc = ReadNFC(vm: vm)
+    }
     
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.08
@@ -21,12 +26,13 @@ struct TapJarButton: View {
         
         Button(action: {
             withAnimation {
-                pressedButtonToLaunchNfc = true
+ 
 //                this will be determined by nfc resp
-                vm.loadingJar = true
-                vm.launchModal = true
+//                vm.loadingJar = true
+//                vm.launchModal = true
+                readNfc.launchNfcScanWithoutButton()
 //                vm.findJarById(jarId: "")
-                vm.findJarById(jarId: "04C6E41AE66C80")
+//                vm.findJarById(jarId: "04C6E41AE66C80")
 //                vm.findJarById(jarId: "0414041AE66C85")
                 
                 
