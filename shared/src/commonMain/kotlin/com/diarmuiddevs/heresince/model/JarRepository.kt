@@ -48,15 +48,6 @@ class JarRepository {
             Realm.open(config)
 
         }
-//        val config = RealmConfiguration.Builder(
-//            schema = setOf(Jar::class)
-//        ).build()
-
-
-//
-        // Open Realm
-//            realm = Realm.open(config)
-
     }
 
 //    }

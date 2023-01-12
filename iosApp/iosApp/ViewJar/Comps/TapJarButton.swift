@@ -11,8 +11,10 @@ import shared
 
 struct TapJarButton: View {
     @ObservedObject var vm : IOSCounterViewModel
+//    not taken from parent, created in init
     @ObservedObject var readNfc : ReadNFC
   
+//    init function bc ReadNfc takes the other struct param ViewModel as a param
     init(vm:IOSCounterViewModel) {
         self.vm = vm
         self.readNfc = ReadNFC(vm: vm)
@@ -26,16 +28,8 @@ struct TapJarButton: View {
         
         Button(action: {
             withAnimation {
- 
-//                this will be determined by nfc resp
-//                vm.loadingJar = true
-//                vm.launchModal = true
-                readNfc.launchNfcScanWithoutButton()
-//                vm.findJarById(jarId: "")
-//                vm.findJarById(jarId: "04C6E41AE66C80")
-//                vm.findJarById(jarId: "0414041AE66C85")
-                
-                
+//                launch nfc to get
+                readNfc.launchNfcScan()
             }
         }, label: {
             Image(systemName: "wave.3.forward.circle").resizable()

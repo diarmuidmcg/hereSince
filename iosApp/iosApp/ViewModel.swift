@@ -28,6 +28,8 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     @Published var launchModal: Bool = false
     @Published var enabled: Bool = true
     @Published var currJar: JarOverview = JarOverview(type: JARTYPE.notregistered, jar: Jar())
+//    store additional info in this bc SwiftUI ForEach can iterate a set, not a
+//    MutableKotlinSet because that does not implement Hashable
     @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
@@ -40,14 +42,6 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     deinit {
         super.stop()
         vm.close()
-    }
-    
-    func increment() {
-        vm.increment()
-    }
-
-    func decrement() {
-        vm.decrement()
     }
     
     func disableWifi() {
@@ -67,14 +61,11 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     func start() {
         addObserver(observer: vm.observeJarOverview().watch { jarOverviewValue in
             self.currJar = jarOverviewValue! as JarOverview
-
             if (self.currJar.type == JARTYPE.jarhasdata) {
                 self.currentAddInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
                 print("curr jar O is " + self.currJar.jar._id)
             }
-            
             self.loadingJar = false
-
         })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
@@ -86,6 +77,7 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     }
 }
 
+// extension so JarAdditionalInfo can be iterated thru a SwiftUI Foreach
 extension JarAdditionalInfo:Comparable {
     public static func < (lhs: JarAdditionalInfo, rhs: JarAdditionalInfo) -> Bool {
 //       so ingredients always first
@@ -93,3 +85,4 @@ extension JarAdditionalInfo:Comparable {
         else {return true}
     }
 }
+
