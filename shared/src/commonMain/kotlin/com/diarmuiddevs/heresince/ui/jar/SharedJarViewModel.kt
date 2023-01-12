@@ -39,6 +39,14 @@ class SharedJarViewModel: JarViewModel {
         return repository.observeJarOverview()
             .asCommonStateFlow()
     }
+    override fun observePrevJars(): CommonStateFlow<MutableList<Jar>> {
+        return repository.observePrevJars()
+            .asCommonStateFlow()
+    }
+    override fun observeUserJars():CommonStateFlow<MutableList<Jar>> {
+        return repository.observeUserJars()
+            .asCommonStateFlow()
+    }
 
     override fun observeWifiState(): CommonStateFlow<Boolean> {
         return repository.observeSyncConnection()

@@ -35,7 +35,7 @@ class JarRepository {
         MutableStateFlow(JarOverview(JARTYPE.NOTREGISTERED, jar = Jar()))
     private var _previousJars: MutableStateFlow<MutableList<Jar>> =
         MutableStateFlow(mutableListOf())
-    private var _ownedJars: MutableStateFlow<MutableList<Jar>> =
+    private var _userJars: MutableStateFlow<MutableList<Jar>> =
         MutableStateFlow(mutableListOf())
 
     init {
@@ -169,6 +169,14 @@ class JarRepository {
     fun observeJarOverview(): StateFlow<JarOverview> {
         println("observing jar")
         return _jarStateFlow
+    }
+    fun observePrevJars(): StateFlow<MutableList<Jar>> {
+        println("observing prev jar")
+        return _previousJars
+    }
+    fun observeUserJars(): StateFlow<MutableList<Jar>> {
+        println("observinguser  jars")
+        return _userJars
     }
 
 

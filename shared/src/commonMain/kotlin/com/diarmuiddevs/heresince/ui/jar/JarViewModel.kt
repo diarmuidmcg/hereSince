@@ -11,6 +11,9 @@ import kotlinx.coroutines.cancel
 
 interface JarViewModel: SharedViewModel {
     fun observeJarOverview(): CommonStateFlow<JarOverview>
+    fun observePrevJars(): CommonStateFlow<MutableList<Jar>>
+    fun observeUserJars(): CommonStateFlow<MutableList<Jar>>
+
     fun observeWifiState(): CommonStateFlow<Boolean>
     fun enableWifi()
     fun disableWifi()

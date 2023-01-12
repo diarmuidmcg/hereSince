@@ -31,6 +31,9 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
 //    store additional info in this bc SwiftUI ForEach can iterate a set, not a
 //    MutableKotlinSet because that does not implement Hashable
     @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
+//    @Published var prevJars: List<JarAdditionalInfo> = Set<JarAdditionalInfo>()
+//    @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
+    
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
         

@@ -24,7 +24,7 @@ struct PreviousJars: View {
                    
             }
             List {
-                
+//                if ()
                 ForEach(lotsOfSampleJars, id: \.self) { value in
                     SingleJarMinimized(singleJar: value,vm:vm, isPrevious: true)
                 }
