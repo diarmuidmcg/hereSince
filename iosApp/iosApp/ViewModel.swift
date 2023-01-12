@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import Combine
 import shared
 
@@ -60,7 +59,15 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     }
     func findJarById(jarId: String){
         vm.findJarById(jarId: jarId)
-        
+    }
+    
+    func launchNFCRead() {
+        var readJar = ReadNFC()
+        readJar.launchNfcScanWithoutButton()
+        print("jar id is " + readJar.jarUid)
+//        if i somehow get uid
+//        self.launchModal = true
+//        findJarById(jarId: readJar.jarUid)
     }
        
     

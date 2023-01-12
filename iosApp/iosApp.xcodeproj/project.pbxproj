@@ -21,6 +21,7 @@
 		2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058D29560FDF004BF8C4 /* TapJarButton.swift */; };
 		2683059129561039004BF8C4 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683059029561039004BF8C4 /* Buttons.swift */; };
 		26830593295610A9004BF8C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26830592295610A9004BF8C4 /* Extensions.swift */; };
+		26B7D2C5296F9F8C006D5228 /* ReadNFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */; };
 		26C04EB9296F5E9E00640FDC /* JarModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C04EB8296F5E9E00640FDC /* JarModal.swift */; };
 		26CA3C3E295E3E4B00A75534 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 26CA3C3D295E3E4B00A75534 /* Podfile */; };
 		26D884A62965FA51003BA81C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D884A52965FA51003BA81C /* ViewModel.swift */; };
@@ -56,6 +57,8 @@
 		2683058D29560FDF004BF8C4 /* TapJarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapJarButton.swift; sourceTree = "<group>"; };
 		2683059029561039004BF8C4 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		26830592295610A9004BF8C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		26B7D2C2296F9E30006D5228 /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
+		26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNFC.swift; sourceTree = "<group>"; };
 		26C04EB8296F5E9E00640FDC /* JarModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarModal.swift; sourceTree = "<group>"; };
 		26CA3C3D295E3E4B00A75534 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		26D884A52965FA51003BA81C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -128,6 +131,14 @@
 			path = GlobalStyles;
 			sourceTree = "<group>";
 		};
+		26B7D2C3296F9F4D006D5228 /* NFC */ = {
+			isa = PBXGroup;
+			children = (
+				26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */,
+			);
+			path = NFC;
+			sourceTree = "<group>";
+		};
 		26FC5B4A295B43F9001C4881 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +171,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				26B7D2C3296F9F4D006D5228 /* NFC */,
+				26B7D2C2296F9E30006D5228 /* iosApp.entitlements */,
 				261550BF295B579700CEC9DC /* JarComponents */,
 				26FC5B4A295B43F9001C4881 /* Modals */,
 				2683058F29561025004BF8C4 /* GlobalStyles */,
@@ -278,6 +291,7 @@
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				261550C1295B57F000CEC9DC /* SingleJarMinimized.swift in Sources */,
+				26B7D2C5296F9F8C006D5228 /* ReadNFC.swift in Sources */,
 				26830593295610A9004BF8C4 /* Extensions.swift in Sources */,
 				26C04EB9296F5E9E00640FDC /* JarModal.swift in Sources */,
 				2683058B29560D00004BF8C4 /* HomePage.swift in Sources */,
@@ -418,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -447,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
