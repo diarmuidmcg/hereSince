@@ -40,16 +40,16 @@ class JarRepository {
 //        set up the realm on app launch
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
-//            val user = app.login(Credentials.anonymous(reuseExisting = true))
-//            val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
-//                .initialSubscriptions { realm: Realm ->
-//                    add(realm.query<Jar>())
-//                }
-//                .build()
-//            Realm.open(config)
+            val user = app.login(Credentials.anonymous(reuseExisting = true))
+            val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
+                .initialSubscriptions { realm: Realm ->
+                    add(realm.query<Jar>())
+                }
+                .build()
+            Realm.open(config)
 
-            val configuration = RealmConfiguration.create(schema = setOf(Jar::class))
-            Realm.open(configuration)
+//            val configuration = RealmConfiguration.create(schema = setOf(Jar::class))
+//            Realm.open(configuration)
 
         }
     }
@@ -189,6 +189,7 @@ class JarRepository {
     }
 
     fun determineJarDetails(jar: Jar): JarOverview {
+        println("determing jar ")
         //        return readTagResponse
         return if (jar == null) JarOverview(JARTYPE.NOTREGISTERED,Jar())
         else if (jar.jarContentName == "") JarOverview(type = JARTYPE.JARNODATA, jar = Jar())
