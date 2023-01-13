@@ -11,7 +11,6 @@ import shared
 
 struct MyJars: View {
     @ObservedObject var vm : IOSCounterViewModel
-    @State var launchSettingsModal = false
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         VStack{
@@ -25,7 +24,7 @@ struct MyJars: View {
             }
             List {
                 if (vm.prevJars.count > 0) {
-                    ForEach(vm.prevJars, id: \.self) { value in
+                    ForEach(vm.userJars, id: \.self) { value in
                         SingleJarMinimized(singleJar: value,vm:vm)
                     }
                 }
@@ -34,8 +33,6 @@ struct MyJars: View {
                 }
             }
         }
-        .sheet(isPresented: $launchSettingsModal) {
-            Settings()
-        }
+        
     }
 }

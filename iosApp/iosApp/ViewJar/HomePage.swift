@@ -12,6 +12,7 @@ import shared
 struct HomePage: View {
     @ObservedObject var vm : IOSCounterViewModel
     @Environment(\.colorScheme) var colorScheme
+    @State var launchAccount = false
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct HomePage: View {
 //                        .padding(.bottom, 20)
                 Spacer()
                 Button(action: {
-                    
+                    launchAccount = true
                 }, label: {
                     ZStack{
     //                    if no account
@@ -43,5 +44,6 @@ struct HomePage: View {
             Spacer()
         }
         .sheet(isPresented: $vm.launchModal, content: { JarModal(vm: vm)})
+        .sheet(isPresented: $launchAccount, content: {Account()})
     }
 }
