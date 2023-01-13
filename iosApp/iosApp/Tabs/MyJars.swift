@@ -10,29 +10,28 @@ import SwiftUI
 import shared
 
 struct MyJars: View {
-    let lotsOfSampleJars = JarAPI().lotsOfSampleJars
     @ObservedObject var vm : IOSCounterViewModel
     @State var launchSettingsModal = false
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         VStack{
             HStack{
-                Text("Jar Details")
+                Text("My Jars")
                     .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
                     .padding(20)
                     .padding(.top, 20)
                 Spacer()
-                    Button("Settings"){
-                        launchSettingsModal = true
-                    }
-                        .buttonStyle(.borderless)
-                        .padding()
+                    
             }
             List {
-                
-//                ForEach(lotsOfSampleJars, id: \.self) { value in
-//                    SingleJarMinimized(singleJar: value, vm:vm)
-//                }
+                if (vm.prevJars.count > 0) {
+                    ForEach(vm.prevJars, id: \.self) { value in
+                        SingleJarMinimized(singleJar: value,vm:vm)
+                    }
+                }
+                else {
+                    Text("You don't own any jars yet")
+                }
             }
         }
         .sheet(isPresented: $launchSettingsModal) {

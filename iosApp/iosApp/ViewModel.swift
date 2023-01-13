@@ -79,7 +79,7 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
             self.prevJars = prevJarsList as! Array<Jar>
         })
         addObserver(observer: vm.observeUserJars().watch { jarList in
-//            self.userJars = jarList! as Array<Jar>
+            self.userJars = jarList as! Array<Jar>
         })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
@@ -100,7 +100,7 @@ extension JarAdditionalInfo:Comparable {
     }
 }
 
-// extension to jar so that the above Additional Info can be iterated thru the SwiftUI Foreach -> otherwise the MutableSet is seen as NSElement 
+// extension to jar so that the above Additional Info can be iterated thru the SwiftUI Foreach -> otherwise the MutableSet is seen as NSElement
 extension Jar {
     struct Holder {
             static var _moreInfo:Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()

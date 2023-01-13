@@ -10,7 +10,6 @@ import SwiftUI
 import shared
 
 struct PreviousJars: View {
-    let lotsOfSampleJars = JarAPI().lotsOfSampleJars
     @ObservedObject var vm : IOSCounterViewModel
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
