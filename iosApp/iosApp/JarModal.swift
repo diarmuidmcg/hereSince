@@ -22,7 +22,7 @@ struct JarModal: View {
         }
         else {
             if (vm.currJar.type == JARTYPE.jarhasdata) {
-                JarDetails(vm: vm)
+                JarDetails(vm: vm, jar: vm.currJar.jar)
             }
             else if (vm.currJar.type == JARTYPE.jarnodata) {
                 JarNoDetails()

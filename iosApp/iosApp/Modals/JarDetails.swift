@@ -11,6 +11,7 @@ import shared
 
 struct JarDetails: View {
     @ObservedObject var vm : IOSCounterViewModel
+    var jar : Jar
     @Environment(\.colorScheme) var colorScheme
    
     @State var isEditing = false;
@@ -37,7 +38,7 @@ struct JarDetails: View {
 //                        TextField(vm.currJar.jar.jarContentName, text: $vm.currJar.jarContentName)
 //                    }
 //                    else {
-                    Text(vm.currJar.jar.jarContentName)
+                    Text(jar.jarContentName)
                         
 //                    }
                 }
@@ -46,7 +47,7 @@ struct JarDetails: View {
 //                        TextField(vm.currJar.jar.hereSince, text: $vm.currJar.jar.hereSince)
 //                    }
 //                    else {
-                        Text(vm.currJar.jar.hereSince)
+                        Text(jar.hereSince)
 //                    }
                 }
                 Section(header: Text("Owned By")) {
@@ -54,10 +55,10 @@ struct JarDetails: View {
 //                        TextField(vm.currJar.jar.jarOwnerName, text: $vm.currJar.jar.jarOwnerName)
 //                    }
 //                    else {
-                        Text(vm.currJar.jar.jarOwnerName)
+                        Text(jar.jarOwnerName)
 //                    }
                 }
-                ForEach(vm.currJar.jar.moreInfo.sorted(by: <), id: \.self) { element in
+                ForEach(jar.moreInfo.sorted(by: <), id: \.self) { element in
                     Section(header: Text("\(element.name)"))
                         {
                             Text("\(element.content)")
