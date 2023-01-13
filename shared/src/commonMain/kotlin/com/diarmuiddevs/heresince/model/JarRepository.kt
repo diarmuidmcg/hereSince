@@ -70,7 +70,7 @@ class JarRepository {
                         _jarStateFlow.value = determineJarDetails(jar)
 //                        if the jar has data, make sure its not already a previous jar & add it
                         if (_jarStateFlow.value.type == JARTYPE.JARHASDATA) {
-                            if (jar !in  _previousJars.value) {
+                            if (!_previousJars.value.any{ it._id == jar._id}) {
 //                                verbose bc just adding item to mutableList will not update state flow
                                 _previousJars.update {
                                     _previousJars.value.toMutableList().apply { this.add(jar) }

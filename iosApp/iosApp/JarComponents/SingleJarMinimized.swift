@@ -19,8 +19,7 @@ struct SingleJarMinimized: View {
     var body: some View {
         Button(action: {
             withAnimation {
-                launchModal = true;
-                vm.loadingJar = true
+                vm.findJarById(jarId: singleJar._id)
             }
         }, label: {
             VStack {
