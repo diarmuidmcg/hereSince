@@ -31,8 +31,8 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
 //    store additional info in this bc SwiftUI ForEach can iterate a set, not a
 //    MutableKotlinSet because that does not implement Hashable
     @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
-//    @Published var prevJars: List<JarAdditionalInfo> = Set<JarAdditionalInfo>()
-//    @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
+    @Published var prevJars: Array<Jar> = Array<Jar>()
+    @Published var userJars: Array<Jar> = Array<Jar>()
     
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
@@ -70,6 +70,12 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
             }
             self.loadingJar = false
         })
+//        addObserver(observer: vm.observePrevJars().watch { prevJarsList in
+//            self.prevJars = prevJarsList! as Array<Jar>
+//        })
+//        addObserver(observer: vm.observeUserJars().watch { jarList in
+////            self.userJars = jarList! as Array<Jar>
+//        })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
                 self.enabled = true

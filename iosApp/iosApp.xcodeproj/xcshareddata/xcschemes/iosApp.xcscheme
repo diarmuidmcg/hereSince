@@ -17,7 +17,7 @@
                BlueprintIdentifier = "7555FF7A242A565900829871"
                BuildableName = "iosApp.app"
                BlueprintName = "iosApp"
-               ReferencedContainer = "container:JarRing.xcodeproj">
+               ReferencedContainer = "container:iosApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "7555FF7A242A565900829871"
             BuildableName = "iosApp.app"
             BlueprintName = "iosApp"
-            ReferencedContainer = "container:JarRing.xcodeproj">
+            ReferencedContainer = "container:iosApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "7555FF7A242A565900829871"
             BuildableName = "iosApp.app"
             BlueprintName = "iosApp"
-            ReferencedContainer = "container:JarRing.xcodeproj">
+            ReferencedContainer = "container:iosApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

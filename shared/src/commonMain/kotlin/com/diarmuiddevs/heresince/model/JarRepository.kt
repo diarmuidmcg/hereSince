@@ -175,7 +175,7 @@ class JarRepository {
         return _previousJars
     }
     fun observeUserJars(): StateFlow<MutableList<Jar>> {
-        println("observinguser  jars")
+        println("observing user  jars")
         return _userJars
     }
 
