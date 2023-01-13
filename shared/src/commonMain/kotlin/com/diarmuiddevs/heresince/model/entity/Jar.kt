@@ -23,7 +23,7 @@ open class Jar(
     var jarContentName: String = "",
     var jarOwnerName: String = "",
     var jarOwnerUserId: String? = null,
-    var additionalInfo: MutableSet<JarAdditionalInfo> = realmSetOf()
+    var additionalInfo: MutableSet<JarAdditionalInfo> = mutableSetOf()
 //    var additionalInfo: RealmSet<JarAdditionalInfo> = realmSetOf<JarAdditionalInfo>()
 ) :RealmObject {
     constructor() : this(

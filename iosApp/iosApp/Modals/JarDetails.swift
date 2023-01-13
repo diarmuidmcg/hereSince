@@ -57,7 +57,7 @@ struct JarDetails: View {
                         Text(vm.currJar.jar.jarOwnerName)
 //                    }
                 }
-                ForEach(vm.currentAddInfo.sorted(by: <), id: \.self) { element in
+                ForEach(vm.currJar.jar.moreInfo.sorted(by: <), id: \.self) { element in
                     Section(header: Text("\(element.name)"))
                         {
                             Text("\(element.content)")

@@ -32,7 +32,7 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     @Published var currJar: JarOverview = JarOverview(type: JARTYPE.notregistered, jar: Jar())
 //    store additional info in this bc SwiftUI ForEach can iterate a set, not a
 //    MutableKotlinSet because that does not implement Hashable
-    @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
+//    @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
     @Published var prevJars: Array<Jar> = Array<Jar>()
     @Published var userJars: Array<Jar> = Array<Jar>()
     
@@ -68,7 +68,8 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         addObserver(observer: vm.observeJarOverview().watch { jarOverviewValue in
             self.currJar = jarOverviewValue! as JarOverview
             if (self.currJar.type == JARTYPE.jarhasdata) {
-                self.currentAddInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
+                self.currJar.jar.moreInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
+//                self.currentAddInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
                 print("curr jar O is " + self.currJar.jar._id)
             }
             self.loadingJar = false
@@ -99,3 +100,17 @@ extension JarAdditionalInfo:Comparable {
     }
 }
 
+// extension to jar so that the above Additional Info can be iterated thru the SwiftUI Foreach -> otherwise the MutableSet is seen as NSElement 
+extension Jar {
+    struct Holder {
+            static var _moreInfo:Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
+        }
+        var moreInfo:Set<JarAdditionalInfo> {
+            get {
+                return Holder._moreInfo
+            }
+            set(newValue) {
+                Holder._moreInfo = newValue
+            }
+        }
+}
