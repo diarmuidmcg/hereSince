@@ -74,7 +74,8 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
             self.loadingJar = false
         })
         addObserver(observer: vm.observePrevJars().watch { prevJarsList in
-            self.prevJars = prevJarsList! as! Array<Jar>
+            print("updating prev jars")
+            self.prevJars = prevJarsList as! Array<Jar>
         })
         addObserver(observer: vm.observeUserJars().watch { jarList in
 //            self.userJars = jarList! as Array<Jar>

@@ -30,9 +30,9 @@ struct MyJars: View {
             }
             List {
                 
-                ForEach(lotsOfSampleJars, id: \.self) { value in
-                    SingleJarMinimized(singleJar: value, vm:vm)
-                }
+//                ForEach(lotsOfSampleJars, id: \.self) { value in
+//                    SingleJarMinimized(singleJar: value, vm:vm)
+//                }
             }
         }
         .sheet(isPresented: $launchSettingsModal) {

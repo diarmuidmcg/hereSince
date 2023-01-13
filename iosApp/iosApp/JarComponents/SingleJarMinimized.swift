@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 
 struct SingleJarMinimized: View {
-    var singleJar : JarInfo
+    var singleJar : Jar
     @ObservedObject var vm : IOSCounterViewModel
 //    if the jar is owned by others, you wanna see the owner name on prev jar tab
     var isPrevious : Bool?
@@ -24,18 +24,18 @@ struct SingleJarMinimized: View {
             }
         }, label: {
             VStack {
-                Text(vm.currJar.jar.jarContentName).font(.system(size: 26.0))
+                Text(singleJar.jarContentName).font(.system(size: 26.0))
                     .foregroundColor(.gray)
                     .padding(5)
                 HStack {
-                    Text("Here Since: \(vm.currJar.jar.hereSince)")
+                    Text("Here Since: \(singleJar.hereSince)")
                         .foregroundColor(.gray)
                         .padding(.leading, 5)
                     Spacer()
                 }
                 if isPrevious ?? false {
                     HStack {
-                        Text("Owned By: \(vm.currJar.jar.jarOwnerName)")
+                        Text("Owned By: \(singleJar.jarOwnerName)")
                             .foregroundColor(.gray)
                             .padding(.leading, 5)
                         Spacer()

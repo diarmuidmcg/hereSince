@@ -24,10 +24,15 @@ struct PreviousJars: View {
                    
             }
             List {
-//                if ()
-                ForEach(lotsOfSampleJars, id: \.self) { value in
-                    SingleJarMinimized(singleJar: value,vm:vm, isPrevious: true)
+                if (vm.prevJars.count > 0) {
+                    ForEach(vm.prevJars, id: \.self) { value in
+                        SingleJarMinimized(singleJar: value,vm:vm, isPrevious: true)
+                    }
                 }
+                else {
+                    Text("You have not inspected any jars yet")
+                }
+                
             }
         }
     }
