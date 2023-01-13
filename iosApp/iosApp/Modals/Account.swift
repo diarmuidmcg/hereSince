@@ -47,12 +47,17 @@ struct Account: View {
             }
             .padding()
             Spacer()
-            if (onSignUp) {
-                
+            ZStack{
+                Color.blue
+                                .ignoresSafeArea()
+                if (onSignUp) {
+                    SignUp(email: $email, password: $password)
+                }
+                else {
+                    SignIn(email: $email, password: $password)
+                }
             }
-            else {
-                SignIn(email: $email, password: $password)
-            }
+            .padding()
             Spacer()
         }
     }
