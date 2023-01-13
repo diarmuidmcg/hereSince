@@ -17,7 +17,6 @@ import io.realm.kotlin.notifications.ResultsChange
 import io.realm.kotlin.query.RealmResults
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
-import kotlin.coroutines.suspendCoroutine
 
 /**
  * Repository class. Responsible for storing the io.realm.kotlin.demo.model.entity.Jar and
@@ -33,8 +32,7 @@ class JarRepository {
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
     private var _jarStateFlow: MutableStateFlow<JarOverview> =
         MutableStateFlow(JarOverview(JARTYPE.NOTREGISTERED, jar = Jar()))
-    private var _previousJars: MutableStateFlow<MutableList<Jar>> =
-        MutableStateFlow(mutableListOf())
+    private var _previousJars: MutableStateFlow<MutableList<Jar>> = MutableStateFlow(mutableListOf())
     private var _userJars: MutableStateFlow<MutableList<Jar>> =
         MutableStateFlow(mutableListOf())
 
@@ -109,18 +107,11 @@ class JarRepository {
                             }
                         }
                         else -> {
-
                             // do nothing on changes
                         }
-
                     }
                 }
-
-
             }
-
-
-            singleJarFlow.onEmpty { println("i am epty") }
         }
 
     }

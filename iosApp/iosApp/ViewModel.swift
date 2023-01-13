@@ -10,6 +10,7 @@ import Foundation
 import Combine
 import shared
 
+
 // Generic Observable View Model, making it easier to control the lifecycle
 // of multiple Flows.
 class ObservableViewModel {
@@ -17,6 +18,7 @@ class ObservableViewModel {
     func addObserver(observer: Closeable) {
         jobs.append(observer)
     }
+    
     
     func stop() {
         jobs.forEach { job in job.close() }
@@ -36,6 +38,7 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
+    
         
     override init() {
         super.init()
@@ -70,12 +73,12 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
             }
             self.loadingJar = false
         })
-//        addObserver(observer: vm.observePrevJars().watch { prevJarsList in
-//            self.prevJars = prevJarsList! as Array<Jar>
-//        })
-//        addObserver(observer: vm.observeUserJars().watch { jarList in
-////            self.userJars = jarList! as Array<Jar>
-//        })
+        addObserver(observer: vm.observePrevJars().watch { prevJarsList in
+            self.prevJars = prevJarsList! as! Array<Jar>
+        })
+        addObserver(observer: vm.observeUserJars().watch { jarList in
+//            self.userJars = jarList! as Array<Jar>
+        })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
                 self.enabled = true

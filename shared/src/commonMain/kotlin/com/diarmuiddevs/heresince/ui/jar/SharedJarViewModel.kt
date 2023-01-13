@@ -7,10 +7,6 @@ import asCommonStateFlow
 import com.diarmuiddevs.heresince.model.JarOverview
 import com.diarmuiddevs.heresince.model.JarRepository
 import com.diarmuiddevs.heresince.model.entity.Jar
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
-
 
 /**
  * Class for the shared parts of the ViewModel.
