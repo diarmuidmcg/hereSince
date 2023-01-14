@@ -32,15 +32,16 @@ struct TapJarButton: View {
                 readNfc.launchNfcScan()
             }
         }, label: {
-            Image(systemName: "wave.3.forward.circle").resizable()
-                .frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Image(systemName: "wave.3.forward")
+                .font(.system(size: 60))
                 .frame(width: 250, height: 250)
-                .foregroundColor(Color.primary)
+                .foregroundColor(Color.white)
 
         })
-        .buttonStyle(BasicButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.gray, secondaryColor: .primary))
+        .buttonStyle(BasicButtonCircle(bgColor: .primary, secondaryColor: .white))
         Text("Tap a Jar")
-            .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+            .foregroundColor(Color("TextColor"))
+            .subheading()
     }
     
 }

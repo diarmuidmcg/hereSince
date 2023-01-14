@@ -47,7 +47,7 @@ struct Account: View {
             }
             .padding()
             Spacer()
-            ZStack{
+            VStack{
                 Color.primary
                                 .ignoresSafeArea()
                 if (onSignUp) {

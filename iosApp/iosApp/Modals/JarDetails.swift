@@ -21,7 +21,7 @@ struct JarDetails: View {
         VStack {
             HStack{
                 Text("Jar")
-                    .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+                    .foregroundColor(Color("TextColor"))
                     .padding(20)
                     .padding(.top, 20)
                 Spacer()

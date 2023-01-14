@@ -18,7 +18,7 @@ struct HomePage: View {
         VStack {
             HStack{
                 Text("JarRing")
-                    .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+                    .foregroundColor(Color("TextColor"))
                     .padding(20)
                     .padding(.top, 20)
 //                        .padding(.bottom, 20)

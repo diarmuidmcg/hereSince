@@ -13,7 +13,7 @@ extension Color {
     static let primary = Color(red: 22 / 255, green: 66 / 255, blue: 161 / 255)
     
     static let secondary = Color(red: 132 / 255, green: 69 / 255, blue: 54 / 255)
-    
+    static let darkText = Color(red: 64 / 255, green: 64 / 255, blue: 64 / 255)
     
     static let dropShadow = Color(red: 209 / 255, green: 209 / 255, blue: 214 / 255)
     static let dropLight = Color(red: 72 / 255, green: 72 / 255, blue: 74 / 255)
