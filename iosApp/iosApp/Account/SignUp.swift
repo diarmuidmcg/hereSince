@@ -46,20 +46,21 @@ struct SignUp: View {
                     // username
                     TextField("", text: $displayName)
                         .placeholder(when: displayName.isEmpty, placeholder: {
-                            Text("name")
+                            Text("Name")
                                 .foregroundColor(.gray)
+                                .buttonText()
                         })
-//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
-                        .foregroundColor(.black)
+                        .foregroundColor(.darkButton)
+                        .buttonText()
                         .padding(10)
                         .background(
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20)
-//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                     .fill(Color.white)
+                                    .shadow()
                                 // is red if not entered
                                 if (displayName == "" && acceptedPrivacy) {
-                                    RoundedRectangle(cornerRadius: 20)
+                                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                         .fill(Color.red)
                                         .opacity(0.40)
                                 }
@@ -71,20 +72,22 @@ struct SignUp: View {
                     // email
                     TextField("", text: $email)
                         .placeholder(when: email.isEmpty, placeholder: {
-                            Text("email")
+                            Text("Email")
                                 .foregroundColor(.gray)
+                                .buttonText()
                         })
                         .keyboardType(.emailAddress)
-//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.darkButton)
+                        .buttonText()
                         .padding(10)
                         .background(
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20)
+                                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                     .fill(Color.white)
+                                    .shadow()
                                 // is red if not entered or not valid email
                                 if ((email == "" || !email.isValidEmail) && acceptedPrivacy) {
-                                    RoundedRectangle(cornerRadius: 20)
+                                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                         .fill(Color.red)
                                         .opacity(0.40)
                                 }
@@ -95,18 +98,21 @@ struct SignUp: View {
                     // password
                     SecureField("", text: $password)
                         .placeholder(when: password.isEmpty, placeholder: {
-                            Text("password")
+                            Text("Password")
                                 .foregroundColor(.gray)
+                                .buttonText()
                         })
-                        .foregroundColor(.blue)
+                        .foregroundColor(.darkButton)
+                        .buttonText()
                         .padding(10)
                         .background(
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20)
+                                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                     .fill(Color.white)
+                                    .shadow()
                                 // is red if not entered or not equal to confirm
                                 if ((password == "" || password != confirmPassword) && acceptedPrivacy) {
-                                    RoundedRectangle(cornerRadius: 20)
+                                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                         .fill(Color.red)
                                         .opacity(0.40)
                                 }
@@ -117,18 +123,22 @@ struct SignUp: View {
                     // confirm password
                     SecureField("", text: $confirmPassword)
                         .placeholder(when: confirmPassword.isEmpty, placeholder: {
-                            Text("confirm password")
+                            Text("Confirm Password")
                                 .foregroundColor(.gray)
+                                .buttonText()
                         })
-                        .foregroundColor(.blue)
+                        .foregroundColor(.darkButton)
+                        .buttonText()
                         .padding(10)
                         .background(
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20)
+                                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
+//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
                                     .fill(Color.white)
+                                    .shadow()
                                 // is red if not entered or not equal to confirm
                                 if ((confirmPassword == "" || password != confirmPassword) && acceptedPrivacy) {
-                                    RoundedRectangle(cornerRadius: 20)
+                                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                         .fill(Color.red)
                                         .opacity(0.40)
                                 }
@@ -139,10 +149,12 @@ struct SignUp: View {
                     if errorOnPage {
                         Text("\(errorMessage)")
                             .foregroundColor(.red)
+                            .paragraphTwo()
                             .padding(.vertical, 5)
                     }
                 }
                 .animation(.spring())
+                // terms
                 VStack {
 //                    ConsentedToEmail(acceptedEmail: $acceptedEmail)
 //                        .padding(5)
@@ -154,14 +166,15 @@ struct SignUp: View {
                 Button {
                     
                 } label: {
-                    Text("sign up")
+                    Text("Sign Up")
                         .foregroundColor(Color.white)
+                        .paragraphTwo()
                         .frame(width: UIScreen.screenWidth * 0.8, height: 40, alignment: .center)
     //                    .padding(40)
                 }
-//                .buttonStyle(BasicFonzButton(bgColor: .amber, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
+                .buttonStyle(BasicButton(bgColor: .secondary, secondaryColor: .primary))
                 .disabled(determineIfSignUpButtonDisable())
-//                .addOpacity(determineIfSignUpButtonDisable())
+                .addOpacity(determineIfSignUpButtonDisable())
                 .padding(.top)
                 
             }

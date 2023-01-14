@@ -17,6 +17,9 @@
 		2637B43E2971BCF30079151C /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5186687A806821929F08C3 /* Pods_iosApp.framework */; };
 		2637B44229721CBC0079151C /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B44129721CBC0079151C /* SignIn.swift */; };
 		2637B444297220170079151C /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B443297220160079151C /* SignUp.swift */; };
+		2637B446297223370079151C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B445297223370079151C /* UIConstants.swift */; };
+		2637B4482972236A0079151C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B4472972236A0079151C /* Font.swift */; };
+		2637B44A297223F20079151C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B449297223F20079151C /* Color.swift */; };
 		2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058329560CA9004BF8C4 /* ViewJar.swift */; };
 		2683058629560CB8004BF8C4 /* MyJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJars.swift */; };
 		2683058829560CC4004BF8C4 /* PreviousJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJars.swift */; };
@@ -41,6 +44,9 @@
 		261550C2295B602C00CEC9DC /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		2637B44129721CBC0079151C /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		2637B443297220160079151C /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		2637B445297223370079151C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		2637B4472972236A0079151C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		2637B449297223F20079151C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2683058329560CA9004BF8C4 /* ViewJar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJar.swift; sourceTree = "<group>"; };
 		2683058529560CB8004BF8C4 /* MyJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJars.swift; sourceTree = "<group>"; };
 		2683058729560CC4004BF8C4 /* PreviousJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousJars.swift; sourceTree = "<group>"; };
@@ -130,6 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				2683059029561039004BF8C4 /* Buttons.swift */,
+				2637B445297223370079151C /* UIConstants.swift */,
+				2637B4472972236A0079151C /* Font.swift */,
+				2637B449297223F20079151C /* Color.swift */,
 			);
 			path = GlobalStyles;
 			sourceTree = "<group>";
@@ -307,15 +316,18 @@
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				2637B44229721CBC0079151C /* SignIn.swift in Sources */,
+				2637B4482972236A0079151C /* Font.swift in Sources */,
 				261550C1295B57F000CEC9DC /* SingleJarMinimized.swift in Sources */,
 				26B7D2C5296F9F8C006D5228 /* ReadNFC.swift in Sources */,
 				26830593295610A9004BF8C4 /* Extensions.swift in Sources */,
 				26C04EB9296F5E9E00640FDC /* JarModal.swift in Sources */,
 				2683058B29560D00004BF8C4 /* HomePage.swift in Sources */,
+				2637B446297223370079151C /* UIConstants.swift in Sources */,
 				261550C3295B602C00CEC9DC /* Account.swift in Sources */,
 				2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */,
 				26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */,
 				261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */,
+				2637B44A297223F20079151C /* Color.swift in Sources */,
 				2683058629560CB8004BF8C4 /* MyJars.swift in Sources */,
 				2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */,
 				26D884A62965FA51003BA81C /* ViewModel.swift in Sources */,

@@ -68,7 +68,7 @@ struct JarDetails: View {
                 .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
             if isEditing {
                 Button("Save"){isEditing = false}
-                    .foregroundColor(.blue)
+                    .foregroundColor(.primary)
                     .buttonStyle(.borderless)
             }
             Spacer()

@@ -35,10 +35,10 @@ struct TapJarButton: View {
             Image(systemName: "wave.3.forward.circle").resizable()
                 .frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .frame(width: 250, height: 250)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color.primary)
 
         })
-        .buttonStyle(BasicButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.gray, secondaryColor: .blue))
+        .buttonStyle(BasicButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.gray, secondaryColor: .primary))
         Text("Tap a Jar")
             .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
     }

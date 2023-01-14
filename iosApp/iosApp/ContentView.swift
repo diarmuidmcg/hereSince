@@ -41,13 +41,13 @@ struct ContentView: View {
                         .default(Text("yes")) {
                             throwCreateAccount = true
                         },
-                        .default(Text("no").foregroundColor(Color.blue)) {
+                        .default(Text("no").foregroundColor(Color.primary)) {
                           
                         },
                     ]
                 )
             }
-            .accentColor(Color.blue)
+            .accentColor(Color.primary)
         }
     
     }

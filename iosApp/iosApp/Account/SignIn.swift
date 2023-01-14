@@ -38,20 +38,22 @@ struct SignIn: View {
                     // email
                     TextField("", text: $email)
                         .placeholder(when: email.isEmpty, placeholder: {
-                            Text("email")
+                            Text("Email")
                                 .foregroundColor(.gray)
+                                .buttonText()
                         })
                         .keyboardType(.emailAddress)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(.darkButton)
+                        .buttonText()
                         .padding(10)
                         .background(
                             ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                     .fill(Color.white)
+                                    .shadow()
                                 // is red if not entered or not valid email
                                 if ((email == "" || !email.isValidEmail) && password != "") {
-                                    RoundedRectangle(cornerRadius: 10)
+                                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                         .fill(Color.red)
                                         .opacity(0.40)
                                 }
@@ -62,15 +64,18 @@ struct SignIn: View {
                     // password
                     SecureField("", text: $password)
                         .placeholder(when: password.isEmpty, placeholder: {
-                            Text("password")
+                            Text("Password")
                                 .foregroundColor(.gray)
+                                .buttonText()
                         })
-                        .foregroundColor(.black)
+                        .foregroundColor(.darkButton)
+                        .buttonText()
                         .padding(10)
                         .background(
                             ZStack {
-                                RoundedRectangle(cornerRadius: 10)
+                                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                                     .fill(Color.white)
+                                    .shadow()
                             }
                         )
                         .multilineTextAlignment(.leading)
@@ -78,6 +83,7 @@ struct SignIn: View {
                     if errorOnPage {
                         Text("\(errorMessage)")
                             .foregroundColor(.red)
+                            .paragraphTwo()
                             .padding(.vertical, 5)
                     }
                 }
@@ -85,29 +91,29 @@ struct SignIn: View {
                     // link to forgot password
                     
                 } label: {
-                    Text("forgot password?")
+                    Text("Forgot Password?")
                         .foregroundColor(Color.white)
+                        .buttonText()
                         .padding(.vertical, 10)
                 }
-                // sign in button
                 Button {
-//                    self.showModal.toggle()
-                   
-                    
+                // sign in button
                 } label: {
-                    Text("sign in")
+                    Text("Sign In")
                         .foregroundColor(Color.white)
+                        .paragraphTwo()
                         .frame(width: UIScreen.screenWidth * 0.8, height: 40, alignment: .center)
-    //                    .padding(40)
                 }
-                
+                .buttonStyle(BasicButton(bgColor: .secondary, secondaryColor: .primary))
                 .disabled(determineIfSignInButtonDisable())
-//                .addOpacity(determineIfSignInButtonDisable())
+                .addOpacity(determineIfSignInButtonDisable())
                 .padding(.vertical)
             }
         }
     }
 }
+
+
 
 public extension String {
     var isValidEmail: Bool {
@@ -130,4 +136,25 @@ extension View {
             self
         }
     }
+    
+    @ViewBuilder func shadow() -> some View {
+        self.shadow(radius: 3, x: 3, y: 3)
+    }
+    
+    @ViewBuilder func addOpacity(_ needOpacity: Bool) -> some View {
+        if needOpacity {
+            self.opacity(0.5)
+        } else {
+            self
+        }
+    }
+    
+    @ViewBuilder func darkenView(_ darken: Bool) -> some View {
+        if darken {
+            self.brightness(-0.3)
+        } else {
+            self
+        }
+    }
+    
 }

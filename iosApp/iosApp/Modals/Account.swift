@@ -25,8 +25,8 @@ struct Account: View {
                     }
                 } label: {
                     Text("Sign up")
-                        .addUnderline(active: onSignUp, color: .blue)
-                        .foregroundColor(Color.blue)
+                        .addUnderline(active: onSignUp, color: .primary)
+                        .foregroundColor(Color.primary)
                         .padding(.horizontal)
                     
                 }
@@ -37,8 +37,8 @@ struct Account: View {
                     
                 } label: {
                     Text("Sign in")
-                        .addUnderline(active: !onSignUp, color: .blue)
-                        .foregroundColor(Color.blue)
+                        .addUnderline(active: !onSignUp, color: .primary)
+                        .foregroundColor(Color.primary)
                         .padding(.horizontal)
                 }
                 Spacer()
@@ -48,19 +48,23 @@ struct Account: View {
             .padding()
             Spacer()
             ZStack{
-                Color.blue
+                Color.primary
                                 .ignoresSafeArea()
                 if (onSignUp) {
                     SignUp(email: $email, password: $password)
+                        .padding(.horizontal)
                 }
                 else {
                     SignIn(email: $email, password: $password)
+                        .padding(.horizontal)
                 }
             }
-            .padding()
+//            .padding()
             Spacer()
-        }
+        }.ignoresSafeArea()
+        
     }
+       
 }
 
 extension Text {
