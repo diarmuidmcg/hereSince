@@ -62,6 +62,16 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         vm.findJarById(jarId: jarId)
     }
     
+    func signUserUpEmail(email: String, password: String){
+//        self.launchModal = true
+        vm.signUserUpEmail(email: email, password: password)
+    }
+    
+    func signUserInEmail(email: String, password: String){
+//        self.launchModal = true
+        vm.signUserInEmail(email: email, password: password)
+    }
+    
        
     
     func start() {

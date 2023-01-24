@@ -57,6 +57,15 @@ class SharedJarViewModel: JarViewModel {
         repository.enableSync(false)
     }
 
+    override fun signUserUpEmail(email: String, password:String) {
+        repository.signUserUpEmail(email, password)
+    }
+
+    override fun signUserInEmail(email: String, password:String) {
+        repository.signUserInEmail(email, password)
+    }
+
+
     override fun findJarById(jarId: String) {
         repository.findJarById(jarId)
     }

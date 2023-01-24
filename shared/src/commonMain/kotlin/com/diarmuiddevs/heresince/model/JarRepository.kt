@@ -36,11 +36,16 @@ class JarRepository {
     private var _userJars: MutableStateFlow<MutableList<Jar>> =
         MutableStateFlow(mutableListOf())
 
+    lateinit var user : io.realm.kotlin.mongodb.User
+
     init {
 //        set up the realm on app launch
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
-            val user = app.login(Credentials.anonymous(reuseExisting = true))
+//            if has api or json stored -> use that
+
+//            else use credentials
+            user = app.login(Credentials.anonymous(reuseExisting = true))
             val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
                 .initialSubscriptions { realm: Realm ->
                     add(realm.query<Jar>())
@@ -55,6 +60,40 @@ class JarRepository {
     }
 
 //    }
+
+    /**
+     * Associate a user w an email & password
+     */
+    fun signUserUpEmail(email: String, password: String) {
+        CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
+            async { // wrap on async call
+                try { // wrap try catch to avoid nothing being returned
+                    // registers an email/password user
+                    app.emailPasswordAuth.registerUser(email, password)
+                    // links anonymous user with email/password credentials
+                    user.linkCredentials(Credentials.emailPassword(email, password));
+                } catch (e: NoSuchElementException) {
+//
+                }
+            }
+        }
+    }
+
+    /**
+     * Associate a user w an email & password
+     */
+    fun signUserInEmail(email: String, password: String) {
+        CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
+            async { // wrap on async call
+                try { // wrap try catch to avoid nothing being returned
+//                  make query getting first (& only) jar w given jarId
+                    user = app.login(Credentials.emailPassword(email,password))
+                } catch (e: NoSuchElementException) {
+//
+                }
+            }
+        }
+    }
 
     /**
      * Get a jar by its Id

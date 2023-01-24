@@ -13,6 +13,8 @@ interface JarViewModel: SharedViewModel {
     fun observeJarOverview(): CommonStateFlow<JarOverview>
     fun observePrevJars(): CommonStateFlow<MutableList<Jar>>
     fun observeUserJars(): CommonStateFlow<MutableList<Jar>>
+    fun signUserUpEmail(email: String, password:String)
+    fun signUserInEmail(email: String, password:String)
 
     fun observeWifiState(): CommonStateFlow<Boolean>
     fun enableWifi()

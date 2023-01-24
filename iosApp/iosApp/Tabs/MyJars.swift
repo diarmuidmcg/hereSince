@@ -23,7 +23,7 @@ struct MyJars: View {
                     
             }
             List {
-                if (vm.prevJars.count > 0) {
+                if (vm.userJars.count > 0) {
                     ForEach(vm.userJars, id: \.self) { value in
                         SingleJarMinimized(singleJar: value,vm:vm)
                     }
