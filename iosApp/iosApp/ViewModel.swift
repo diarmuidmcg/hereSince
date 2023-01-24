@@ -28,6 +28,7 @@ class ObservableViewModel {
 class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     @Published var loadingJar: Bool = false
     @Published var launchModal: Bool = false
+    @Published var launchAccount: Bool = false
     @Published var enabled: Bool = true
     @Published var currJar: JarOverview = JarOverview(type: JARTYPE.notregistered, jar: Jar())
 //    store additional info in this bc SwiftUI ForEach can iterate a set, not a
@@ -63,13 +64,17 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
     }
     
     func signUserUpEmail(email: String, password: String){
-//        self.launchModal = true
+        self.launchAccount = false
         vm.signUserUpEmail(email: email, password: password)
     }
     
     func signUserInEmail(email: String, password: String){
-//        self.launchModal = true
+        self.launchAccount = false
         vm.signUserInEmail(email: email, password: password)
+    }
+    
+    func userHasCreatedAcc() -> Bool{
+        return vm.userHasCreatedAcc()
     }
     
        

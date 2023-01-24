@@ -57,6 +57,11 @@ class SharedJarViewModel: JarViewModel {
         repository.enableSync(false)
     }
 
+
+    override fun userHasCreatedAcc() : Boolean{
+        return repository.userHasCreatedAcc()
+    }
+
     override fun signUserUpEmail(email: String, password:String) {
         repository.signUserUpEmail(email, password)
     }

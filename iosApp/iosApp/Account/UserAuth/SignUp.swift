@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SignUp: View {
-
+    @ObservedObject var vm : IOSCounterViewModel
     // so you can dismiss modal
 //    @Binding var showModal : Bool
    
@@ -27,8 +27,7 @@ struct SignUp: View {
     @Environment(\.colorScheme) var colorScheme
     
     func determineIfSignUpButtonDisable() -> Bool {
-        if (acceptedPrivacy &&
-            displayName != "" &&
+        if (displayName != "" &&
                 email.isValidEmail &&
             password != "" &&
             password == confirmPassword) {
@@ -163,8 +162,9 @@ struct SignUp: View {
                 }
                 .animation(.spring())
                 // sign up button
+                
                 Button {
-                    
+                    vm.signUserUpEmail(email: email, password: password)
                 } label: {
                     Text("Sign Up")
                         .foregroundColor(Color.white)

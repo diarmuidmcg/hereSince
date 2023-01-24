@@ -11,6 +11,7 @@ import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.internal.platform.runBlocking
 import io.realm.kotlin.mongodb.*
+import io.realm.kotlin.mongodb.exceptions.AppException
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.notifications.InitialResults
 import io.realm.kotlin.notifications.ResultsChange
@@ -72,7 +73,9 @@ class JarRepository {
                     app.emailPasswordAuth.registerUser(email, password)
                     // links anonymous user with email/password credentials
                     user.linkCredentials(Credentials.emailPassword(email, password));
-                } catch (e: NoSuchElementException) {
+//                    set custom data
+
+                } catch (e: AppException) {
 //
                 }
             }
@@ -88,11 +91,18 @@ class JarRepository {
                 try { // wrap try catch to avoid nothing being returned
 //                  make query getting first (& only) jar w given jarId
                     user = app.login(Credentials.emailPassword(email,password))
-                } catch (e: NoSuchElementException) {
+                } catch (e: AppException) {
 //
                 }
             }
         }
+    }
+    /**
+     * small func to determine if user has set up account instead of anon
+     */
+    fun userHasCreatedAcc() : Boolean {
+//        any user will default 1 auth identifty (anon). If they add another (email, apple, etc), they will have more than 1
+        return user.identities.count() > 1
     }
 
     /**

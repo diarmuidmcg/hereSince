@@ -15,6 +15,7 @@ interface JarViewModel: SharedViewModel {
     fun observeUserJars(): CommonStateFlow<MutableList<Jar>>
     fun signUserUpEmail(email: String, password:String)
     fun signUserInEmail(email: String, password:String)
+    fun userHasCreatedAcc() : Boolean
 
     fun observeWifiState(): CommonStateFlow<Boolean>
     fun enableWifi()

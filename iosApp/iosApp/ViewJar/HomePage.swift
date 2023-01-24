@@ -24,15 +24,19 @@ struct HomePage: View {
 //                        .padding(.bottom, 20)
                 Spacer()
                 Button(action: {
-                    launchAccount = true
+                    vm.launchAccount = true
                 }, label: {
                     ZStack{
     //                    if no account
-                        Image(systemName: "person.crop.circle.fill.badge.plus")
-                            .font(.system(size: 30))
+                        if (!vm.userHasCreatedAcc()) {
+                            Image(systemName: "person.crop.circle.fill.badge.plus")
+                                .font(.system(size: 30))
+                        }
     //                    else has account
-    //                    Image(systemName: "person.crop.circle.fill")
-//                            .font(.system(size: 30))
+                        else {
+                            Image(systemName: "person.crop.circle.fill")
+                                    .font(.system(size: 30))
+                        }
                     }
                     .padding(20)
                     .padding(.top, 20)
@@ -44,6 +48,6 @@ struct HomePage: View {
             Spacer()
         }
         .sheet(isPresented: $vm.launchModal, content: { JarModal(vm: vm)})
-        .sheet(isPresented: $launchAccount, content: {Account()})
+        .sheet(isPresented: $vm.launchAccount, content: {Account(vm: vm)})
     }
 }

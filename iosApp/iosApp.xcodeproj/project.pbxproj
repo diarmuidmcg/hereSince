@@ -20,6 +20,8 @@
 		2637B446297223370079151C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B445297223370079151C /* UIConstants.swift */; };
 		2637B4482972236A0079151C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B4472972236A0079151C /* Font.swift */; };
 		2637B44A297223F20079151C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B449297223F20079151C /* Color.swift */; };
+		266948DB298041FE0006A2F2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DA298041FE0006A2F2 /* UserAuth.swift */; };
+		266948DE2980421C0006A2F2 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DD2980421C0006A2F2 /* AccountSettings.swift */; };
 		2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058329560CA9004BF8C4 /* ViewJar.swift */; };
 		2683058629560CB8004BF8C4 /* MyJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJars.swift */; };
 		2683058829560CC4004BF8C4 /* PreviousJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJars.swift */; };
@@ -47,6 +49,8 @@
 		2637B445297223370079151C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		2637B4472972236A0079151C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		2637B449297223F20079151C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		266948DA298041FE0006A2F2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		266948DD2980421C0006A2F2 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		2683058329560CA9004BF8C4 /* ViewJar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJar.swift; sourceTree = "<group>"; };
 		2683058529560CB8004BF8C4 /* MyJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJars.swift; sourceTree = "<group>"; };
 		2683058729560CC4004BF8C4 /* PreviousJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousJars.swift; sourceTree = "<group>"; };
@@ -98,10 +102,20 @@
 		2637B44029721CA20079151C /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				2637B44129721CBC0079151C /* SignIn.swift */,
-				2637B443297220160079151C /* SignUp.swift */,
+				266948DC298042020006A2F2 /* UserAuth */,
+				266948DA298041FE0006A2F2 /* UserAuth.swift */,
+				266948DD2980421C0006A2F2 /* AccountSettings.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		266948DC298042020006A2F2 /* UserAuth */ = {
+			isa = PBXGroup;
+			children = (
+				2637B443297220160079151C /* SignUp.swift */,
+				2637B44129721CBC0079151C /* SignIn.swift */,
+			);
+			path = UserAuth;
 			sourceTree = "<group>";
 		};
 		2683058229560C89004BF8C4 /* Tabs */ = {
@@ -314,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				266948DB298041FE0006A2F2 /* UserAuth.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				2637B44229721CBC0079151C /* SignIn.swift in Sources */,
 				2637B4482972236A0079151C /* Font.swift in Sources */,
@@ -327,6 +342,7 @@
 				2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */,
 				26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */,
 				261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */,
+				266948DE2980421C0006A2F2 /* AccountSettings.swift in Sources */,
 				2637B44A297223F20079151C /* Color.swift in Sources */,
 				2683058629560CB8004BF8C4 /* MyJars.swift in Sources */,
 				2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */,

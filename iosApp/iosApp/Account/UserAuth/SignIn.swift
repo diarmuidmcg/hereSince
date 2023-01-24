@@ -9,10 +9,9 @@
 import SwiftUI
 
 struct SignIn: View {
-
+    @ObservedObject var vm : IOSCounterViewModel
     // so you can dismiss modal
 //    @Binding var showModal : Bool
-    
     @Binding var email: String
     @Binding var password: String
     
@@ -98,6 +97,7 @@ struct SignIn: View {
                 }
                 Button {
                 // sign in button
+                    vm.signUserInEmail(email: email, password: password)
                 } label: {
                     Text("Sign In")
                         .foregroundColor(Color.white)
