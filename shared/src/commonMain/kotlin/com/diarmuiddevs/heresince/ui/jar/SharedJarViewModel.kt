@@ -82,4 +82,8 @@ class SharedJarViewModel: JarViewModel {
     override fun findJarById(jarId: String) {
         repository.findJarById(jarId)
     }
+    override fun updateJarById(jarId: String, newJar: Jar){
+        repository.updateJarById(jarId,newJar)
+    }
+
 }

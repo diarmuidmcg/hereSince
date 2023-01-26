@@ -65,6 +65,10 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         self.launchModal = true
         vm.findJarById(jarId: jarId)
     }
+    func updateJarById(jarId: String,newJar:Jar){
+//        self.launchModal = true
+        vm.updateJarById(jarId: jarId,newJar:newJar)
+    }
     
     func signUserUpEmail(email: String, password: String){
         self.launchAccount = false

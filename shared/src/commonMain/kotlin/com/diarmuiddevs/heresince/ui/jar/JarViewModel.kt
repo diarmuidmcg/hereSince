@@ -27,6 +27,7 @@ interface JarViewModel: SharedViewModel {
     fun enableWifi()
     fun disableWifi()
     fun findJarById(jarId: String)
+    fun updateJarById(jarId: String, newJar: Jar)
 }
 
 interface SharedViewModel {
