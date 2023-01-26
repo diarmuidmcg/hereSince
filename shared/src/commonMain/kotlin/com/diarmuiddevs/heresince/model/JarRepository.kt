@@ -61,6 +61,7 @@ class JarRepository {
         }
         println("user id " + user.id)
         userHasCreatedAcc()
+        findAllJars()
     }
 
 //    }
@@ -162,6 +163,7 @@ class JarRepository {
                         }
                     }
                 } catch (e: NoSuchElementException) {
+                    println("jar dont exist? " + jarId)
 //                    if does not exist, set JARTYPE to not reg
                     _jarStateFlow.value = JarOverview(type = JARTYPE.NOTREGISTERED, jar = Jar())
                 }
@@ -200,27 +202,29 @@ class JarRepository {
      * Get a jar by its Id
      */
     fun updateJarById(jarId: String, newJar: Jar) {
+        print("finding jar at " + jarId)
         CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
-            async { // wrap on async call
+
                 try { // wrap try catch to avoid nothing being returned
 //                  make query getting first (& only) jar w given jarId
                     var jar = realm.query<Jar>(query = "_id == $0", jarId).find().first()
-                    realm.write { // set stateflow for observer to update
-                        if (newJar.jarContentName != "") jar.jarContentName = newJar.jarContentName
-                        if (newJar.hereSince != "") jar.hereSince = newJar.hereSince
-                        if (newJar.jarOwnerName != "") jar.jarOwnerName = newJar.jarOwnerName
-                        if (newJar.jarOwnerUserId != "") jar.jarOwnerUserId = newJar.jarOwnerUserId
-                        if (newJar.additionalInfo != null) jar.additionalInfo = newJar.additionalInfo
-//                        set the current jar to the JarOverview (includes type)
+                    realm.writeBlocking {
+                        findLatest(jar)?.apply {
+                            if (newJar.jarContentName != "") jarContentName = newJar.jarContentName
+                            if (newJar.hereSince != "") hereSince = newJar.hereSince
+                            if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
+                            if (newJar.jarOwnerUserId != "") jarOwnerUserId = newJar.jarOwnerUserId
+                            if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
+                        }
+                        //                        set the current jar to the JarOverview (includes type)
                         _jarStateFlow.value = determineJarDetails(jar)
-//                        if the jar has data, make sure its not already a previous jar & add it
-
                     }
                 } catch (e: NoSuchElementException) {
+                    print("did not find jar")
 //                    if does not exist, set JARTYPE to not reg
                     _jarStateFlow.value = JarOverview(type = JARTYPE.NOTREGISTERED, jar = Jar())
                 }
-            }
+
         }
     }
 
@@ -279,7 +283,7 @@ class JarRepository {
         println("determing jar ")
         //        return readTagResponse
         return if (jar == null) JarOverview(JARTYPE.NOTREGISTERED,Jar())
-        else if (jar.jarContentName == "") JarOverview(type = JARTYPE.JARNODATA, jar = Jar())
+        else if (jar.jarContentName == "") JarOverview(type = JARTYPE.JARNODATA, jar = jar)
         else JarOverview(type = JARTYPE.JARHASDATA, jar = jar)
     }
 }

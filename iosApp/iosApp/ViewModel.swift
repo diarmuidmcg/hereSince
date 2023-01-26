@@ -46,7 +46,7 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         super.init()
         start()
 //        find out if user has account on init
-//        self.userHasCreatedAcc()
+//        self.fin()
     }
     
     deinit {
@@ -66,8 +66,9 @@ class IOSCounterViewModel: ObservableViewModel, ObservableObject {
         vm.findJarById(jarId: jarId)
     }
     func updateJarById(jarId: String,newJar:Jar){
-//        self.launchModal = true
-        vm.updateJarById(jarId: jarId,newJar:newJar)
+        self.loadingJar = true
+        print("updating jar")
+        vm.updateJarById(jarId: jarId.uppercased(),newJar:newJar)
     }
     
     func signUserUpEmail(email: String, password: String){

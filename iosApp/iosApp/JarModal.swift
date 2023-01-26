@@ -25,7 +25,7 @@ struct JarModal: View {
                 JarDetails(vm: vm, jar: vm.currJar.jar)
             }
             else if (vm.currJar.type == JARTYPE.jarnodata) {
-                JarNoDetails()
+                JarNoDetails(vm: vm)
             }
             else {
                 NotRegistered()
