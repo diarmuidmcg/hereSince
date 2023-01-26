@@ -28,7 +28,7 @@ struct HomePage: View {
                 }, label: {
                     ZStack{
     //                    if no account
-                        if (!vm.userHasCreatedAcc()) {
+                        if (!vm.hasAccount) {
                             Image(systemName: "person.crop.circle.fill.badge.plus")
                                 .font(.system(size: 30))
                         }

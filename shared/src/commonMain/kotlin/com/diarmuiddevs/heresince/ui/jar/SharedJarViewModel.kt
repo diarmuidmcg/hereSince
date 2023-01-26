@@ -57,9 +57,17 @@ class SharedJarViewModel: JarViewModel {
         repository.enableSync(false)
     }
 
+    override fun observeHasAccount(): CommonStateFlow<Boolean> {
+        return repository.observeHasAccount()
+            .asCommonStateFlow()
+    }
 
-    override fun userHasCreatedAcc() : Boolean{
-        return repository.userHasCreatedAcc()
+    override fun signOut() {
+        return repository.signOut()
+    }
+
+    override fun userHasCreatedAcc() {
+        repository.userHasCreatedAcc()
     }
 
     override fun signUserUpEmail(email: String, password:String) {

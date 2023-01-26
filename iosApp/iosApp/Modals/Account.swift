@@ -12,7 +12,7 @@ struct Account: View {
     @ObservedObject var vm : IOSCounterViewModel
     
     var body: some View {
-        if (!vm.userHasCreatedAcc()) {
+        if (!vm.hasAccount) {
             UserAuth(vm:vm)
         }
 //                    else has account

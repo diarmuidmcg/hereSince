@@ -37,6 +37,7 @@ class JarRepository {
     private var _userJars: MutableStateFlow<MutableList<Jar>> =
         MutableStateFlow(mutableListOf())
 
+    private var _hasAccount: MutableStateFlow<Boolean> = MutableStateFlow(false)
     lateinit var user : io.realm.kotlin.mongodb.User
 
     init {
@@ -44,7 +45,7 @@ class JarRepository {
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
 //            if has api or json stored -> use that
-
+            println("runs on launch")
 //            else use credentials
             user = app.login(Credentials.anonymous(reuseExisting = true))
             val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
@@ -58,6 +59,8 @@ class JarRepository {
 //            Realm.open(configuration)
 
         }
+        println("user id " + user.id)
+        userHasCreatedAcc()
     }
 
 //    }
@@ -74,7 +77,7 @@ class JarRepository {
                     // links anonymous user with email/password credentials
                     user.linkCredentials(Credentials.emailPassword(email, password));
 //                    set custom data
-
+                    _hasAccount.value = true
                 } catch (e: AppException) {
 //
                 }
@@ -91,6 +94,36 @@ class JarRepository {
                 try { // wrap try catch to avoid nothing being returned
 //                  make query getting first (& only) jar w given jarId
                     user = app.login(Credentials.emailPassword(email,password))
+
+                    println("signed user in " + user.id)
+                    _hasAccount.value = true
+                } catch (e: AppException) {
+//
+                    println("error signing user in $e")
+                }
+            }
+        }
+    }
+
+    /**
+     * Associate a user w an email & password
+     */
+    fun signOut() {
+        CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
+            async { // wrap on async call
+                try { // wrap try catch to avoid nothing being returned
+//                  log user out
+                    user.logOut()
+                    _hasAccount.value = false
+//                    create a new anon user to use sync
+                    user = app.login(Credentials.anonymous(reuseExisting = true))
+//                    reset prev & user jars
+                    _previousJars.update {
+                        _previousJars.value.toMutableList().apply { this.clear()}
+                    }
+                    _userJars.update {
+                        _userJars.value.toMutableList().apply { this.clear()}
+                    }
                 } catch (e: AppException) {
 //
                 }
@@ -100,9 +133,10 @@ class JarRepository {
     /**
      * small func to determine if user has set up account instead of anon
      */
-    fun userHasCreatedAcc() : Boolean {
+    fun userHasCreatedAcc()  {
+        println("checking if has acc " + user.identities.count().toString())
 //        any user will default 1 auth identifty (anon). If they add another (email, apple, etc), they will have more than 1
-        return user.identities.count() > 1
+        _hasAccount.value = user.identities.count() > 1
     }
 
     /**
@@ -222,6 +256,10 @@ class JarRepository {
     fun observeUserJars(): StateFlow<MutableList<Jar>> {
         println("observing user  jars")
         return _userJars
+    }
+    fun observeHasAccount(): StateFlow<Boolean> {
+        println("observing has  acc")
+        return _hasAccount
     }
 
 
