@@ -215,10 +215,16 @@ class JarRepository {
                             if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
                             if (newJar.jarOwnerUserId != "") jarOwnerUserId = newJar.jarOwnerUserId
                             if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
+
                         }
-                        //                        set the current jar to the JarOverview (includes type)
-                        _jarStateFlow.value = determineJarDetails(jar)
                     }
+                    //                        set the current jar to the JarOverview (includes type)
+//                    realm.writeBlocking {
+                        _jarStateFlow.update {
+                            determineJarDetails(newJar)
+                        }
+//                    }
+
                 } catch (e: NoSuchElementException) {
                     print("did not find jar")
 //                    if does not exist, set JARTYPE to not reg
