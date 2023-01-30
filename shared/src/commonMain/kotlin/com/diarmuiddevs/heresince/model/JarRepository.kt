@@ -61,7 +61,7 @@ class JarRepository {
         }
         println("user id " + user.id)
         userHasCreatedAcc()
-//        findAllJars()
+        findAllJars()
     }
 
 //    }
@@ -213,9 +213,8 @@ class JarRepository {
                             if (newJar.jarContentName != "") jarContentName = newJar.jarContentName
                             if (newJar.hereSince != "") hereSince = newJar.hereSince
                             if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
-                            if (newJar.jarOwnerUserId != "") jarOwnerUserId = newJar.jarOwnerUserId
+                            jarOwnerUserId = user.id
                             if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
-
                         }
                     }
                     //                        set the current jar to the JarOverview (includes type)
