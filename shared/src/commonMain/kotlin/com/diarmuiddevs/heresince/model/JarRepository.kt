@@ -61,7 +61,7 @@ class JarRepository {
         }
         println("user id " + user.id)
         userHasCreatedAcc()
-        findAllJars()
+//        findAllJars()
     }
 
 //    }

@@ -16,14 +16,15 @@ struct JarDetails: View {
    
     @State var isEditing = false;
     
-    @State var jarChanges = Jar()
+//    @State var jarChanges = Jar(copyJar: jar)
+    @State var jarChanges : Jar
     
     //    init function bc ReadNfc takes the other struct param ViewModel as a param
-//    init(vm:IOSCounterViewModel, jar: Jar) {
-//        self.vm = vm
-//        self.jar = jar
-//        _jarChanges = State(initialValue: jar)
-//    }
+    init(vm:IOSCounterViewModel, jar: Jar) {
+        self.vm = vm
+        self.jar = jar
+        _jarChanges = State(initialValue: Jar(copyJar: jar))
+    }
     
     var body: some View {
         VStack {

@@ -30,5 +30,13 @@ open class Jar(
         _id = ObjectId.create().toString(),
     ) // Empty constructor for Realm
 
+    constructor(copyJar: Jar) : this() {
+        _id = copyJar._id
+        hereSince = copyJar.hereSince
+        jarContentName = copyJar.jarContentName
+        jarOwnerName = copyJar.jarOwnerName
+        jarOwnerUserId = copyJar.jarOwnerUserId
+        additionalInfo = copyJar.additionalInfo
+    }
 }
 
