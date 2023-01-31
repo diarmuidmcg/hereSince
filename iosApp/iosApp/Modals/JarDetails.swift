@@ -84,6 +84,12 @@ struct JarDetails: View {
                         Text("\(element.content)")
                     }
                 }
+                ForEach(jar.xtraInfo) { element in
+                    Section(header: Text("\(element.name)"))
+                    {
+                        Text("\(element.content)")
+                    }
+                }
                 
                 if isEditing {
 
@@ -123,7 +129,7 @@ struct JarDetails: View {
                                         isPresented: $showOptions) {
                         ForEach(jarOptions.sorted(by: <), id: \.self) { element in
                             Button {
-                                addingJarInfo.append(JarAdditionalInfo(name: element, content: ""))
+                                addingJarInfo.append(JarAdditionalInfo(name: element, content: "", type: DataTypes.string))
                             } label: {Text(element)}
 
                         }

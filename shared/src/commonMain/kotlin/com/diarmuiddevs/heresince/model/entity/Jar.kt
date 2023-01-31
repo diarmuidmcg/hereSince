@@ -34,8 +34,8 @@ open class Jar(
     var jarContentName: String = "",
     var jarOwnerName: String = "",
     var jarOwnerUserId: String? = null,
-    var additionalInfo: MutableSet<JarAdditionalInfo> = mutableSetOf()
-//    var additionalInfo: RealmSet<JarAdditionalInfo> = realmSetOf<JarAdditionalInfo>()
+    var additionalInfo: MutableSet<JarAdditionalInfo> = mutableSetOf(),
+    var extraInfo: MutableList<JarAdditionalInfo> = mutableListOf()
 ) :RealmObject {
     constructor() : this(
         _id = ObjectId.create().toString(),
@@ -48,6 +48,7 @@ open class Jar(
         jarOwnerName = copyJar.jarOwnerName
         jarOwnerUserId = copyJar.jarOwnerUserId
         additionalInfo = copyJar.additionalInfo
+        extraInfo = copyJar.extraInfo
     }
 }
 

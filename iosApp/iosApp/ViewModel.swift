@@ -97,6 +97,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
             self.currJar = jarOverviewValue! as JarOverview
             if (self.currJar.type == JARTYPE.jarhasdata) {
                 self.currJar.jar.moreInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
+                self.currJar.jar.xtraInfo = self.currJar.jar.extraInfo as! Array<JarAdditionalInfo>
 //                self.currentAddInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
                 print("curr jar O is " + self.currJar.jar._id)
             }
@@ -127,7 +128,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
 }
 
 // extension so JarAdditionalInfo can be iterated thru a SwiftUI Foreach
-extension JarAdditionalInfo:Comparable {
+extension JarAdditionalInfo:Comparable, Identifiable {
     public static func < (lhs: JarAdditionalInfo, rhs: JarAdditionalInfo) -> Bool {
 //       so ingredients always first
         if (rhs.name.uppercased() == "INGREDIENTS") {return false}
@@ -139,6 +140,7 @@ extension JarAdditionalInfo:Comparable {
 extension Jar {
     struct Holder {
             static var _moreInfo:Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
+        static var _xtraInfo:Array<JarAdditionalInfo> = Array<JarAdditionalInfo>()
         }
         var moreInfo:Set<JarAdditionalInfo> {
             get {
@@ -148,4 +150,12 @@ extension Jar {
                 Holder._moreInfo = newValue
             }
         }
+    var xtraInfo:Array<JarAdditionalInfo> {
+        get {
+            return Holder._xtraInfo
+        }
+        set(newValue) {
+            Holder._xtraInfo = newValue
+        }
+    }
 }
