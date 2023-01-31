@@ -20,6 +20,7 @@ struct JarDetails: View {
     var jarOptions = ["Ingredients", "Expiration Date", "Caffeinated?", "Vegetarian?"]
         @State private var selectedJarOption = "Ingredients"
     @State var addingJarInfo = Array<JarAdditionalInfo>()
+    @State var jarAddInfo : Set<JarAdditionalInfo>
     
 //    @State var jarChanges = Jar(copyJar: jar)
     @State var jarChanges : Jar
@@ -29,6 +30,7 @@ struct JarDetails: View {
         self.vm = vm
         self.jar = jar
         _jarChanges = State(initialValue: Jar(copyJar: jar))
+        _jarAddInfo = State(initialValue: jar.moreInfo)
     }
     
     var body: some View {
@@ -84,14 +86,23 @@ struct JarDetails: View {
                 }
                 
                 if isEditing {
-                    
-                    ForEach(addingJarInfo.sorted(by: <), id: \.self) { element in
-                        Section(header: Text("\(element.name)"))
+
+                    ForEach(addingJarInfo.indices, id: \.self) { element in
+                        Section(header: Text("\(addingJarInfo[element].name)"))
                         {
-                            TextField(element.content, text: $jarChanges.hereSince)
+                            TextField(addingJarInfo[element].content, text: $addingJarInfo[element].content)
                         }
                     }
                 }
+//                if isEditing {
+//
+//                    ForEach(jarAddInfo.sorted(by: <), id: \.self) { element in
+//                        Section(header: Text("\(addingJarInfo[element].name)"))
+//                        {
+//                            TextField(addingJarInfo[element].content, text: $addingJarInfo[element].content)
+//                        }
+//                    }
+//                }
         
                     
                 
@@ -118,13 +129,24 @@ struct JarDetails: View {
                         }
                         Button("Cancel", role: .destructive) { showOptions = false }
                     }
+                    Spacer()
                 } else {
                     // Fallback on earlier versions
                 }
                 Spacer()
                 Button{
                     isEditing = false
-                    vm.updateJarById(jarId: jar._id, newJar: jarChanges)
+                    
+//                    vm.updateJarById(jarId: jar._id, newJar: jarChanges)
+                    for l in addingJarInfo{
+                        print(l.content)
+                    }
+                    let setOfAddInfo = Set(addingJarInfo.map { $0 })
+                    
+                    jarChanges.additionalInfo = setOfAddInfo as! KotlinMutableSet<JarAdditionalInfo>
+                    for l in jarChanges.additionalInfo{
+                        print(l)
+                    }
                 } label:{
                     Text("Save")
                         .foregroundColor(Color.white)
@@ -133,7 +155,7 @@ struct JarDetails: View {
                     
                 }
                 .foregroundColor(.primary)
-                .buttonStyle(BasicButton(bgColor: .secondary, secondaryColor: .primary))
+                .buttonStyle(BasicButton(bgColor: .primary, secondaryColor: .white))
                 .padding(.bottom)
             }
             Spacer()

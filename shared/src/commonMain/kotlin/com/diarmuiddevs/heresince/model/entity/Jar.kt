@@ -14,6 +14,10 @@ open class JarAdditionalInfo(
     var content: String = "",
 ) :RealmObject {
     constructor() : this("", "") // Empty constructor for Realm
+    constructor(copyAddInfo: JarAdditionalInfo) : this() {
+       name = copyAddInfo.name
+        content = copyAddInfo.content
+    }
 }
 
 open class Jar(
