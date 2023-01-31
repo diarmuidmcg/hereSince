@@ -9,14 +9,10 @@
 import SwiftUI
 import shared
 
-struct JarOption {
-//    static func < (lhs: JarOption, rhs: JarOption) -> Bool {
-//        return true
-//    }
-    
-    let name: String
-    let dataType: DataTypes
-}
+//struct JarOption {
+//    let name: String
+//    let dataType: DataTypes
+//}
 
 struct JarDetails: View {
     @ObservedObject var vm : IOSJarViewModel

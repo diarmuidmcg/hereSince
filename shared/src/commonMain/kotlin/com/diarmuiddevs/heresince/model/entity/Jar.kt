@@ -52,3 +52,8 @@ open class Jar(
     }
 }
 
+open class JarOption(
+    var name: String = "",
+    var dataType: DataTypes = DataTypes.STRING
+)
+
