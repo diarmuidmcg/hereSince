@@ -8,15 +8,22 @@ import io.realm.kotlin.types.RealmObject
 import io.realm.kotlin.types.RealmSet
 import io.realm.kotlin.types.annotations.PrimaryKey
 
+enum class DataTypes {
+    BOOL,
+    STRING,
+    DATE
+}
 
 open class JarAdditionalInfo(
     var name: String = "",
     var content: String = "",
+    var type: Enum<DataTypes> = DataTypes.STRING
 ) :RealmObject {
     constructor() : this("", "") // Empty constructor for Realm
     constructor(copyAddInfo: JarAdditionalInfo) : this() {
        name = copyAddInfo.name
         content = copyAddInfo.content
+        type = copyAddInfo.type
     }
 }
 
