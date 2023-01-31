@@ -9,6 +9,15 @@
 import SwiftUI
 import shared
 
+struct JarOption {
+//    static func < (lhs: JarOption, rhs: JarOption) -> Bool {
+//        return true
+//    }
+    
+    let name: String
+    let dataType: DataTypes
+}
+
 struct JarDetails: View {
     @ObservedObject var vm : IOSJarViewModel
     var jar : Jar
@@ -17,10 +26,15 @@ struct JarDetails: View {
     @State var isEditing = false;
     @State var showOptions = false;
 //    can eventually create this on backend
-    var jarOptions = ["Ingredients", "Expiration Date", "Caffeinated?", "Vegetarian?"]
-        @State private var selectedJarOption = "Ingredients"
+    let jarOptions = [
+        JarOption(name: "Ingredients",dataType: DataTypes.string),
+        JarOption(name: "Expiration Date",dataType: DataTypes.date),
+        JarOption(name: "Caffeionated",dataType: DataTypes.bool_),
+        JarOption(name: "Vegetarian",dataType: DataTypes.bool_)
+    ]
+    @State private var selectedJarOption = "Ingredients"
     @State var addingJarInfo = Array<JarAdditionalInfo>()
-    @State var jarAddInfo : Set<JarAdditionalInfo>
+    @State var jarAddInfo : Array<JarAdditionalInfo>
     
 //    @State var jarChanges = Jar(copyJar: jar)
     @State var jarChanges : Jar
@@ -30,7 +44,7 @@ struct JarDetails: View {
         self.vm = vm
         self.jar = jar
         _jarChanges = State(initialValue: Jar(copyJar: jar))
-        _jarAddInfo = State(initialValue: jar.moreInfo)
+        _jarAddInfo = State(initialValue: jar.xtraInfo)
     }
     
     var body: some View {
@@ -127,10 +141,10 @@ struct JarDetails: View {
                     .padding()
                     .confirmationDialog("Add More Info",
                                         isPresented: $showOptions) {
-                        ForEach(jarOptions.sorted(by: <), id: \.self) { element in
+                        ForEach(jarOptions, id: \.name) { element in
                             Button {
-                                addingJarInfo.append(JarAdditionalInfo(name: element, content: "", type: DataTypes.string))
-                            } label: {Text(element)}
+                                addingJarInfo.append(JarAdditionalInfo(name: element.name, content: "", type: element.dataType))
+                            } label: {Text(element.name)}
 
                         }
                         Button("Cancel", role: .destructive) { showOptions = false }
