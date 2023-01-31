@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SignIn: View {
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     // so you can dismiss modal
 //    @Binding var showModal : Bool
     @Binding var email: String

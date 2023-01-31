@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Account: View {
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     
     var body: some View {
         if (!vm.hasAccount) {

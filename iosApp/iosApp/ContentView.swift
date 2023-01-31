@@ -22,7 +22,7 @@ struct ContentView: View {
     // tells app there is no host
     @State var throwCreateAccount = false
     
-    @ObservedObject var vm = IOSCounterViewModel()
+    @ObservedObject var vm = IOSJarViewModel()
     // main app
     var body: some View {
         ZStack{

@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 
 struct HomePage: View {
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     @Environment(\.colorScheme) var colorScheme
     @State var launchAccount = false
     

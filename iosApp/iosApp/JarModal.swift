@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 
 struct JarModal: View {
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     var body: some View {
         if (vm.loadingJar) {
             VStack {

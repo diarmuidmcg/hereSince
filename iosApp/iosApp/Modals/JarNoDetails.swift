@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 
 struct JarNoDetails: View {
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     @State var newJar = Jar()
     
     var body: some View {

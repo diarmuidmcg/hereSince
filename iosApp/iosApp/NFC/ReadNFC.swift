@@ -12,10 +12,10 @@ import SwiftUI
 
 class ReadNFC: NSObject, ObservableObject, NFCTagReaderSessionDelegate {
     
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     var session: NFCTagReaderSession?
     
-    init(vm: IOSCounterViewModel) {
+    init(vm: IOSJarViewModel) {
         self.vm = vm
     }
     

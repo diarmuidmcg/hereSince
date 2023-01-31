@@ -11,7 +11,7 @@ import shared
 
 struct SingleJarMinimized: View {
     var singleJar : Jar
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
 //    if the jar is owned by others, you wanna see the owner name on prev jar tab
     var isPrevious : Bool?
     @State var launchModal = false

@@ -25,7 +25,7 @@ class ObservableViewModel {
     }
 }
 
-class IOSCounterViewModel: ObservableViewModel, ObservableObject {
+class IOSJarViewModel: ObservableViewModel, ObservableObject {
     @Published var loadingJar: Bool = false
     @Published var launchModal: Bool = false
     @Published var launchAccount: Bool = false

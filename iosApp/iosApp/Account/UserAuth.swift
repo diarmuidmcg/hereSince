@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UserAuth: View {
     
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     @State var email: String = ""
     @State var password: String = ""
     

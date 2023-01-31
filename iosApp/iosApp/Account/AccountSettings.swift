@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AccountSettings: View {
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
     var body: some View {
         VStack {
             HStack{

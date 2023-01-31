@@ -10,12 +10,12 @@ import SwiftUI
 import shared
 
 struct TapJarButton: View {
-    @ObservedObject var vm : IOSCounterViewModel
+    @ObservedObject var vm : IOSJarViewModel
 //    not taken from parent, created in init
     @ObservedObject var readNfc : ReadNFC
   
 //    init function bc ReadNfc takes the other struct param ViewModel as a param
-    init(vm:IOSCounterViewModel) {
+    init(vm:IOSJarViewModel) {
         self.vm = vm
         self.readNfc = ReadNFC(vm: vm)
     }
