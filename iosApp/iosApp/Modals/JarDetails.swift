@@ -9,10 +9,6 @@
 import SwiftUI
 import shared
 
-//struct JarOption {
-//    let name: String
-//    let dataType: DataTypes
-//}
 
 struct JarDetails: View {
     @ObservedObject var vm : IOSJarViewModel
@@ -23,14 +19,13 @@ struct JarDetails: View {
     @State var showOptions = false;
 //    can eventually create this on backend
     let jarOptions = [
-        JarOption(name: "Ingredients",dataType: DataTypes.string),
-        JarOption(name: "Expiration Date",dataType: DataTypes.date),
-        JarOption(name: "Caffeionated",dataType: DataTypes.bool_),
-        JarOption(name: "Vegetarian",dataType: DataTypes.bool_)
+        JarAdditionalInfo(name: "Ingredients",content:"",type: DataTypes.string),
+        JarAdditionalInfo(name: "Expiration Date",content:"",type: DataTypes.date),
+        JarAdditionalInfo(name: "Caffeinated",content:"",type: DataTypes.bool_),
+        JarAdditionalInfo(name: "Vegetarian",content:"",type: DataTypes.bool_)
     ]
-    @State private var selectedJarOption = "Ingredients"
-    @State var addingJarInfo = Array<JarAdditionalInfo>()
-    @State var jarAddInfo : Array<JarAdditionalInfo>
+//    options to be shown after removing existing ones
+    var shownJarOptions = Array<JarAdditionalInfo>()
     
 //    @State var jarChanges = Jar(copyJar: jar)
     @State var jarChanges : Jar
@@ -40,7 +35,20 @@ struct JarDetails: View {
         self.vm = vm
         self.jar = jar
         _jarChanges = State(initialValue: Jar(copyJar: jar))
-        _jarAddInfo = State(initialValue: jar.xtraInfo)
+        for option in jarOptions {
+            print("iteraing")
+            if !jarChanges.xtraInfo.contains(option) {
+                print("adding " + option.name)
+                self.shownJarOptions.append(option)
+
+            }
+        }
+        print("this many options " + String(shownJarOptions.count))
+    }
+    
+    func populateShownOptions() {
+        
+
     }
     
     var body: some View {
@@ -94,33 +102,18 @@ struct JarDetails: View {
                         Text("\(element.content)")
                     }
                 }
-                ForEach(jar.xtraInfo) { element in
-                    Section(header: Text("\(element.name)"))
-                    {
-                        Text("\(element.content)")
-                    }
-                }
-                
-                if isEditing {
 
-                    ForEach(addingJarInfo.indices, id: \.self) { element in
-                        Section(header: Text("\(addingJarInfo[element].name)"))
-                        {
-                            TextField(addingJarInfo[element].content, text: $addingJarInfo[element].content)
+                ForEach(jarChanges.xtraInfo.indices, id: \.self) { element in
+                    Section(header: Text("\(jarChanges.xtraInfo[element].name)"))
+                    {
+                        if isEditing {
+                            TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
+                        }
+                        else {
+                            Text("\(jarChanges.xtraInfo[element].content)")
                         }
                     }
                 }
-//                if isEditing {
-//
-//                    ForEach(jarAddInfo.sorted(by: <), id: \.self) { element in
-//                        Section(header: Text("\(addingJarInfo[element].name)"))
-//                        {
-//                            TextField(addingJarInfo[element].content, text: $addingJarInfo[element].content)
-//                        }
-//                    }
-//                }
-        
-                    
                 
             }
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
@@ -137,9 +130,9 @@ struct JarDetails: View {
                     .padding()
                     .confirmationDialog("Add More Info",
                                         isPresented: $showOptions) {
-                        ForEach(jarOptions, id: \.name) { element in
+                        ForEach(shownJarOptions, id: \.name) { element in
                             Button {
-                                addingJarInfo.append(JarAdditionalInfo(name: element.name, content: "", type: element.dataType))
+                                jarChanges.xtraInfo.append(JarAdditionalInfo(name: element.name, content: "", type: element.type))
                             } label: {Text(element.name)}
 
                         }
@@ -153,16 +146,7 @@ struct JarDetails: View {
                 Button{
                     isEditing = false
                     
-//                    vm.updateJarById(jarId: jar._id, newJar: jarChanges)
-                    for l in addingJarInfo{
-                        print(l.content)
-                    }
-                    let setOfAddInfo = Set(addingJarInfo.map { $0 })
-                    
-                    jarChanges.additionalInfo = setOfAddInfo as! KotlinMutableSet<JarAdditionalInfo>
-                    for l in jarChanges.additionalInfo{
-                        print(l)
-                    }
+                    vm.updateJarById(jarId: jar._id, newJar: jarChanges)
                 } label:{
                     Text("Save")
                         .foregroundColor(Color.white)

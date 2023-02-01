@@ -215,6 +215,7 @@ class JarRepository {
                             if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
                             jarOwnerUserId = user.id
                             if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
+                            if (newJar.extraInfo != null) extraInfo = newJar.extraInfo
                         }
                     }
                     //                        set the current jar to the JarOverview (includes type)
