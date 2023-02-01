@@ -201,7 +201,7 @@ class JarRepository {
     /**
      * Get a jar by its Id
      */
-    fun updateJarById(jarId: String, newJar: Jar) {
+    fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarAdditionalInfo>) {
         print("finding jar at " + jarId)
         CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
 
@@ -215,7 +215,11 @@ class JarRepository {
                             if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
                             jarOwnerUserId = user.id
                             if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
-                            if (newJar.extraInfo != null) extraInfo = newJar.extraInfo
+                            for (i in xtraInfo.toMutableList()) {
+                                println("mutable list is " + i.name + " " + i.content)
+                            }
+
+                            extraInfo = xtraInfo.toMutableList()
                         }
                     }
                     //                        set the current jar to the JarOverview (includes type)

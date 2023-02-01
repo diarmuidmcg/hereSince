@@ -4,6 +4,7 @@ import CommonFlow
 import CommonStateFlow
 import com.diarmuiddevs.heresince.model.JarOverview
 import com.diarmuiddevs.heresince.model.entity.Jar
+import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 import io.realm.kotlin.mongodb.User
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
@@ -27,7 +28,7 @@ interface JarViewModel: SharedViewModel {
     fun enableWifi()
     fun disableWifi()
     fun findJarById(jarId: String)
-    fun updateJarById(jarId: String, newJar: Jar)
+    fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarAdditionalInfo>)
 }
 
 interface SharedViewModel {

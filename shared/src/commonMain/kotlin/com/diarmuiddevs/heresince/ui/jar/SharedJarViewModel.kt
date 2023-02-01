@@ -7,6 +7,7 @@ import asCommonStateFlow
 import com.diarmuiddevs.heresince.model.JarOverview
 import com.diarmuiddevs.heresince.model.JarRepository
 import com.diarmuiddevs.heresince.model.entity.Jar
+import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 
 /**
  * Class for the shared parts of the ViewModel.
@@ -82,8 +83,8 @@ class SharedJarViewModel: JarViewModel {
     override fun findJarById(jarId: String) {
         repository.findJarById(jarId)
     }
-    override fun updateJarById(jarId: String, newJar: Jar){
-        repository.updateJarById(jarId,newJar)
+    override fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarAdditionalInfo>){
+        repository.updateJarById(jarId,newJar, xtraInfo)
     }
 
 }

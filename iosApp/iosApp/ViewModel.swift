@@ -65,10 +65,11 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         self.launchModal = true
         vm.findJarById(jarId: jarId)
     }
-    func updateJarById(jarId: String,newJar:Jar){
+    func updateJarById(jarId: String,newJar:Jar, xtraInfo: Array<JarAdditionalInfo>){
         self.loadingJar = true
         print("updating jar")
-        vm.updateJarById(jarId: jarId.uppercased(),newJar:newJar)
+        
+        vm.updateJarById(jarId: jarId.uppercased(),newJar:newJar, xtraInfo: xtraInfo)
     }
     
     func signUserUpEmail(email: String, password: String){

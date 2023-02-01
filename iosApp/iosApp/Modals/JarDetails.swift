@@ -35,20 +35,16 @@ struct JarDetails: View {
         self.vm = vm
         self.jar = jar
         _jarChanges = State(initialValue: Jar(copyJar: jar))
+        populateShownOptions()
+    }
+    
+    mutating func populateShownOptions() {
         for option in jarOptions {
-            print("iteraing")
             if !jarChanges.xtraInfo.contains(option) {
-                print("adding " + option.name)
                 self.shownJarOptions.append(option)
 
             }
         }
-        print("this many options " + String(shownJarOptions.count))
-    }
-    
-    func populateShownOptions() {
-        
-
     }
     
     var body: some View {
@@ -114,6 +110,18 @@ struct JarDetails: View {
                         }
                     }
                 }
+//                ForEach(jarChanges.additionalInfo.compactMap { $0 as? JarAdditionalInfo }, id: \.name) { element in
+//                     Section(header: Text("\(element.name)"))
+//                     {
+//                         if isEditing {
+////                             TextField(element.content, text: jarChanges.additionalInfo.)
+//                         }
+//                         else {
+//                             Text("\(element.content)")
+//                         }
+//                     }
+//                }
+               
                 
             }
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
@@ -133,6 +141,7 @@ struct JarDetails: View {
                         ForEach(shownJarOptions, id: \.name) { element in
                             Button {
                                 jarChanges.xtraInfo.append(JarAdditionalInfo(name: element.name, content: "", type: element.type))
+                                jarChanges.extraInfo.add(JarAdditionalInfo(name: element.name, content: "", type: element.type))
                             } label: {Text(element.name)}
 
                         }
@@ -146,7 +155,7 @@ struct JarDetails: View {
                 Button{
                     isEditing = false
                     
-                    vm.updateJarById(jarId: jar._id, newJar: jarChanges)
+                    vm.updateJarById(jarId: jar._id, newJar: jarChanges, xtraInfo: jarChanges.xtraInfo)
                 } label:{
                     Text("Save")
                         .foregroundColor(Color.white)

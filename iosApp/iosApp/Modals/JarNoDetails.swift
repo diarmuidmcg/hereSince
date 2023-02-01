@@ -43,7 +43,7 @@ struct JarNoDetails: View {
                 //                .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
             }
             Button("Save"){
-                vm.updateJarById(jarId: vm.currJar.jar._id, newJar: newJar)
+                vm.updateJarById(jarId: vm.currJar.jar._id, newJar: newJar, xtraInfo: newJar.xtraInfo)
             }
                 .foregroundColor(.primary)
                 .buttonStyle(.borderless)
