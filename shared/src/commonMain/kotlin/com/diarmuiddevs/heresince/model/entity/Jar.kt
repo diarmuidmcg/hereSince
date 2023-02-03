@@ -19,7 +19,7 @@ open class JarAdditionalInfo(
     var content: String = "",
     var type: Enum<DataTypes> = DataTypes.STRING
 ) :RealmObject {
-    constructor() : this("", "") // Empty constructor for Realm
+    constructor() : this(name = "",content="") // Empty constructor for Realm
     constructor(copyAddInfo: JarAdditionalInfo) : this() {
        name = copyAddInfo.name
         content = copyAddInfo.content
@@ -35,7 +35,7 @@ open class Jar(
     var jarOwnerName: String = "",
     var jarOwnerUserId: String? = null,
     var additionalInfo: MutableSet<JarAdditionalInfo> = mutableSetOf(),
-    var extraInfo: MutableList<JarAdditionalInfo> = mutableListOf()
+    var extraInfo: MutableList<JarAdditionalInfo> = mutableListOf<JarAdditionalInfo>(),
 ) :RealmObject {
     constructor() : this(
         _id = ObjectId.create().toString(),

@@ -1,5 +1,6 @@
 package com.diarmuiddevs.heresince.model
 
+import com.diarmuiddevs.heresince.model.entity.DataTypes
 import com.diarmuiddevs.heresince.model.entity.Jar
 import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 import io.realm.kotlin.Realm
@@ -47,7 +48,10 @@ class JarRepository {
 //            if has api or json stored -> use that
             println("runs on launch")
 //            else use credentials
-            user = app.login(Credentials.anonymous(reuseExisting = true))
+            user = if (app.currentUser == null) {
+                app.login(Credentials.anonymous(reuseExisting = true))
+            } else app.currentUser!!
+
             val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
                 .initialSubscriptions { realm: Realm ->
                     add(realm.query<Jar>())
@@ -185,7 +189,7 @@ class JarRepository {
                         // print out initial results
                         is InitialResults<Jar> -> {
                             for (frog in results.list) {
-                                println("Frog: ${frog._id}")
+                                println("Frog: ${frog.extraInfo}")
                             }
                         }
                         else -> {
@@ -214,12 +218,12 @@ class JarRepository {
                             if (newJar.hereSince != "") hereSince = newJar.hereSince
                             if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
                             jarOwnerUserId = user.id
-                            if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
-                            for (i in xtraInfo.toMutableList()) {
-                                println("mutable list is " + i.name + " " + i.content)
-                            }
-
-                            extraInfo = xtraInfo.toMutableList()
+//                            if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
+//                            for (i in xtraInfo.toMutableList()) {
+//                                println("mutable list is " + i.name + " " + i.content)
+//                            }
+//                            additionalInfo.add(JarAdditionalInfo(name = "test", content = "test", type = DataTypes.STRING))
+//                            extraInfo.add(JarAdditionalInfo(name = "test", content = "test", type = DataTypes.STRING))
                         }
                     }
                     //                        set the current jar to the JarOverview (includes type)
