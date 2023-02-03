@@ -25,34 +25,35 @@ import kotlinx.coroutines.flow.*
  * expose updates to it.
  */
 
+open class UserDetails {
+    var hasAccount : Boolean = false
+    var userJars : MutableList<Jar> = mutableListOf()
+    lateinit  var user : io.realm.kotlin.mongodb.User
+    var error = ""
+}
+
 class JarRepository {
 
     private var realm: Realm
     private val app: App = App.create("heresincekotlin-mcafp")
 
-
     private var syncEnabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
     private var _jarStateFlow: MutableStateFlow<JarOverview> =
         MutableStateFlow(JarOverview(JARTYPE.NOTREGISTERED, jar = Jar()))
     private var _previousJars: MutableStateFlow<MutableList<Jar>> = MutableStateFlow(mutableListOf())
-    private var _userJars: MutableStateFlow<MutableList<Jar>> =
-        MutableStateFlow(mutableListOf())
 
-    private var _hasAccount: MutableStateFlow<Boolean> = MutableStateFlow(false)
-    lateinit var user : io.realm.kotlin.mongodb.User
+    private var _userDetails: MutableStateFlow<UserDetails> = MutableStateFlow(UserDetails())
 
     init {
 //        set up the realm on app launch
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
-//            if has api or json stored -> use that
-            println("runs on launch")
-//            else use credentials
-            user = if (app.currentUser == null) {
+//    check if there exists a user -> otherwise use anon
+            _userDetails.value.user = if (app.currentUser == null) {
                 app.login(Credentials.anonymous(reuseExisting = true))
             } else app.currentUser!!
 
-            val config = SyncConfiguration.Builder(user, schema = setOf(Jar::class))
+            val config = SyncConfiguration.Builder(_userDetails.value.user, schema = setOf(Jar::class))
                 .initialSubscriptions { realm: Realm ->
                     add(realm.query<Jar>())
                 }
@@ -63,7 +64,7 @@ class JarRepository {
 //            Realm.open(configuration)
 
         }
-        println("user id " + user.id)
+        println("user id " + _userDetails.value.user.id)
         userHasCreatedAcc()
         findAllJars()
     }
@@ -80,11 +81,12 @@ class JarRepository {
                     // registers an email/password user
                     app.emailPasswordAuth.registerUser(email, password)
                     // links anonymous user with email/password credentials
-                    user.linkCredentials(Credentials.emailPassword(email, password));
+                    _userDetails.value.user.linkCredentials(Credentials.emailPassword(email, password));
 //                    set custom data
-                    _hasAccount.value = true
+                    _userDetails.value.hasAccount = true
                 } catch (e: AppException) {
 //
+                    _userDetails.value.error = e.toString()
                 }
             }
         }
@@ -98,13 +100,14 @@ class JarRepository {
             async { // wrap on async call
                 try { // wrap try catch to avoid nothing being returned
 //                  make query getting first (& only) jar w given jarId
-                    user = app.login(Credentials.emailPassword(email,password))
+                    _userDetails.value.user = app.login(Credentials.emailPassword(email,password))
 
-                    println("signed user in " + user.id)
-                    _hasAccount.value = true
+                    println("signed user in " + _userDetails.value.user.id)
+                    _userDetails.value.hasAccount = true
                 } catch (e: AppException) {
 //
                     println("error signing user in $e")
+                    _userDetails.value.error = e.toString()
                 }
             }
         }
@@ -118,19 +121,20 @@ class JarRepository {
             async { // wrap on async call
                 try { // wrap try catch to avoid nothing being returned
 //                  log user out
-                    user.logOut()
-                    _hasAccount.value = false
+                    _userDetails.value.user.logOut()
+                    _userDetails.value.hasAccount = false
 //                    create a new anon user to use sync
-                    user = app.login(Credentials.anonymous(reuseExisting = true))
+                    _userDetails.value.user = app.login(Credentials.anonymous(reuseExisting = true))
 //                    reset prev & user jars
                     _previousJars.update {
                         _previousJars.value.toMutableList().apply { this.clear()}
                     }
-                    _userJars.update {
-                        _userJars.value.toMutableList().apply { this.clear()}
+                    _userDetails.update {
+                        _userDetails.value.apply { this.userJars.clear()}
                     }
                 } catch (e: AppException) {
 //
+                    _userDetails.value.error = e.toString()
                 }
             }
         }
@@ -139,9 +143,9 @@ class JarRepository {
      * small func to determine if user has set up account instead of anon
      */
     fun userHasCreatedAcc()  {
-        println("checking if has acc " + user.identities.count().toString())
+        println("checking if has acc " + _userDetails.value.user.identities.count().toString())
 //        any user will default 1 auth identifty (anon). If they add another (email, apple, etc), they will have more than 1
-        _hasAccount.value = user.identities.count() > 1
+        _userDetails.value.hasAccount = _userDetails.value.user.identities.count() > 1
     }
 
     /**
@@ -217,7 +221,7 @@ class JarRepository {
                             if (newJar.jarContentName != "") jarContentName = newJar.jarContentName
                             if (newJar.hereSince != "") hereSince = newJar.hereSince
                             if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
-                            jarOwnerUserId = user.id
+                            jarOwnerUserId = _userDetails.value.user.id
 //                            if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
 //                            for (i in xtraInfo.toMutableList()) {
 //                                println("mutable list is " + i.name + " " + i.content)
@@ -266,13 +270,9 @@ class JarRepository {
         println("observing prev jar")
         return _previousJars
     }
-    fun observeUserJars(): StateFlow<MutableList<Jar>> {
-        println("observing user  jars")
-        return _userJars
-    }
-    fun observeHasAccount(): StateFlow<Boolean> {
-        println("observing has  acc")
-        return _hasAccount
+    fun observeUserDetails(): StateFlow<UserDetails> {
+        println("observing user details")
+        return _userDetails
     }
 
 

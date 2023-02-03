@@ -37,6 +37,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
 //    @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
     @Published var prevJars: Array<Jar> = Array<Jar>()
     @Published var userJars: Array<Jar> = Array<Jar>()
+    @Published var user: UserDetails = UserDetails()
     
 
     private let vm: SharedJarViewModel = SharedJarViewModel()
@@ -108,16 +109,19 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
             print("updating prev jars")
             self.prevJars = prevJarsList as! Array<Jar>
         })
-        addObserver(observer: vm.observeUserJars().watch { jarList in
-            self.userJars = jarList as! Array<Jar>
+        addObserver(observer: vm.observeUserDetails().watch { userD in
+            self.user = userD!
         })
-        addObserver(observer: vm.observeHasAccount().watch { account in
-            if (account!.boolValue) {
-                self.hasAccount = true
-            } else {
-                self.hasAccount = false
-            }
-        })
+//        addObserver(observer: vm.observeUserJars().watch { jarList in
+//            self.userJars = jarList as! Array<Jar>
+//        })
+//        addObserver(observer: vm.observeHasAccount().watch { account in
+//            if (account!.boolValue) {
+//                self.hasAccount = true
+//            } else {
+//                self.hasAccount = false
+//            }
+//        })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
                 self.enabled = true

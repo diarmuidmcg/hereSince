@@ -6,6 +6,7 @@ import asCommonFlow
 import asCommonStateFlow
 import com.diarmuiddevs.heresince.model.JarOverview
 import com.diarmuiddevs.heresince.model.JarRepository
+import com.diarmuiddevs.heresince.model.UserDetails
 import com.diarmuiddevs.heresince.model.entity.Jar
 import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 
@@ -40,10 +41,10 @@ class SharedJarViewModel: JarViewModel {
         return repository.observePrevJars()
             .asCommonStateFlow()
     }
-    override fun observeUserJars():CommonStateFlow<MutableList<Jar>> {
-        return repository.observeUserJars()
-            .asCommonStateFlow()
-    }
+//    override fun observeUserJars():CommonStateFlow<MutableList<Jar>> {
+//        return repository.observeUserJars()
+//            .asCommonStateFlow()
+//    }
 
     override fun observeWifiState(): CommonStateFlow<Boolean> {
         return repository.observeSyncConnection()
@@ -58,8 +59,8 @@ class SharedJarViewModel: JarViewModel {
         repository.enableSync(false)
     }
 
-    override fun observeHasAccount(): CommonStateFlow<Boolean> {
-        return repository.observeHasAccount()
+    override fun observeUserDetails(): CommonStateFlow<UserDetails> {
+        return repository.observeUserDetails()
             .asCommonStateFlow()
     }
 

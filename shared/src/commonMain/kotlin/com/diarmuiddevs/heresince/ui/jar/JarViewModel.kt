@@ -3,6 +3,7 @@ package com.diarmuiddevs.heresince.ui.jar
 import CommonFlow
 import CommonStateFlow
 import com.diarmuiddevs.heresince.model.JarOverview
+import com.diarmuiddevs.heresince.model.UserDetails
 import com.diarmuiddevs.heresince.model.entity.Jar
 import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 import io.realm.kotlin.mongodb.User
@@ -15,13 +16,13 @@ import kotlinx.coroutines.flow.StateFlow
 interface JarViewModel: SharedViewModel {
     fun observeJarOverview(): CommonStateFlow<JarOverview>
     fun observePrevJars(): CommonStateFlow<MutableList<Jar>>
-    fun observeUserJars(): CommonStateFlow<MutableList<Jar>>
+//    fun observeUserJars(): CommonStateFlow<MutableList<Jar>>
     fun signUserUpEmail(email: String, password:String)
     fun signUserInEmail(email: String, password:String)
     fun signOut()
 //    may not export this
     fun userHasCreatedAcc()
-    fun observeHasAccount(): CommonStateFlow<Boolean>
+    fun observeUserDetails(): CommonStateFlow<UserDetails>
 
 
     fun observeWifiState(): CommonStateFlow<Boolean>
