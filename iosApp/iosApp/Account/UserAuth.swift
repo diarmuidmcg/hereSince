@@ -26,8 +26,8 @@ struct UserAuth: View {
                     }
                 } label: {
                     Text("Sign up")
-                        .addUnderline(active: onSignUp, color: .primary)
-                        .foregroundColor(Color.primary)
+                        .addUnderline(active: onSignUp, color: Color("TextColor"))
+                        .foregroundColor(Color("TextColor"))
                         .padding(.horizontal)
                     
                 }
@@ -38,8 +38,8 @@ struct UserAuth: View {
                     
                 } label: {
                     Text("Sign in")
-                        .addUnderline(active: !onSignUp, color: .primary)
-                        .foregroundColor(Color.primary)
+                        .addUnderline(active: !onSignUp, color: Color("TextColor"))
+                        .foregroundColor(Color("TextColor"))
                         .padding(.horizontal)
                 }
                 Spacer()
@@ -47,18 +47,23 @@ struct UserAuth: View {
                 
             }
             .padding()
-            Spacer()
+
             ZStack{
                 Color.primary
                                 .ignoresSafeArea()
-                if (onSignUp) {
-                    SignUp(vm: vm,email: $email, password: $password)
-                        .padding(.horizontal)
+                VStack{
+                    
+                    if (onSignUp) {
+                        SignUp(vm: vm,email: $email, password: $password)
+                            .padding(.horizontal)
+                    }
+                    else {
+                        SignIn(vm: vm,email: $email, password: $password)
+                            .padding(.horizontal)
+                    }
+                    Spacer()
                 }
-                else {
-                    SignIn(vm: vm,email: $email, password: $password)
-                        .padding(.horizontal)
-                }
+                .padding(.top)
             }
 //            .padding()
             Spacer()
