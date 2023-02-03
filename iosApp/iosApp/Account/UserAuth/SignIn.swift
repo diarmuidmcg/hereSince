@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import shared
 
 
 struct SignIn: View {
@@ -35,8 +36,8 @@ struct SignIn: View {
         ZStack{
             VStack{
                 VStack{
-                    if (vm.user.error != "") {
-                        Text(vm.user.error)
+                    if (vm.user.error.message != nil) {
+                        Text((vm.user.showErrorText()))
                             .foregroundColor(.red)
                     }
                     // email

@@ -5,6 +5,7 @@ import com.diarmuiddevs.heresince.model.entity.Jar
 import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.exceptions.RealmException
 //import io.realm.kotlin.demo.model.entity.Jar
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_ID
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_PASSWORD
@@ -12,7 +13,7 @@ import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.internal.platform.runBlocking
 import io.realm.kotlin.mongodb.*
-import io.realm.kotlin.mongodb.exceptions.AppException
+import io.realm.kotlin.mongodb.exceptions.*
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.notifications.InitialResults
 import io.realm.kotlin.notifications.ResultsChange
@@ -25,11 +26,13 @@ import kotlinx.coroutines.flow.*
  * expose updates to it.
  */
 
+
+
 open class UserDetails {
     var hasAccount : Boolean = false
     var userJars : MutableList<Jar> = mutableListOf()
     var user : io.realm.kotlin.mongodb.User? = null
-    var error = ""
+    var error :RealmException = RealmException()
     constructor()  {
     } // Empty constructor for Realm
     constructor(copyUserD: UserDetails) {
@@ -37,6 +40,17 @@ open class UserDetails {
         userJars = copyUserD.userJars
         user = copyUserD.user
         error = copyUserD.error
+
+    }
+
+    fun showErrorText() : String{
+        return when (error) {
+            is InvalidCredentialsException -> "Invalid Username or Password"
+            is AppException -> "There was a back-end issue"
+            else -> {
+                "There was an Error"
+            }
+        }
     }
 }
 
@@ -98,7 +112,7 @@ class JarRepository {
                     _userDetails.value.hasAccount = true
                 } catch (e: AppException) {
 //
-                    _userDetails.value.error = e.toString()
+                    _userDetails.value.error = e
                 }
             }
         }
@@ -122,10 +136,10 @@ class JarRepository {
 
 
                     val newUserD = UserDetails(_userDetails.value)
-                    newUserD.error = e.toString()
-                    _userDetails.apply {
+                    newUserD.error = e
+//                    _userDetails.apply {
                         _userDetails.value = newUserD
-                    }
+//                    }
                 }
             }
         }
@@ -152,7 +166,7 @@ class JarRepository {
                     }
                 } catch (e: AppException) {
 //
-                    _userDetails.value.error = e.toString()
+                    _userDetails.value.error = e
                 }
             }
         }

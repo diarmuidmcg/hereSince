@@ -114,7 +114,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
 //            leave account modal if signed in
             if ((userD?.hasAccount) != false) {self.launchAccount = false}
             
-            print("user error is " + userD!.error)
+//            print("user error is " + (userD!.error? ?? "nothing"))
             
         })
 //        addObserver(observer: vm.observeUserJars().watch { jarList in
