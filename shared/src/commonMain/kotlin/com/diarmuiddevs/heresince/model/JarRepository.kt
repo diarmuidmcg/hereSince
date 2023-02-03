@@ -9,6 +9,7 @@ import io.realm.kotlin.Realm
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_USER
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.mongodb.*
+import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.notifications.InitialResults
 import io.realm.kotlin.notifications.ResultsChange
 import kotlinx.coroutines.*
@@ -31,6 +32,13 @@ class JarRepository {
 
     constructor(realmD: Realm) {
         realm = realmD
+//        maybe add jar subscription here?
+//        realm.configuration.apply {
+//            SyncConfiguration.Builder(app.currentUser!!, schema = setOf(Jar::class))
+//                .initialSubscriptions { realm: Realm ->
+//                    add(realm.query<Jar>())
+//                }
+//        }
     }
 
     /**

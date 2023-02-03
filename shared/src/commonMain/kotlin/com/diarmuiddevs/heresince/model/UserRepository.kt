@@ -1,10 +1,10 @@
 package com.diarmuiddevs.heresince.model
 
 import com.diarmuiddevs.heresince.model.entity.Jar
-import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
+
 import io.realm.kotlin.Realm
+import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.exceptions.RealmException
-//import io.realm.kotlin.demo.model.entity.Jar
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_ID
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_PASSWORD
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_USER
@@ -13,8 +13,6 @@ import io.realm.kotlin.internal.platform.runBlocking
 import io.realm.kotlin.mongodb.*
 import io.realm.kotlin.mongodb.exceptions.*
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
-import io.realm.kotlin.notifications.InitialResults
-import io.realm.kotlin.notifications.ResultsChange
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
@@ -66,7 +64,6 @@ class UserRepository {
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
 //    check if there exists a user -> otherwise use anon
-
             _userDetails.value.user = if (app.currentUser == null) {
                 app.login(Credentials.anonymous(reuseExisting = true))
             } else app.currentUser!!
@@ -102,6 +99,7 @@ class UserRepository {
                     // links anonymous user with email/password credentials
                     newUserD.user?.linkCredentials(Credentials.emailPassword(email, password));
                     newUserD.hasAccount = true
+                    newUserD.error = RealmException()
                     _userDetails.value = newUserD
                 } catch (e: AppException) {
                     println("error signing user up $e")
@@ -127,6 +125,7 @@ class UserRepository {
                     val newUserD = UserDetails(_userDetails.value)
                     newUserD.user = app.login(Credentials.emailPassword(email,password))
                     newUserD.hasAccount = true
+                    newUserD.error = RealmException()
                     _userDetails.value = newUserD
                 } catch (e: AppException) {
                     println("error signing user in $e")
@@ -155,6 +154,8 @@ class UserRepository {
                     newUserD.user = app.login(Credentials.anonymous(reuseExisting = true))
 //                    reset prev & user jars
                     newUserD.userJars.clear()
+//                    reset error
+                    newUserD.error = RealmException()
                     _userDetails.value = newUserD
 
 
