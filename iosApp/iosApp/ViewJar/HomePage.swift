@@ -21,19 +21,16 @@ struct HomePage: View {
                     .foregroundColor(Color("TextColor"))
                     .padding(20)
                     .padding(.top, 20)
-//                        .padding(.bottom, 20)
                 Spacer()
                 Button(action: {
                     vm.launchAccount = true
                 }, label: {
                     ZStack{
-    //                    if no account
-                        if (!vm.user.hasAccount) {
+                        if (!vm.user.hasAccount) { //   if no account
                             Image(systemName: "person.crop.circle.fill.badge.plus")
                                 .font(.system(size: 30))
                         }
-    //                    else has account
-                        else {
+                        else { //  else has account
                             Image(systemName: "person.crop.circle.fill")
                                     .font(.system(size: 30))
                         }

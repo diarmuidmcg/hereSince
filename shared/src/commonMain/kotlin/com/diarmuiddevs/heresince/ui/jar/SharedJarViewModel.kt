@@ -7,6 +7,7 @@ import asCommonStateFlow
 import com.diarmuiddevs.heresince.model.JarOverview
 import com.diarmuiddevs.heresince.model.JarRepository
 import com.diarmuiddevs.heresince.model.UserDetails
+import com.diarmuiddevs.heresince.model.UserRepository
 import com.diarmuiddevs.heresince.model.entity.Jar
 import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
 import kotlinx.coroutines.flow.SharedFlow
@@ -32,61 +33,61 @@ class SharedJarViewModel: JarViewModel {
     // Repository would probably be simpler, but by splitting the Repository
     // and ViewModel, we only need to enforce CommonFlows at the boundary, and
     // it means the CounterViewModel can be mocked easily in the View Layer.
-    private val repository = JarRepository()
+    private val userRepository = UserRepository()
+    lateinit private var jarRepository: JarRepository
+
+    init {
+        jarRepository = JarRepository(realmD = userRepository.realm)
+    }
 
     override fun observeJarOverview(): CommonStateFlow<JarOverview> {
-        return repository.observeJarOverview()
+        return jarRepository.observeJarOverview()
             .asCommonStateFlow()
     }
     override fun observePrevJars(): CommonStateFlow<MutableList<Jar>> {
-        return repository.observePrevJars()
+        return jarRepository.observePrevJars()
             .asCommonStateFlow()
     }
-//    override fun observeUserJars():CommonStateFlow<MutableList<Jar>> {
-//        return repository.observeUserJars()
-//            .asCommonStateFlow()
-//    }
 
     override fun observeWifiState(): CommonStateFlow<Boolean> {
-        return repository.observeSyncConnection()
+        return userRepository.observeSyncConnection()
             .asCommonStateFlow()
     }
 
     override fun enableWifi() {
-        repository.enableSync(true)
+        userRepository.enableSync(true)
     }
 
     override fun disableWifi() {
-        repository.enableSync(false)
+        userRepository.enableSync(false)
     }
 
     override fun observeUserDetails(): CommonStateFlow<UserDetails> {
-        return repository.observeUserDetails()
+        return userRepository.observeUserDetails()
             .asCommonStateFlow()
     }
 
     override fun signOut() {
-        return repository.signOut()
+        return userRepository.signOut()
     }
 
     override fun userHasCreatedAcc() {
-        repository.userHasCreatedAcc()
+        userRepository.userHasCreatedAcc()
     }
 
     override fun signUserUpEmail(email: String, password:String) {
-        repository.signUserUpEmail(email, password)
+        userRepository.signUserUpEmail(email, password)
     }
 
     override fun signUserInEmail(email: String, password:String) {
-        repository.signUserInEmail(email, password)
+        userRepository.signUserInEmail(email, password)
     }
-
 
     override fun findJarById(jarId: String) {
-        repository.findJarById(jarId)
+        jarRepository.findJarById(jarId)
     }
     override fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarAdditionalInfo>){
-        repository.updateJarById(jarId,newJar, xtraInfo)
+        jarRepository.updateJarById(jarId,newJar, xtraInfo)
     }
 
 }
