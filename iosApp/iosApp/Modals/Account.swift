@@ -12,7 +12,7 @@ struct Account: View {
     @ObservedObject var vm : IOSJarViewModel
     
     var body: some View {
-        if (!vm.hasAccount) {
+        if (!vm.user.hasAccount) {
             UserAuth(vm:vm)
         }
 //                    else has account

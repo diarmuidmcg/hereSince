@@ -47,6 +47,7 @@ open class UserDetails {
         return when (error) {
             is InvalidCredentialsException -> "Invalid Username or Password"
             is AppException -> "There was a back-end issue"
+            is UserAlreadyExistsException -> "There already exists a user with this profile"
             else -> {
                 "There was an Error"
             }
@@ -106,13 +107,19 @@ class JarRepository {
                 try { // wrap try catch to avoid nothing being returned
                     // registers an email/password user
                     app.emailPasswordAuth.registerUser(email, password)
+                    //                    need to copy & create new UserDetails to update mutable state flow before saving
+                    val newUserD = UserDetails(_userDetails.value)
                     // links anonymous user with email/password credentials
-                    _userDetails.value.user?.linkCredentials(Credentials.emailPassword(email, password));
-//                    set custom data
-                    _userDetails.value.hasAccount = true
+                    newUserD.user?.linkCredentials(Credentials.emailPassword(email, password));
+                    newUserD.hasAccount = true
+                    _userDetails.value = newUserD
                 } catch (e: AppException) {
-//
-                    _userDetails.value.error = e
+                    println("error signing user up $e")
+//                    need to copy & create new UserDetails to update mutable state flow before saving
+                    val newUserD = UserDetails(_userDetails.value)
+                    newUserD.error = e
+                    newUserD.hasAccount = false
+                    _userDetails.value = newUserD
                 }
             }
         }
@@ -125,21 +132,19 @@ class JarRepository {
         CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
             async { // wrap on async call
                 try { // wrap try catch to avoid nothing being returned
-//                  make query getting first (& only) jar w given jarId
-                    _userDetails.value.user = app.login(Credentials.emailPassword(email,password))
 
-//                    println("signed user in " + _userDetails.value.user.id)
-                    _userDetails.value.hasAccount = true
+                    //                    need to copy & create new UserDetails to update mutable state flow before saving
+                    val newUserD = UserDetails(_userDetails.value)
+                    newUserD.user = app.login(Credentials.emailPassword(email,password))
+                    newUserD.hasAccount = true
+                    _userDetails.value = newUserD
                 } catch (e: AppException) {
-//
                     println("error signing user in $e")
-
-
+//                    need to copy & create new UserDetails to update mutable state flow before saving
                     val newUserD = UserDetails(_userDetails.value)
                     newUserD.error = e
-//                    _userDetails.apply {
-                        _userDetails.value = newUserD
-//                    }
+                    newUserD.hasAccount = false
+                    _userDetails.value = newUserD
                 }
             }
         }
@@ -152,21 +157,26 @@ class JarRepository {
         CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
             async { // wrap on async call
                 try { // wrap try catch to avoid nothing being returned
+                    val newUserD = UserDetails(_userDetails.value)
 //                  log user out
-                    _userDetails.value.user?.logOut()
-                    _userDetails.value.hasAccount = false
+                    newUserD.user?.logOut()
+                    newUserD.hasAccount = false
 //                    create a new anon user to use sync
-                    _userDetails.value.user = app.login(Credentials.anonymous(reuseExisting = true))
+                    newUserD.user = app.login(Credentials.anonymous(reuseExisting = true))
 //                    reset prev & user jars
+                    newUserD.userJars.clear()
                     _previousJars.update {
                         _previousJars.value.toMutableList().apply { this.clear()}
                     }
-                    _userDetails.update {
-                        _userDetails.value.apply { this.userJars.clear()}
-                    }
+                    _userDetails.value = newUserD
+
+
                 } catch (e: AppException) {
-//
-                    _userDetails.value.error = e
+                    println("error signing user out $e")
+//                    need to copy & create new UserDetails to update mutable state flow before saving
+                    val newUserD = UserDetails(_userDetails.value)
+                    newUserD.error = e
+                    _userDetails.value = newUserD
                 }
             }
         }
@@ -176,8 +186,10 @@ class JarRepository {
      */
     fun userHasCreatedAcc()  {
         println("checking if has acc " + _userDetails.value.user?.identities?.count().toString())
+        val newUserD = UserDetails(_userDetails.value)
 //        any user will default 1 auth identifty (anon). If they add another (email, apple, etc), they will have more than 1
-        _userDetails.value.hasAccount = _userDetails.value.user?.identities?.count()!! > 1
+        newUserD.hasAccount = newUserD.user?.identities?.count()!! > 1
+        _userDetails.value = newUserD
     }
 
     /**

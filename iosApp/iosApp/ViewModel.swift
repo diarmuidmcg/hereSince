@@ -30,7 +30,6 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
     @Published var launchModal: Bool = false
     @Published var launchAccount: Bool = false
     @Published var enabled: Bool = true
-    @Published var hasAccount: Bool = false
     @Published var currJar: JarOverview = JarOverview(type: JARTYPE.notregistered, jar: Jar())
 //    store additional info in this bc SwiftUI ForEach can iterate a set, not a
 //    MutableKotlinSet because that does not implement Hashable
@@ -112,21 +111,15 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         addObserver(observer: vm.observeUserDetails().watch { userD in
             self.user = userD!
 //            leave account modal if signed in
-            if ((userD?.hasAccount) != false) {self.launchAccount = false}
+            if ((userD?.hasAccount) == true) {
+                print("user must hav account")
+                self.launchAccount = false
+                
+            }
             
 //            print("user error is " + (userD!.error? ?? "nothing"))
             
         })
-//        addObserver(observer: vm.observeUserJars().watch { jarList in
-//            self.userJars = jarList as! Array<Jar>
-//        })
-//        addObserver(observer: vm.observeHasAccount().watch { account in
-//            if (account!.boolValue) {
-//                self.hasAccount = true
-//            } else {
-//                self.hasAccount = false
-//            }
-//        })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {
                 self.enabled = true

@@ -42,6 +42,10 @@ struct SignUp: View {
         ZStack{
             VStack{
                 VStack{
+                    if (vm.user.error.message != nil) {
+                        Text((vm.user.showErrorText()))
+                            .foregroundColor(.red)
+                    }
                     // username
                     TextField("", text: $displayName)
                         .placeholder(when: displayName.isEmpty, placeholder: {
