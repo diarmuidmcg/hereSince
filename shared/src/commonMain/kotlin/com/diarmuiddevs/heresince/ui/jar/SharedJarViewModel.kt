@@ -9,6 +9,7 @@ import com.diarmuiddevs.heresince.model.JarRepository
 import com.diarmuiddevs.heresince.model.UserDetails
 import com.diarmuiddevs.heresince.model.entity.Jar
 import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
+import kotlinx.coroutines.flow.SharedFlow
 
 /**
  * Class for the shared parts of the ViewModel.

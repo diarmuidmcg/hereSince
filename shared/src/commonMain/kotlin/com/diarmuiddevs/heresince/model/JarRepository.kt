@@ -28,8 +28,16 @@ import kotlinx.coroutines.flow.*
 open class UserDetails {
     var hasAccount : Boolean = false
     var userJars : MutableList<Jar> = mutableListOf()
-    lateinit  var user : io.realm.kotlin.mongodb.User
+    var user : io.realm.kotlin.mongodb.User? = null
     var error = ""
+    constructor()  {
+    } // Empty constructor for Realm
+    constructor(copyUserD: UserDetails) {
+        hasAccount = copyUserD.hasAccount
+        userJars = copyUserD.userJars
+        user = copyUserD.user
+        error = copyUserD.error
+    }
 }
 
 class JarRepository {
@@ -44,16 +52,21 @@ class JarRepository {
 
     private var _userDetails: MutableStateFlow<UserDetails> = MutableStateFlow(UserDetails())
 
+    lateinit var user : io.realm.kotlin.mongodb.User
+
     init {
 //        set up the realm on app launch
         realm = runBlocking {
             // Log in user and open a synchronized Realm for that user.
 //    check if there exists a user -> otherwise use anon
+
+
             _userDetails.value.user = if (app.currentUser == null) {
                 app.login(Credentials.anonymous(reuseExisting = true))
             } else app.currentUser!!
 
-            val config = SyncConfiguration.Builder(_userDetails.value.user, schema = setOf(Jar::class))
+
+            val config = SyncConfiguration.Builder(_userDetails.value.user!!, schema = setOf(Jar::class))
                 .initialSubscriptions { realm: Realm ->
                     add(realm.query<Jar>())
                 }
@@ -64,7 +77,6 @@ class JarRepository {
 //            Realm.open(configuration)
 
         }
-        println("user id " + _userDetails.value.user.id)
         userHasCreatedAcc()
         findAllJars()
     }
@@ -81,7 +93,7 @@ class JarRepository {
                     // registers an email/password user
                     app.emailPasswordAuth.registerUser(email, password)
                     // links anonymous user with email/password credentials
-                    _userDetails.value.user.linkCredentials(Credentials.emailPassword(email, password));
+                    _userDetails.value.user?.linkCredentials(Credentials.emailPassword(email, password));
 //                    set custom data
                     _userDetails.value.hasAccount = true
                 } catch (e: AppException) {
@@ -102,12 +114,18 @@ class JarRepository {
 //                  make query getting first (& only) jar w given jarId
                     _userDetails.value.user = app.login(Credentials.emailPassword(email,password))
 
-                    println("signed user in " + _userDetails.value.user.id)
+//                    println("signed user in " + _userDetails.value.user.id)
                     _userDetails.value.hasAccount = true
                 } catch (e: AppException) {
 //
                     println("error signing user in $e")
-                    _userDetails.value.error = e.toString()
+
+
+                    val newUserD = UserDetails(_userDetails.value)
+                    newUserD.error = e.toString()
+                    _userDetails.apply {
+                        _userDetails.value = newUserD
+                    }
                 }
             }
         }
@@ -121,7 +139,7 @@ class JarRepository {
             async { // wrap on async call
                 try { // wrap try catch to avoid nothing being returned
 //                  log user out
-                    _userDetails.value.user.logOut()
+                    _userDetails.value.user?.logOut()
                     _userDetails.value.hasAccount = false
 //                    create a new anon user to use sync
                     _userDetails.value.user = app.login(Credentials.anonymous(reuseExisting = true))
@@ -143,9 +161,9 @@ class JarRepository {
      * small func to determine if user has set up account instead of anon
      */
     fun userHasCreatedAcc()  {
-        println("checking if has acc " + _userDetails.value.user.identities.count().toString())
+        println("checking if has acc " + _userDetails.value.user?.identities?.count().toString())
 //        any user will default 1 auth identifty (anon). If they add another (email, apple, etc), they will have more than 1
-        _userDetails.value.hasAccount = _userDetails.value.user.identities.count() > 1
+        _userDetails.value.hasAccount = _userDetails.value.user?.identities?.count()!! > 1
     }
 
     /**
@@ -221,7 +239,7 @@ class JarRepository {
                             if (newJar.jarContentName != "") jarContentName = newJar.jarContentName
                             if (newJar.hereSince != "") hereSince = newJar.hereSince
                             if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
-                            jarOwnerUserId = _userDetails.value.user.id
+                            jarOwnerUserId = _userDetails.value.user?.id
 //                            if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
 //                            for (i in xtraInfo.toMutableList()) {
 //                                println("mutable list is " + i.name + " " + i.content)

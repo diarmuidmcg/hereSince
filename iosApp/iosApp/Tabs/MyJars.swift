@@ -24,9 +24,9 @@ struct MyJars: View {
             }
             List {
                 if (vm.userJars.count > 0) {
-                    ForEach(vm.userJars, id: \.self) { value in
-                        SingleJarMinimized(singleJar: value,vm:vm)
-                    }
+//                    ForEach(vm.user.userJars, id: \.self) { value in
+//                        SingleJarMinimized(singleJar: value,vm:vm)
+//                    }
                 }
                 else {
                     Text("You don't own any jars yet")

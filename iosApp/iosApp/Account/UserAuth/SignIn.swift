@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct SignIn: View {
     @ObservedObject var vm : IOSJarViewModel
     // so you can dismiss modal
@@ -34,6 +35,10 @@ struct SignIn: View {
         ZStack{
             VStack{
                 VStack{
+                    if (vm.user.error != "") {
+                        Text(vm.user.error)
+                            .foregroundColor(.red)
+                    }
                     // email
                     TextField("", text: $email)
                         .placeholder(when: email.isEmpty, placeholder: {

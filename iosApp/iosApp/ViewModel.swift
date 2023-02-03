@@ -74,12 +74,12 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
     }
     
     func signUserUpEmail(email: String, password: String){
-        self.launchAccount = false
+//        self.launchAccount = false
         vm.signUserUpEmail(email: email, password: password)
     }
     
     func signUserInEmail(email: String, password: String){
-        self.launchAccount = false
+//        self.launchAccount = false
         vm.signUserInEmail(email: email, password: password)
     }
     
@@ -111,6 +111,11 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         })
         addObserver(observer: vm.observeUserDetails().watch { userD in
             self.user = userD!
+//            leave account modal if signed in
+            if ((userD?.hasAccount) != false) {self.launchAccount = false}
+            
+            print("user error is " + userD!.error)
+            
         })
 //        addObserver(observer: vm.observeUserJars().watch { jarList in
 //            self.userJars = jarList as! Array<Jar>
