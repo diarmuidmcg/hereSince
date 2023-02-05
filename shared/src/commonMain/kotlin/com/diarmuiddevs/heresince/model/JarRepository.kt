@@ -12,6 +12,7 @@ import io.realm.kotlin.mongodb.*
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.notifications.InitialResults
 import io.realm.kotlin.notifications.ResultsChange
+import io.realm.kotlin.query.RealmResults
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
@@ -70,6 +71,36 @@ class JarRepository {
                 }
             }
         }
+    }
+
+    /**
+     * Get user jars
+     */
+    fun findUserJars() :MutableList<Jar>{
+//        return  realm.query<Jar>(query = "jarOwnerUserId == $0", app.currentUser?.id).find().asFlow()
+//            .map {
+//
+//            }
+
+        var userJars = mutableListOf<Jar>()
+        val jars: RealmResults<Jar> = realm.query<Jar>(query = "jarOwnerUserId == $0", app.currentUser?.id).find()
+        for(jar in jars) {
+            println("jar: $jar")
+            userJars.add(jar)
+        }
+        return userJars
+//        CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
+//            async { // wrap on async call
+//                try { // wrap try catch to avoid nothing being returned
+////                  make query getting first (& only) jar w given jarId
+//                    var jar = realm.query<Jar>(query = "jarOwnerUserId == $0", app.currentUser?.id).find()
+//                    realm.write { // set stateflow for observer to update
+//                    }
+//                } catch (e: NoSuchElementException) {
+//
+//                }
+//            }
+//        }
     }
 
 

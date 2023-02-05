@@ -31,11 +31,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
     @Published var launchAccount: Bool = false
     @Published var enabled: Bool = true
     @Published var currJar: JarOverview = JarOverview(type: JARTYPE.notregistered, jar: Jar())
-//    store additional info in this bc SwiftUI ForEach can iterate a set, not a
-//    MutableKotlinSet because that does not implement Hashable
-//    @Published var currentAddInfo: Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
     @Published var prevJars: Array<Jar> = Array<Jar>()
-    @Published var userJars: Array<Jar> = Array<Jar>()
     @Published var user: UserDetails = UserDetails()
     
 
@@ -97,10 +93,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         addObserver(observer: vm.observeJarOverview().watch { jarOverviewValue in
             self.currJar = jarOverviewValue! as JarOverview
             if (self.currJar.type == JARTYPE.jarhasdata) {
-                self.currJar.jar.moreInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
                 self.currJar.jar.xtraInfo = self.currJar.jar.extraInfo as! Array<JarAdditionalInfo>
-//                self.currentAddInfo = self.currJar.jar.additionalInfo as! Set<JarAdditionalInfo>
-                print("curr jar O is " + self.currJar.jar._id)
             }
             self.loadingJar = false
         })
@@ -110,6 +103,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         })
         addObserver(observer: vm.observeUserDetails().watch { userD in
             self.user = userD!
+            self.user.jars = self.user.userJars as! Array<Jar>
 //            leave account modal if signed in
             if ((userD?.hasAccount) == true) {
                 print("user must hav account")
@@ -142,16 +136,7 @@ extension JarAdditionalInfo:Comparable, Identifiable {
 // extension to jar so that the above Additional Info can be iterated thru the SwiftUI Foreach -> otherwise the MutableSet is seen as NSElement
 extension Jar {
     struct Holder {
-            static var _moreInfo:Set<JarAdditionalInfo> = Set<JarAdditionalInfo>()
         static var _xtraInfo:Array<JarAdditionalInfo> = Array<JarAdditionalInfo>()
-        }
-        var moreInfo:Set<JarAdditionalInfo> {
-            get {
-                return Holder._moreInfo
-            }
-            set(newValue) {
-                Holder._moreInfo = newValue
-            }
         }
     var xtraInfo:Array<JarAdditionalInfo> {
         get {
@@ -159,6 +144,28 @@ extension Jar {
         }
         set(newValue) {
             Holder._xtraInfo = newValue
+        }
+    }
+}
+
+// extension so Jar can be iterated thru a SwiftUI Foreach
+extension Jar:Comparable, Identifiable {
+    public static func < (lhs: Jar, rhs: Jar) -> Bool {
+        return true
+    }
+}
+
+// extension to UserDetails so that the above Additional Info can be iterated thru the SwiftUI Foreach -> otherwise the MutableSet is seen as NSElement
+extension UserDetails {
+    struct Holder {
+        static var _jars:Array<Jar> = Array<Jar>()
+        }
+    var jars:Array<Jar> {
+        get {
+            return Holder._jars
+        }
+        set(newValue) {
+            Holder._jars = newValue
         }
     }
 }

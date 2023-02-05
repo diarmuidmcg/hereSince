@@ -80,6 +80,8 @@ class UserRepository {
 
         }
         userHasCreatedAcc()
+//        sets user jars on init
+        _userDetails.value.userJars = JarRepository(realm).findUserJars()
 
     }
 

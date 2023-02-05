@@ -13,3 +13,11 @@ extension UIScreen{
    static let screenHeight = UIScreen.main.bounds.size.height
    static let screenSize = UIScreen.main.bounds.size
 }
+
+extension DateFormatter {
+    static var formate: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        return dateFormatter
+    }
+}
