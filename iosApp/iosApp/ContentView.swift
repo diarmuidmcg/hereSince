@@ -50,7 +50,8 @@ struct ContentView: View {
         // each uid is exactly 14 chars
         if (lastSection.count == 14) {
             print("uid is \(String(lastSection))")
-
+//            call view model to get jar
+            vm.findJarById(jarId: String(lastSection))
             
             
         }

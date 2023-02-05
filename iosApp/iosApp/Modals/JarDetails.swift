@@ -17,6 +17,8 @@ struct JarDetails: View {
    
     @State var isEditing = false;
     @State var showOptions = false;
+    
+    @State var newDate = Date()
 //    can eventually create this on backend
     let jarOptions = [
         JarAdditionalInfo(name: "Ingredients",content:"",type: DataTypes.string),
@@ -58,14 +60,15 @@ struct JarDetails: View {
                     .padding(.top, 20)
                 Spacer()
                 //                if owned by current user
-                //                if jarInformation.jarOwnerUserId == "123124213" {
-                Button("Edit Me"){
-                    isEditing.toggle()
-                    //                        jarChanges = jar
+                if jar.jarOwnerUserId == vm.user.user?.id {
+                    Button("Edit Me"){
+                        withAnimation {
+                            isEditing.toggle()
+                        }
+                    }
+                    .buttonStyle(.borderless)
+                    .padding()
                 }
-                .buttonStyle(.borderless)
-                .padding()
-                //                }
             }
             List {
                 Section(header: Text("Name")) {
@@ -79,7 +82,12 @@ struct JarDetails: View {
                 }
                 Section(header: Text("Here Since")) {
                     if isEditing {
-                        TextField(jar.hereSince, text: $jarChanges.hereSince)
+                        DatePicker(selection: $newDate, in: ...Date(), displayedComponents: .date) {
+                            Text("Select a date")
+                        }
+                        .onChange(of: newDate) { (date) in
+                            jarChanges.hereSince = DateFormatter.formate.string(from: date)
+                        }
                     }
                     else {
                         Text(jar.hereSince)
@@ -162,9 +170,11 @@ struct JarDetails: View {
                 }
                 Spacer()
                 Button{
-                    isEditing = false
-                    
-                    vm.updateJarById(jarId: jar._id, newJar: jarChanges, xtraInfo: jarChanges.xtraInfo)
+                    withAnimation {
+                        isEditing = false
+                        
+                        vm.updateJarById(jarId: jar._id, newJar: jarChanges, xtraInfo: jarChanges.xtraInfo)
+                    }
                 } label:{
                     Text("Save")
                         .foregroundColor(Color.white)

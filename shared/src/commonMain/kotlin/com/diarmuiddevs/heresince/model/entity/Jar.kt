@@ -2,10 +2,7 @@ package com.diarmuiddevs.heresince.model.entity
 
 import io.realm.kotlin.ext.realmListOf
 import io.realm.kotlin.ext.realmSetOf
-import io.realm.kotlin.types.ObjectId
-import io.realm.kotlin.types.RealmList
-import io.realm.kotlin.types.RealmObject
-import io.realm.kotlin.types.RealmSet
+import io.realm.kotlin.types.*
 import io.realm.kotlin.types.annotations.PrimaryKey
 
 enum class DataTypes {
@@ -31,6 +28,7 @@ open class Jar(
     @PrimaryKey
     var _id: String = ObjectId.create().toString(),
     var hereSince: String = "",
+//    var dateSet: RealmInstant = RealmInstant.now(),
     var jarContentName: String = "",
     var jarOwnerName: String = "",
     var jarOwnerUserId: String? = null,
