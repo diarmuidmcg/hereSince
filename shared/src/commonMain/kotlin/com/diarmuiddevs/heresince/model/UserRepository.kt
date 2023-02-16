@@ -38,6 +38,10 @@ open class UserDetails {
 
     }
 
+    fun addUserJars(realm: Realm) {
+        userJars = JarRepository(realm).findUserJars()
+    }
+
     fun showErrorText() : String{
         return when (error) {
             is InvalidCredentialsException -> "Invalid Username or Password"
@@ -80,9 +84,13 @@ class UserRepository {
 
         }
         userHasCreatedAcc()
-//        sets user jars on init
-        _userDetails.value.userJars = JarRepository(realm).findUserJars()
 
+        val localJarRepo = JarRepository(realm)
+        localJarRepo.findAllJars()
+        //        sets user jars on init
+        val newUserD = UserDetails(_userDetails.value)
+        newUserD.addUserJars(realm)
+        _userDetails.value = newUserD
     }
 
 //    }
@@ -127,6 +135,7 @@ class UserRepository {
                     val newUserD = UserDetails(_userDetails.value)
                     newUserD.user = app.login(Credentials.emailPassword(email,password))
                     newUserD.hasAccount = true
+                    newUserD.addUserJars(realm)
                     newUserD.error = RealmException()
                     _userDetails.value = newUserD
                 } catch (e: AppException) {

@@ -20,12 +20,22 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		500EBE61008C0B974709ABAD8F145C41 /* Pods-JarRingClip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A4FE8FAF2DCE5BF781F06AB4D89A04 /* Pods-JarRingClip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60BDCC013528E0BF36BA39EAAC632C4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		648F16425FEF89525AE0325F5A984B86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		8749C8E8DC500B064FA0BC7A78C38A2A /* Pods-iosApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2475209BEE7612101900020629C625 /* Pods-iosApp-dummy.m */; };
-		8801CBFD38B946597BD07145B2EEFC9F /* Pods-iosApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42DE4C0106600A5B6D599285368F3270 /* Pods-iosApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8749C8E8DC500B064FA0BC7A78C38A2A /* Pods-iosApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD97AF676FE4893AE998DE122CE86ECF /* Pods-iosApp-dummy.m */; };
+		8801CBFD38B946597BD07145B2EEFC9F /* Pods-iosApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AA6BD5848F8B32333640E04EE89AAA2B /* Pods-iosApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E72F406F56C3479305865249AC7100E3 /* Pods-JarRingClip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C16CB20D381DB8888A48C2EBD5769450 /* Pods-JarRingClip-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7E5EDC0000FF00639AC892362328CB3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8777C9F6889E59EFFD631D80AEE9048B;
+			remoteInfo = shared;
+		};
 		C1E4F2F8101E860063100BCC8448BC3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -36,21 +46,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0011AEE22E8296B3D9E0B0B2CDCAB2EE /* Pods-iosApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iosApp-acknowledgements.plist"; sourceTree = "<group>"; };
-		1A2FB55B5C37861BC78ECD1420D818C3 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		18A4FE8FAF2DCE5BF781F06AB4D89A04 /* Pods-JarRingClip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JarRingClip-umbrella.h"; sourceTree = "<group>"; };
+		2D4BA9C0931870DD33B62AC8FD37C37E /* Pods-iosApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iosApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		35548E3BD8DA30925E8FE97E67B84868 /* shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.release.xcconfig; sourceTree = "<group>"; };
-		3A2475209BEE7612101900020629C625 /* Pods-iosApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iosApp-dummy.m"; sourceTree = "<group>"; };
-		42DE4C0106600A5B6D599285368F3270 /* Pods-iosApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iosApp-umbrella.h"; sourceTree = "<group>"; };
-		482384ADFE4EF692B16FACB8C2021970 /* Pods-iosApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iosApp.modulemap"; sourceTree = "<group>"; };
+		416649B64CE710A6200443DD48D1887D /* Pods-JarRingClip-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JarRingClip-acknowledgements.markdown"; sourceTree = "<group>"; };
+		48F92AA860C2C5BE61B9288F2182ED4E /* Pods-iosApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iosApp-Info.plist"; sourceTree = "<group>"; };
+		49DFE19FA6B40608FFF9A5FDD3B42B26 /* Pods-JarRingClip-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JarRingClip-acknowledgements.plist"; sourceTree = "<group>"; };
+		5A5E3421CE9FFE42FE2433D26AACC174 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		73D4D08B8C9FAD17B10E8E5C0EB49A76 /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
+		7CC631A09D51AD2D898DB979704C0637 /* Pods-iosApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iosApp.modulemap"; sourceTree = "<group>"; };
+		7E19601B7B0373556D4C81AA060CE4A3 /* Pods-JarRingClip-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JarRingClip-Info.plist"; sourceTree = "<group>"; };
+		80A0520FF2938420FE88B80D6EF65B40 /* Pods-JarRingClip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JarRingClip.release.xcconfig"; sourceTree = "<group>"; };
+		8C3B5B87A9D1A024E3B61ACF3F85F95F /* Pods-JarRingClip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JarRingClip.modulemap"; sourceTree = "<group>"; };
 		95B09EA82E7AF9ACCCCAF3E55C859116 /* shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.debug.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A43877303056397968EC90C7AAFE17E8 /* Pods-iosApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iosApp-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A79C2AA5C063914B2D1BD80187FDF6DE /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A30F2AF176B0DDE0D20C2AA992A7E019 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AA6BD5848F8B32333640E04EE89AAA2B /* Pods-iosApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iosApp-umbrella.h"; sourceTree = "<group>"; };
 		B097DD7534E741D5C41838011D755842 /* Pods-iosApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-iosApp"; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCAED803D074E2E9C3B1327F049C8C2A /* Pods-iosApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iosApp-Info.plist"; sourceTree = "<group>"; };
+		C16CB20D381DB8888A48C2EBD5769450 /* Pods-JarRingClip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JarRingClip-dummy.m"; sourceTree = "<group>"; };
+		C98214589AFE46E154BCA46BD8181903 /* Pods-JarRingClip */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-JarRingClip"; path = Pods_JarRingClip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE87BD4FA9E1A8815E09F134F16E1AC /* Pods-iosApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iosApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		CD7C2D55A023A95AD1B449F7F27D8CAF /* Pods-JarRingClip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JarRingClip.debug.xcconfig"; sourceTree = "<group>"; };
 		FB1BF8BE937671FB0F330C2D28634477 /* shared.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = shared.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FD97AF676FE4893AE998DE122CE86ECF /* Pods-iosApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iosApp-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,33 +81,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D40A16596A11880DABF06A7DE5C5194C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60BDCC013528E0BF36BA39EAAC632C4E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F86AA6785DF34AFD5A71790761717DE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B097DD7534E741D5C41838011D755842 /* Pods-iosApp */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		310087C345B86EEF25A054485E0BB5CB /* Pods-iosApp */ = {
-			isa = PBXGroup;
-			children = (
-				482384ADFE4EF692B16FACB8C2021970 /* Pods-iosApp.modulemap */,
-				A43877303056397968EC90C7AAFE17E8 /* Pods-iosApp-acknowledgements.markdown */,
-				0011AEE22E8296B3D9E0B0B2CDCAB2EE /* Pods-iosApp-acknowledgements.plist */,
-				3A2475209BEE7612101900020629C625 /* Pods-iosApp-dummy.m */,
-				BCAED803D074E2E9C3B1327F049C8C2A /* Pods-iosApp-Info.plist */,
-				42DE4C0106600A5B6D599285368F3270 /* Pods-iosApp-umbrella.h */,
-				A79C2AA5C063914B2D1BD80187FDF6DE /* Pods-iosApp.debug.xcconfig */,
-				1A2FB55B5C37861BC78ECD1420D818C3 /* Pods-iosApp.release.xcconfig */,
-			);
-			name = "Pods-iosApp";
-			path = "Target Support Files/Pods-iosApp";
-			sourceTree = "<group>";
-		};
 		313FE5FE915A4A924C55AAC02A910D61 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,10 +134,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C9F6DDEE5D76F65BB478A349731F54F4 /* Targets Support Files */ = {
+		89192BB1B08D33C5553D2A8725BBEFFD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				310087C345B86EEF25A054485E0BB5CB /* Pods-iosApp */,
+				B097DD7534E741D5C41838011D755842 /* Pods-iosApp */,
+				C98214589AFE46E154BCA46BD8181903 /* Pods-JarRingClip */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A61F850A9AC096753778641733AB4792 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E3F67654BB2A78A0CCA983B31FD176F8 /* Pods-iosApp */,
+				F0EC9FEFDE645A4CAA370CF5037DC21A /* Pods-JarRingClip */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -145,8 +158,8 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				313FE5FE915A4A924C55AAC02A910D61 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				1F86AA6785DF34AFD5A71790761717DE /* Products */,
-				C9F6DDEE5D76F65BB478A349731F54F4 /* Targets Support Files */,
+				89192BB1B08D33C5553D2A8725BBEFFD /* Products */,
+				A61F850A9AC096753778641733AB4792 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +169,22 @@
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3F67654BB2A78A0CCA983B31FD176F8 /* Pods-iosApp */ = {
+			isa = PBXGroup;
+			children = (
+				7CC631A09D51AD2D898DB979704C0637 /* Pods-iosApp.modulemap */,
+				2D4BA9C0931870DD33B62AC8FD37C37E /* Pods-iosApp-acknowledgements.markdown */,
+				CBE87BD4FA9E1A8815E09F134F16E1AC /* Pods-iosApp-acknowledgements.plist */,
+				FD97AF676FE4893AE998DE122CE86ECF /* Pods-iosApp-dummy.m */,
+				48F92AA860C2C5BE61B9288F2182ED4E /* Pods-iosApp-Info.plist */,
+				AA6BD5848F8B32333640E04EE89AAA2B /* Pods-iosApp-umbrella.h */,
+				A30F2AF176B0DDE0D20C2AA992A7E019 /* Pods-iosApp.debug.xcconfig */,
+				5A5E3421CE9FFE42FE2433D26AACC174 /* Pods-iosApp.release.xcconfig */,
+			);
+			name = "Pods-iosApp";
+			path = "Target Support Files/Pods-iosApp";
 			sourceTree = "<group>";
 		};
 		EEF3277DCE2E4B31CF76A57AB68C2BA1 /* shared */ = {
@@ -169,9 +198,33 @@
 			path = ../../shared;
 			sourceTree = "<group>";
 		};
+		F0EC9FEFDE645A4CAA370CF5037DC21A /* Pods-JarRingClip */ = {
+			isa = PBXGroup;
+			children = (
+				8C3B5B87A9D1A024E3B61ACF3F85F95F /* Pods-JarRingClip.modulemap */,
+				416649B64CE710A6200443DD48D1887D /* Pods-JarRingClip-acknowledgements.markdown */,
+				49DFE19FA6B40608FFF9A5FDD3B42B26 /* Pods-JarRingClip-acknowledgements.plist */,
+				C16CB20D381DB8888A48C2EBD5769450 /* Pods-JarRingClip-dummy.m */,
+				7E19601B7B0373556D4C81AA060CE4A3 /* Pods-JarRingClip-Info.plist */,
+				18A4FE8FAF2DCE5BF781F06AB4D89A04 /* Pods-JarRingClip-umbrella.h */,
+				CD7C2D55A023A95AD1B449F7F27D8CAF /* Pods-JarRingClip.debug.xcconfig */,
+				80A0520FF2938420FE88B80D6EF65B40 /* Pods-JarRingClip.release.xcconfig */,
+			);
+			name = "Pods-JarRingClip";
+			path = "Target Support Files/Pods-JarRingClip";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		D8B69286ADE0B9C95094D39661122EB9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				500EBE61008C0B974709ABAD8F145C41 /* Pods-JarRingClip-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA71CB665A4F7860DB550FAA48FB6AD2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +255,25 @@
 			productReference = B097DD7534E741D5C41838011D755842 /* Pods-iosApp */;
 			productType = "com.apple.product-type.framework";
 		};
+		FF2F87F661B5B31E86AA3F6C2F1269EF /* Pods-JarRingClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3488B8CDDEFD50264383E97AF3325262 /* Build configuration list for PBXNativeTarget "Pods-JarRingClip" */;
+			buildPhases = (
+				D8B69286ADE0B9C95094D39661122EB9 /* Headers */,
+				4C73B0199D6DC795A9FE87FA6FA65CE9 /* Sources */,
+				D40A16596A11880DABF06A7DE5C5194C /* Frameworks */,
+				AB729B5D8A7C9972B8E26153AC82C4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E7D78BB706552A5D1DFF647D722E7A6 /* PBXTargetDependency */,
+			);
+			name = "Pods-JarRingClip";
+			productName = Pods_JarRingClip;
+			productReference = C98214589AFE46E154BCA46BD8181903 /* Pods-JarRingClip */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,11 +292,12 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 1F86AA6785DF34AFD5A71790761717DE /* Products */;
+			productRefGroup = 89192BB1B08D33C5553D2A8725BBEFFD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				ED39C638569286489CD697A6C8964146 /* Pods-iosApp */,
+				FF2F87F661B5B31E86AA3F6C2F1269EF /* Pods-JarRingClip */,
 				8777C9F6889E59EFFD631D80AEE9048B /* shared */,
 			);
 		};
@@ -232,6 +305,13 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		0EC1C62FF9B25EAB2D236D122EAF4C98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB729B5D8A7C9972B8E26153AC82C4FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -254,6 +334,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4C73B0199D6DC795A9FE87FA6FA65CE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72F406F56C3479305865249AC7100E3 /* Pods-JarRingClip-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB28A529759E3D2117E28CE3CB8387D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,6 +353,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1E7D78BB706552A5D1DFF647D722E7A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = shared;
+			target = 8777C9F6889E59EFFD631D80AEE9048B /* shared */;
+			targetProxy = 7E5EDC0000FF00639AC892362328CB3D /* PBXContainerItemProxy */;
+		};
 		4A9525469F8E46F3883CC6599FCCFEDB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = shared;
@@ -276,7 +370,7 @@
 /* Begin XCBuildConfiguration section */
 		02DDCCED053337F381DEBAFDEC6F354F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A2FB55B5C37861BC78ECD1420D818C3 /* Pods-iosApp.release.xcconfig */;
+			baseConfigurationReference = 5A5E3421CE9FFE42FE2433D26AACC174 /* Pods-iosApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -373,6 +467,43 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
+		};
+		9AF238D979AC25EAC43FA3392C3E2E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD7C2D55A023A95AD1B449F7F27D8CAF /* Pods-JarRingClip.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		A0374B8CF9A7D6A45F6D116D698D1C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -477,7 +608,7 @@
 		};
 		AF088B6CD92A52AC4DCB62DEEC871231 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A79C2AA5C063914B2D1BD80187FDF6DE /* Pods-iosApp.debug.xcconfig */;
+			baseConfigurationReference = A30F2AF176B0DDE0D20C2AA992A7E019 /* Pods-iosApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -512,9 +643,56 @@
 			};
 			name = Debug;
 		};
+		B4822839778BA7E41F5A31A4E32FE9BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A0520FF2938420FE88B80D6EF65B40 /* Pods-JarRingClip.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3488B8CDDEFD50264383E97AF3325262 /* Build configuration list for PBXNativeTarget "Pods-JarRingClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AF238D979AC25EAC43FA3392C3E2E0F /* Debug */,
+				B4822839778BA7E41F5A31A4E32FE9BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

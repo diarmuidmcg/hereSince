@@ -26,16 +26,19 @@
       "size" : "40x40"
     },
     {
+      "filename" : "jarRingIcon(1) 1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "jarRingIcon(1).png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "jarRingIcon(2).png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -76,6 +79,7 @@
       "size" : "76x76"
     },
     {
+      "filename" : "jarRingIcon(3).png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
@@ -86,6 +90,7 @@
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "jarRingIcon.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

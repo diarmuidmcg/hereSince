@@ -41,8 +41,6 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
     override init() {
         super.init()
         start()
-//        find out if user has account on init
-//        self.fin()
     }
     
     deinit {
@@ -63,18 +61,14 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
     }
     func updateJarById(jarId: String,newJar:Jar, xtraInfo: Array<JarAdditionalInfo>){
         self.loadingJar = true
-        print("updating jar")
-        
         vm.updateJarById(jarId: jarId.uppercased(),newJar:newJar, xtraInfo: xtraInfo)
     }
     
     func signUserUpEmail(email: String, password: String){
-//        self.launchAccount = false
         vm.signUserUpEmail(email: email, password: password)
     }
     
     func signUserInEmail(email: String, password: String){
-//        self.launchAccount = false
         vm.signUserInEmail(email: email, password: password)
     }
     
@@ -106,13 +100,8 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
             self.user.jars = self.user.userJars as! Array<Jar>
 //            leave account modal if signed in
             if ((userD?.hasAccount) == true) {
-                print("user must hav account")
                 self.launchAccount = false
-                
             }
-            
-//            print("user error is " + (userD!.error? ?? "nothing"))
-            
         })
         addObserver(observer: vm.observeWifiState().watch { wifiEnabled in
             if (wifiEnabled!.boolValue) {

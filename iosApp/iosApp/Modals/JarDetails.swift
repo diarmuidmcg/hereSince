@@ -191,3 +191,4 @@ struct JarDetails: View {
         }
     }
 }
+

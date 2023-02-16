@@ -18,11 +18,6 @@ kotlin {
         else -> ::iosX64
     }
     iosTarget("ios") {}
-    val macosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget = when {
-        System.getenv("NATIVE_ARCH")?.startsWith("arm") == true -> ::macosArm64
-        else -> ::macosX64
-    }
-    macosTarget("macos") {}
     jvm {}
 
     cocoapods {
@@ -59,8 +54,6 @@ kotlin {
 
         val iosMain by getting
         val iosTest by getting
-        val macosMain by getting
-        val macosTest by getting
         val jvmMain by getting
     }
 }

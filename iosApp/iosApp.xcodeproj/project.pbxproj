@@ -31,15 +31,47 @@
 		26830593295610A9004BF8C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26830592295610A9004BF8C4 /* Extensions.swift */; };
 		26B7D2C5296F9F8C006D5228 /* ReadNFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */; };
 		26C04EB9296F5E9E00640FDC /* JarModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C04EB8296F5E9E00640FDC /* JarModal.swift */; };
+		26CF9C11299E5A2500B778B9 /* JarRingClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF9C10299E5A2500B778B9 /* JarRingClipApp.swift */; };
+		26CF9C13299E5A2500B778B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF9C12299E5A2500B778B9 /* ContentView.swift */; };
+		26CF9C15299E5A2700B778B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CF9C14299E5A2700B778B9 /* Assets.xcassets */; };
+		26CF9C18299E5A2700B778B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CF9C17299E5A2700B778B9 /* Preview Assets.xcassets */; };
+		26CF9C1D299E5A2700B778B9 /* JarRingClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 26CF9C0E299E5A2400B778B9 /* JarRingClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		26D884A62965FA51003BA81C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D884A52965FA51003BA81C /* ViewModel.swift */; };
 		26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
+		2A0EC768563FFF8003DD5ABB /* Pods_JarRingClip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DD8A19D38FB846C2A7C7 /* Pods_JarRingClip.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		C384D8AF2A8F42426085C57F /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AC0E092996ADB00044496B /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26CF9C1B299E5A2700B778B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7555FF73242A565900829871 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26CF9C0D299E5A2400B778B9;
+			remoteInfo = JarRingClip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26A5EBE42996A1CC00E8D37E /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				26CF9C1D299E5A2700B778B9 /* JarRingClip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		256DFE90201F9EE17E65ABAC /* Pods-JarRingClip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.debug.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.debug.xcconfig"; sourceTree = "<group>"; };
 		261550BB295B572600CEC9DC /* JarNoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarNoDetails.swift; sourceTree = "<group>"; };
 		261550BD295B574800CEC9DC /* NotRegistered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotRegistered.swift; sourceTree = "<group>"; };
 		261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleJarMinimized.swift; sourceTree = "<group>"; };
@@ -58,25 +90,43 @@
 		2683058D29560FDF004BF8C4 /* TapJarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapJarButton.swift; sourceTree = "<group>"; };
 		2683059029561039004BF8C4 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		26830592295610A9004BF8C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		26AC0E092996ADB00044496B /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B7D2C2296F9E30006D5228 /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
 		26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNFC.swift; sourceTree = "<group>"; };
 		26C04EB8296F5E9E00640FDC /* JarModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarModal.swift; sourceTree = "<group>"; };
+		26CF9C0E299E5A2400B778B9 /* JarRingClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JarRingClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26CF9C10299E5A2500B778B9 /* JarRingClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarRingClipApp.swift; sourceTree = "<group>"; };
+		26CF9C12299E5A2500B778B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		26CF9C14299E5A2700B778B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26CF9C17299E5A2700B778B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		26CF9C19299E5A2700B778B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26CF9C1A299E5A2700B778B9 /* JarRingClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JarRingClip.entitlements; sourceTree = "<group>"; };
 		26D884A52965FA51003BA81C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		26FC5B4B295B4406001C4881 /* JarDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarDetails.swift; sourceTree = "<group>"; };
 		2D0246D5738060BFD2BCC1B7 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6A04AFE761E2F40178AACF9D /* Pods-JarRingClip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.release.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.release.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D5186687A806821929F08C3 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD55DD8A19D38FB846C2A7C7 /* Pods_JarRingClip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JarRingClip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1062D517B5F35304B67EB09 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		26CF9C0B299E5A2400B778B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A0EC768563FFF8003DD5ABB /* Pods_JarRingClip.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7555FF78242A565900829871 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2637B43E2971BCF30079151C /* Pods_iosApp.framework in Frameworks */,
+				C384D8AF2A8F42426085C57F /* Pods_iosApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +215,27 @@
 			path = NFC;
 			sourceTree = "<group>";
 		};
+		26CF9C0F299E5A2500B778B9 /* JarRingClip */ = {
+			isa = PBXGroup;
+			children = (
+				26CF9C10299E5A2500B778B9 /* JarRingClipApp.swift */,
+				26CF9C12299E5A2500B778B9 /* ContentView.swift */,
+				26CF9C14299E5A2700B778B9 /* Assets.xcassets */,
+				26CF9C19299E5A2700B778B9 /* Info.plist */,
+				26CF9C1A299E5A2700B778B9 /* JarRingClip.entitlements */,
+				26CF9C16299E5A2700B778B9 /* Preview Content */,
+			);
+			path = JarRingClip;
+			sourceTree = "<group>";
+		};
+		26CF9C16299E5A2700B778B9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				26CF9C17299E5A2700B778B9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		26FC5B4A295B43F9001C4881 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +252,8 @@
 			children = (
 				2D0246D5738060BFD2BCC1B7 /* Pods-iosApp.debug.xcconfig */,
 				D1062D517B5F35304B67EB09 /* Pods-iosApp.release.xcconfig */,
+				256DFE90201F9EE17E65ABAC /* Pods-JarRingClip.debug.xcconfig */,
+				6A04AFE761E2F40178AACF9D /* Pods-JarRingClip.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -189,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				7555FF7D242A565900829871 /* iosApp */,
+				26CF9C0F299E5A2500B778B9 /* JarRingClip */,
 				7555FF7C242A565900829871 /* Products */,
 				7555FFB0242A642200829871 /* Frameworks */,
 				48C12D0A5416E1A860A36182 /* Pods */,
@@ -199,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				7555FF7B242A565900829871 /* iosApp.app */,
+				26CF9C0E299E5A2400B778B9 /* JarRingClip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,7 +303,8 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8D5186687A806821929F08C3 /* Pods_iosApp.framework */,
+				26AC0E092996ADB00044496B /* Pods_iosApp.framework */,
+				CD55DD8A19D38FB846C2A7C7 /* Pods_JarRingClip.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,6 +312,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		26CF9C0D299E5A2400B778B9 /* JarRingClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26CF9C1E299E5A2700B778B9 /* Build configuration list for PBXNativeTarget "JarRingClip" */;
+			buildPhases = (
+				C8941EF53AA4742230655BA2 /* [CP] Check Pods Manifest.lock */,
+				26CF9C0A299E5A2400B778B9 /* Sources */,
+				26CF9C0B299E5A2400B778B9 /* Frameworks */,
+				26CF9C0C299E5A2400B778B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JarRingClip;
+			productName = JarRingClip;
+			productReference = 26CF9C0E299E5A2400B778B9 /* JarRingClip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
 		7555FF7A242A565900829871 /* iosApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
@@ -244,10 +338,12 @@
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
+				26A5EBE42996A1CC00E8D37E /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				26CF9C1C299E5A2700B778B9 /* PBXTargetDependency */,
 			);
 			name = iosApp;
 			productName = iosApp;
@@ -260,10 +356,13 @@
 		7555FF73242A565900829871 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
+					26CF9C0D299E5A2400B778B9 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					7555FF7A242A565900829871 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -282,11 +381,21 @@
 			projectRoot = "";
 			targets = (
 				7555FF7A242A565900829871 /* iosApp */,
+				26CF9C0D299E5A2400B778B9 /* JarRingClip */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		26CF9C0C299E5A2400B778B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26CF9C18299E5A2700B778B9 /* Preview Assets.xcassets in Resources */,
+				26CF9C15299E5A2700B778B9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7555FF79242A565900829871 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,7 +410,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		26D7489CBCCB3EA78976CC04 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -321,9 +430,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C8941EF53AA4742230655BA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JarRingClip-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		26CF9C0A299E5A2400B778B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26CF9C13299E5A2500B778B9 /* ContentView.swift in Sources */,
+				26CF9C11299E5A2500B778B9 /* JarRingClipApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7555FF77242A565900829871 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,7 +497,94 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		26CF9C1C299E5A2700B778B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26CF9C0D299E5A2400B778B9 /* JarRingClip */;
+			targetProxy = 26CF9C1B299E5A2700B778B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		26CF9C1F299E5A2700B778B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 256DFE90201F9EE17E65ABAC /* Pods-JarRingClip.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = JarRingClip/JarRingClip.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"JarRingClip/Preview Content\"";
+				DEVELOPMENT_TEAM = VW76JQGB68;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JarRingClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iosApp;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = diarmuiddevs.JarringApp.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		26CF9C20299E5A2700B778B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A04AFE761E2F40178AACF9D /* Pods-JarRingClip.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = JarRingClip/JarRingClip.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JarRingClip/Preview Content\"";
+				DEVELOPMENT_TEAM = VW76JQGB68;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JarRingClip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = iosApp;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = diarmuiddevs.JarringApp.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		7555FFA3242A565B00829871 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -478,11 +705,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D0246D5738060BFD2BCC1B7 /* Pods-iosApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -506,8 +734,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = diarmuiddevs.JarringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,11 +746,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1062D517B5F35304B67EB09 /* Pods-iosApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -543,14 +775,26 @@
 				PRODUCT_BUNDLE_IDENTIFIER = diarmuiddevs.JarringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		26CF9C1E299E5A2700B778B9 /* Build configuration list for PBXNativeTarget "JarRingClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26CF9C1F299E5A2700B778B9 /* Debug */,
+				26CF9C20299E5A2700B778B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7555FF76242A565900829871 /* Build configuration list for PBXProject "iosApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
