@@ -14,7 +14,7 @@
 		261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegistered.swift */; };
 		261550C1295B57F000CEC9DC /* SingleJarMinimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */; };
 		261550C3295B602C00CEC9DC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* Account.swift */; };
-		2637B43E2971BCF30079151C /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5186687A806821929F08C3 /* Pods_iosApp.framework */; };
+		2637B43E2971BCF30079151C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		2637B44229721CBC0079151C /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B44129721CBC0079151C /* SignIn.swift */; };
 		2637B444297220170079151C /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B443297220160079151C /* SignUp.swift */; };
 		2637B446297223370079151C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B445297223370079151C /* UIConstants.swift */; };
@@ -32,10 +32,33 @@
 		26B7D2C5296F9F8C006D5228 /* ReadNFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */; };
 		26C04EB9296F5E9E00640FDC /* JarModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C04EB8296F5E9E00640FDC /* JarModal.swift */; };
 		26CF9C11299E5A2500B778B9 /* JarRingClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF9C10299E5A2500B778B9 /* JarRingClipApp.swift */; };
-		26CF9C13299E5A2500B778B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF9C12299E5A2500B778B9 /* ContentView.swift */; };
 		26CF9C15299E5A2700B778B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CF9C14299E5A2700B778B9 /* Assets.xcassets */; };
 		26CF9C18299E5A2700B778B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CF9C17299E5A2700B778B9 /* Preview Assets.xcassets */; };
 		26CF9C1D299E5A2700B778B9 /* JarRingClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 26CF9C0E299E5A2400B778B9 /* JarRingClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		26CF9C24299EA46B00B778B9 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B443297220160079151C /* SignUp.swift */; };
+		26CF9C25299EA46B00B778B9 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B44129721CBC0079151C /* SignIn.swift */; };
+		26CF9C26299EA46B00B778B9 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DA298041FE0006A2F2 /* UserAuth.swift */; };
+		26CF9C27299EA46B00B778B9 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DD2980421C0006A2F2 /* AccountSettings.swift */; };
+		26CF9C2A299EA46B00B778B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		26CF9C2C299EA47D00B778B9 /* ReadNFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */; };
+		26CF9C2D299EA47D00B778B9 /* SingleJarMinimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */; };
+		26CF9C2E299EA47D00B778B9 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
+		26CF9C2F299EA47D00B778B9 /* JarNoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BB295B572600CEC9DC /* JarNoDetails.swift */; };
+		26CF9C30299EA47D00B778B9 /* NotRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegistered.swift */; };
+		26CF9C31299EA47D00B778B9 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* Account.swift */; };
+		26CF9C32299EA47D00B778B9 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683059029561039004BF8C4 /* Buttons.swift */; };
+		26CF9C33299EA47D00B778B9 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B445297223370079151C /* UIConstants.swift */; };
+		26CF9C34299EA47D00B778B9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B4472972236A0079151C /* Font.swift */; };
+		26CF9C35299EA47D00B778B9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B449297223F20079151C /* Color.swift */; };
+		26CF9C36299EA47D00B778B9 /* TapJarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058D29560FDF004BF8C4 /* TapJarButton.swift */; };
+		26CF9C37299EA47D00B778B9 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058A29560D00004BF8C4 /* HomePage.swift */; };
+		26CF9C38299EA47D00B778B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26830592295610A9004BF8C4 /* Extensions.swift */; };
+		26CF9C39299EA47D00B778B9 /* ViewJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058329560CA9004BF8C4 /* ViewJar.swift */; };
+		26CF9C3A299EA47D00B778B9 /* MyJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJars.swift */; };
+		26CF9C3B299EA47D00B778B9 /* PreviousJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJars.swift */; };
+		26CF9C3C299EA4DC00B778B9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D884A52965FA51003BA81C /* ViewModel.swift */; };
+		26CF9C3D299EA4DC00B778B9 /* JarModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C04EB8296F5E9E00640FDC /* JarModal.swift */; };
+		26CF9C3E299EA51100B778B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		26D884A62965FA51003BA81C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D884A52965FA51003BA81C /* ViewModel.swift */; };
 		26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
 		2A0EC768563FFF8003DD5ABB /* Pods_JarRingClip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DD8A19D38FB846C2A7C7 /* Pods_JarRingClip.framework */; };
@@ -96,7 +119,6 @@
 		26C04EB8296F5E9E00640FDC /* JarModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarModal.swift; sourceTree = "<group>"; };
 		26CF9C0E299E5A2400B778B9 /* JarRingClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JarRingClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CF9C10299E5A2500B778B9 /* JarRingClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarRingClipApp.swift; sourceTree = "<group>"; };
-		26CF9C12299E5A2500B778B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26CF9C14299E5A2700B778B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26CF9C17299E5A2700B778B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		26CF9C19299E5A2700B778B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,7 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2637B43E2971BCF30079151C /* Pods_iosApp.framework in Frameworks */,
+				2637B43E2971BCF30079151C /* (null) in Frameworks */,
 				C384D8AF2A8F42426085C57F /* Pods_iosApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				26CF9C10299E5A2500B778B9 /* JarRingClipApp.swift */,
-				26CF9C12299E5A2500B778B9 /* ContentView.swift */,
 				26CF9C14299E5A2700B778B9 /* Assets.xcassets */,
 				26CF9C19299E5A2700B778B9 /* Info.plist */,
 				26CF9C1A299E5A2700B778B9 /* JarRingClip.entitlements */,
@@ -391,6 +412,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CF9C3E299EA51100B778B9 /* Assets.xcassets in Resources */,
 				26CF9C18299E5A2700B778B9 /* Preview Assets.xcassets in Resources */,
 				26CF9C15299E5A2700B778B9 /* Assets.xcassets in Resources */,
 			);
@@ -459,7 +481,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26CF9C13299E5A2500B778B9 /* ContentView.swift in Sources */,
+				26CF9C3C299EA4DC00B778B9 /* ViewModel.swift in Sources */,
+				26CF9C3D299EA4DC00B778B9 /* JarModal.swift in Sources */,
+				26CF9C2C299EA47D00B778B9 /* ReadNFC.swift in Sources */,
+				26CF9C2D299EA47D00B778B9 /* SingleJarMinimized.swift in Sources */,
+				26CF9C2E299EA47D00B778B9 /* JarDetails.swift in Sources */,
+				26CF9C2F299EA47D00B778B9 /* JarNoDetails.swift in Sources */,
+				26CF9C30299EA47D00B778B9 /* NotRegistered.swift in Sources */,
+				26CF9C31299EA47D00B778B9 /* Account.swift in Sources */,
+				26CF9C32299EA47D00B778B9 /* Buttons.swift in Sources */,
+				26CF9C33299EA47D00B778B9 /* UIConstants.swift in Sources */,
+				26CF9C34299EA47D00B778B9 /* Font.swift in Sources */,
+				26CF9C35299EA47D00B778B9 /* Color.swift in Sources */,
+				26CF9C36299EA47D00B778B9 /* TapJarButton.swift in Sources */,
+				26CF9C37299EA47D00B778B9 /* HomePage.swift in Sources */,
+				26CF9C38299EA47D00B778B9 /* Extensions.swift in Sources */,
+				26CF9C39299EA47D00B778B9 /* ViewJar.swift in Sources */,
+				26CF9C3A299EA47D00B778B9 /* MyJars.swift in Sources */,
+				26CF9C3B299EA47D00B778B9 /* PreviousJars.swift in Sources */,
+				26CF9C24299EA46B00B778B9 /* SignUp.swift in Sources */,
+				26CF9C25299EA46B00B778B9 /* SignIn.swift in Sources */,
+				26CF9C26299EA46B00B778B9 /* UserAuth.swift in Sources */,
+				26CF9C27299EA46B00B778B9 /* AccountSettings.swift in Sources */,
+				26CF9C2A299EA46B00B778B9 /* ContentView.swift in Sources */,
 				26CF9C11299E5A2500B778B9 /* JarRingClipApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,7 +560,7 @@
 				CODE_SIGN_ENTITLEMENTS = JarRingClip/JarRingClip.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"JarRingClip/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
@@ -556,7 +600,7 @@
 				CODE_SIGN_ENTITLEMENTS = JarRingClip/JarRingClip.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"JarRingClip/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
