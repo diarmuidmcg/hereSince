@@ -44,7 +44,7 @@ struct JarDetails: View {
     mutating func populateShownOptions() {
 
         for option in jarOptions {
-            if !jarChanges.xtraInfo.contains(option) {
+            if !jarChanges.xtraInfo.contains(where: {$0.name == option.name}) {
                 self.shownJarOptions.append(option)
 
             }
@@ -82,12 +82,12 @@ struct JarDetails: View {
                 }
                 Section(header: Text("Here Since")) {
                     if isEditing {
-                        DatePicker(selection: $newDate, in: ...Date(), displayedComponents: .date) {
-                            Text("Select a date")
-                        }
-                        .onChange(of: newDate) { (date) in
-                            jarChanges.hereSince = DateFormatter.formate.string(from: date)
-                        }
+//                        DatePicker(selection: $newDate, in: ...Date(), displayedComponents: .date) {
+//                            Text("Select a date")
+//                        }
+//                        .onChange(of: newDate) { (date) in
+//                            jarChanges.hereSince = DateFormatter.formate.string(from: date)
+//                        }
                     }
                     else {
                         Text(jar.hereSince)

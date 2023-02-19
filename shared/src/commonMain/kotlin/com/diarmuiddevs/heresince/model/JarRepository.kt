@@ -8,11 +8,13 @@ import io.realm.kotlin.Realm
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_PASSWORD
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_USER
 import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmListOf
 import io.realm.kotlin.mongodb.*
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.notifications.InitialResults
 import io.realm.kotlin.notifications.ResultsChange
 import io.realm.kotlin.query.RealmResults
+import io.realm.kotlin.types.RealmList
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
@@ -135,12 +137,25 @@ class JarRepository {
                         if (newJar.hereSince != "") hereSince = newJar.hereSince
                         if (newJar.jarOwnerName != "") jarOwnerName = newJar.jarOwnerName
                         if (app.currentUser?.id != null) jarOwnerUserId = app.currentUser?.id
-//                            if (newJar.additionalInfo != null) additionalInfo = newJar.additionalInfo
-//                            for (i in xtraInfo.toMutableList()) {
-//                                println("mutable list is " + i.name + " " + i.content)
-//                            }
-//                            additionalInfo.add(JarAdditionalInfo(name = "test", content = "test", type = DataTypes.STRING))
-//                            extraInfo.add(JarAdditionalInfo(name = "test", content = "test", type = DataTypes.STRING))
+
+
+                            if (xtraInfo != null) {
+//                                need to set the input as realm list
+                                val fields = realmListOf<JarExtraInfo>()
+                                for (i in xtraInfo) {
+                                    fields.add(
+                                        JarExtraInfo(
+                                            name = i.name,
+                                            content = i.content,
+                                            type = i.type
+                                        )
+                                    )
+                                }
+//                                store it in object
+                                extraFields = fields
+//                                newJar is passed as currentState flow, update that as well
+                                newJar.extraFields = fields
+                            }
                     }
                 }
                 //                        set the current jar to the JarOverview (includes type)
