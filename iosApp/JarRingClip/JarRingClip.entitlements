@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.developer.nfc.readersession.formats</key>
+	<array>
+		<string>TAG</string>
+	</array>
+	<key>com.apple.developer.parent-application-identifiers</key>
+	<array>
+		<string>$(AppIdentifierPrefix)diarmuiddevs.JarringApp</string>
+	</array>
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+        <string>appclips:diarmuiddevs.JarringApp.Clip</string>
+        <string>appclips:jarring.ie</string>
+        <string>https://www.jarring.ie</string>
+    </array>
+</dict>
+</plist>

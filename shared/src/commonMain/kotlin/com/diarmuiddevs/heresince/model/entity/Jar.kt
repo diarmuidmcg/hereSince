@@ -5,11 +5,11 @@ import io.realm.kotlin.ext.realmSetOf
 import io.realm.kotlin.types.*
 import io.realm.kotlin.types.annotations.PrimaryKey
 
-enum class DataTypes {
-    BOOL,
-    STRING,
-    DATE
-}
+//enum class DataTypes {
+//    BOOL,
+//    STRING,
+//    DATE
+//}
 
 //open class JarAdditionalInfo(
 //    var name: String = "",
@@ -25,13 +25,15 @@ enum class DataTypes {
 //}
 
 // Define an embedded object (cannot have primary key)
-//Z
+// type will eventually be a enum! (when in SDK)
+// for now, here is key:
+// s = string, b = bool, d = date
 class JarExtraInfo(
         var name: String = "",
     var content: String = "",
-    var type: Enum<DataTypes> = DataTypes.STRING
+    var type:String = "s"
 ) : EmbeddedRealmObject {
-    constructor() : this(name = "",content="", type=DataTypes.STRING) // Empty constructor for Realm
+    constructor() : this(name = "",content="", type="s") // Empty constructor for Realm
     constructor(copyAddInfo: JarExtraInfo) : this() {
        name = copyAddInfo.name
         content = copyAddInfo.content
@@ -62,6 +64,10 @@ open class Jar(
         jarContentName = copyJar.jarContentName
         jarOwnerName = copyJar.jarOwnerName
         jarOwnerUserId = copyJar.jarOwnerUserId
+        extraFields =  realmListOf()
+        for (info in copyJar.extraFields) {
+            extraFields.add(JarExtraInfo( copyAddInfo =info))
+        }
     }
 }
 

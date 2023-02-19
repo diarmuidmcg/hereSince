@@ -22,10 +22,10 @@ struct JarDetails: View {
 //    @State var yesOrNo = false
 //    can eventually create this on backend
     let jarOptions = [
-        JarExtraInfo(name: "Ingredients",content:"",type: DataTypes.string),
-        JarExtraInfo(name: "Expiration Date",content:"",type: DataTypes.date),
-        JarExtraInfo(name: "Caffeinated",content:"",type: DataTypes.bool_),
-        JarExtraInfo(name: "Vegetarian",content:"",type: DataTypes.bool_)
+        JarExtraInfo(name: "Ingredients",content:"",type: "s"),
+        JarExtraInfo(name: "Expiration Date",content:"",type: "d"),
+        JarExtraInfo(name: "Caffeinated",content:"",type: "b"),
+        JarExtraInfo(name: "Vegetarian",content:"",type: "b")
     ]
 //    options to be shown after removing existing ones
     var shownJarOptions = Array<JarExtraInfo>()
@@ -117,24 +117,21 @@ struct JarDetails: View {
                         Section(header: Text("\(jarChanges.xtraInfo[element].name)" ))
                         {
                             if isEditing {
-                                if (jarChanges.xtraInfo[element].type == DataTypes.date) {
+                                if (jarChanges.xtraInfo[element].type == "d") {
                                     DatePicker(selection: $newDate, displayedComponents: .date) {
                                         Text("Select a date")
                                     }
                                     .onChange(of: newDate) { (date) in
                                         jarChanges.xtraInfo[element].content = DateFormatter.formate.string(from: date)
-                                        jarChanges.xtraInfo[element].type = DataTypes.date
+                                        jarChanges.xtraInfo[element].type = "d"
                                     }
                                 }
-                                else if (jarChanges.xtraInfo[element].type == DataTypes.bool_) {
-                                    Picker(selection: $jarChanges.xtraInfo[element].content, label: Text("Yes or No")) {
-                                                Text("Yes").tag("Yes")
-                                                Text("No").tag("No")
-                                            }
-                                    .onTapGesture {
-                                        jarChanges.xtraInfo[element].type = DataTypes.bool_
-                                        
-                                    }
+                                else if (jarChanges.xtraInfo[element].type == "b") {
+                                    Picker("Yes or No", selection: $jarChanges.xtraInfo[element].content) {
+                                                    ForEach(yesOrNo, id: \.self) {
+                                                        Text($0)
+                                                    }
+                                                }
                                 }
                                 else {
                                     TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
@@ -167,7 +164,6 @@ struct JarDetails: View {
                             } label: {Text(element.name)}
 
                         }
-                        Button("Cancel", role: .destructive) { showOptions = false }
                     }
                     Spacer()
                 } else {
