@@ -102,25 +102,25 @@ struct JarDetails: View {
                         Text(jar.jarOwnerName)
                     }
                 }
-                //                ForEach(jar.moreInfo.sorted(by: <), id: \.self) { element in
-                //                    Section(header: Text("\(element.name)"))
-                //                    {
-                //                        Text("\(element.content)")
-                //                    }
-                //                }
+//                                ForEach(jar.xtraInfo.indices, id: \.self) { element in
+//                                    Section(header: Text("\(element.name)"))
+//                                    {
+//                                        Text("\(element.content)")
+//                                    }
+//                                }
                 
                 
-//                    ForEach(jarChanges.xtraInfo.indices, id: \.self) { element in
-//                        Section(header: Text("\(jarChanges.xtraInfo[element].name)"))
-//                        {
+                    ForEach(jarChanges.xtraInfo.indices, id: \.self) { element in
+                        Section(header: Text("\(jarChanges.xtraInfo[element].name ?? "null")" ))
+                        {
 //                            if isEditing {
 //                                TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
 //                            }
 //                            else {
-//                                Text("\(jarChanges.xtraInfo[element].content)")
+                                Text("\(jarChanges.xtraInfo[element].content ?? "null")")
 //                            }
-//                        }
-//                    }
+                        }
+                    }
                
 //                    ForEach(jarChanges.extraInfo.compactMap { $0 as? JarAdditionalInfo }, id: \.name) { element in
 //                        Section(header: Text("\(element.name)"))
