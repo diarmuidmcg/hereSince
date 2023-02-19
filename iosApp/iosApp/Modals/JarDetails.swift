@@ -20,12 +20,12 @@ struct JarDetails: View {
     
     @State var newDate = Date()
 //    can eventually create this on backend
-//    let jarOptions = [
-//        JarAdditionalInfo(name: "Ingredients",content:"",type: DataTypes.string),
-//        JarAdditionalInfo(name: "Expiration Date",content:"",type: DataTypes.date),
-//        JarAdditionalInfo(name: "Caffeinated",content:"",type: DataTypes.bool_),
-//        JarAdditionalInfo(name: "Vegetarian",content:"",type: DataTypes.bool_)
-//    ]
+    let jarOptions = [
+        JarExtraInfo(name: "Ingredients",content:"",type: DataTypes.string),
+        JarExtraInfo(name: "Expiration Date",content:"",type: DataTypes.date),
+        JarExtraInfo(name: "Caffeinated",content:"",type: DataTypes.bool_),
+        JarExtraInfo(name: "Vegetarian",content:"",type: DataTypes.bool_)
+    ]
 //    options to be shown after removing existing ones
     var shownJarOptions = Array<JarExtraInfo>()
     
@@ -38,18 +38,18 @@ struct JarDetails: View {
         self.jar = jar
         _jarChanges = State(initialValue: Jar(copyJar: jar))
         
-//        populateShownOptions()
+        populateShownOptions()
     }
     
-//    mutating func populateShownOptions() {
-//
-//        for option in jarOptions {
-//            if !jarChanges.xtraInfo.contains(option) {
-//                self.shownJarOptions.append(option)
-//
-//            }
-//        }
-//    }
+    mutating func populateShownOptions() {
+
+        for option in jarOptions {
+            if !jarChanges.xtraInfo.contains(option) {
+                self.shownJarOptions.append(option)
+
+            }
+        }
+    }
     
     var body: some View {
         VStack {
@@ -111,35 +111,16 @@ struct JarDetails: View {
                 
                 
                     ForEach(jarChanges.xtraInfo.indices, id: \.self) { element in
-                        Section(header: Text("\(jarChanges.xtraInfo[element].name ?? "null")" ))
+                        Section(header: Text("\(jarChanges.xtraInfo[element].name)" ))
                         {
-//                            if isEditing {
-//                                TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
-//                            }
-//                            else {
-                                Text("\(jarChanges.xtraInfo[element].content ?? "null")")
-//                            }
+                            if isEditing {
+                                TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
+                            }
+                            else {
+                                Text("\(jarChanges.xtraInfo[element].content)")
+                            }
                         }
                     }
-               
-//                    ForEach(jarChanges.extraInfo.compactMap { $0 as? JarAdditionalInfo }, id: \.name) { element in
-//                        Section(header: Text("\(element.name)"))
-//                        {
-//
-//                            Text("\(element.content)")
-//
-//                    }
-//                }
-            
-                
-                
-                
-                
-                
-                
-                
-            
-                
             }
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
             if isEditing {
@@ -155,13 +136,12 @@ struct JarDetails: View {
                     .padding()
                     .confirmationDialog("Add More Info",
                                         isPresented: $showOptions) {
-//                        ForEach(shownJarOptions, id: \.name) { element in
-//                            Button {
-//                                jarChanges.xtraInfo.append(JarAdditionalInfo(name: element.name, content: "", type: element.type))
-////                                jarChanges.extraInfo.add(JarAdditionalInfo(name: element.name, content: "", type: element.type))
-//                            } label: {Text(element.name)}
-//
-//                        }
+                        ForEach(shownJarOptions, id: \.name) { element in
+                            Button {
+                                jarChanges.xtraInfo.append(JarExtraInfo(name: element.name, content: "", type: element.type))
+                            } label: {Text(element.name)}
+
+                        }
                         Button("Cancel", role: .destructive) { showOptions = false }
                     }
                     Spacer()
@@ -173,7 +153,7 @@ struct JarDetails: View {
                     withAnimation {
                         isEditing = false
                         
-                        vm.updateJarById(jarId: jar._id, newJar: jarChanges, xtraInfo: Array<JarExtraInfo>())
+                        vm.updateJarById(jarId: jar._id, newJar: jarChanges, xtraInfo: jar.xtraInfo)
                     }
                 } label:{
                     Text("Save")

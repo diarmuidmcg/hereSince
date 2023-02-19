@@ -25,10 +25,20 @@ enum class DataTypes {
 //}
 
 // Define an embedded object (cannot have primary key)
-class JarExtraInfo() : EmbeddedRealmObject {
-    var name: String? = null
-    var content: String? = null
-    var type: Enum<DataTypes>? = null
+class JarExtraInfo(
+        var name: String = "",
+    var content: String = "",
+    var type: Enum<DataTypes> = DataTypes.STRING
+) : EmbeddedRealmObject {
+    constructor() : this(name = "",content="") // Empty constructor for Realm
+    constructor(copyAddInfo: JarExtraInfo) : this() {
+       name = copyAddInfo.name
+        content = copyAddInfo.content
+        type = copyAddInfo.type
+    }
+//    var name: String? = null
+//    var content: String? = null
+//    var type: Enum<DataTypes>? = null
 }
 
 open class Jar(

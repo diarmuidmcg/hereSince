@@ -117,7 +117,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
 extension JarExtraInfo:Comparable, Identifiable {
     public static func < (lhs: JarExtraInfo, rhs: JarExtraInfo) -> Bool {
 //       so ingredients always first
-        if (rhs.name?.uppercased() == "INGREDIENTS") {return false}
+        if (rhs.name.uppercased() == "INGREDIENTS") {return false}
         else {return true}
     }
 }
