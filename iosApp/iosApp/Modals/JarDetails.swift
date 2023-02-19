@@ -19,6 +19,7 @@ struct JarDetails: View {
     @State var showOptions = false;
     
     @State var newDate = Date()
+//    @State var yesOrNo = false
 //    can eventually create this on backend
     let jarOptions = [
         JarExtraInfo(name: "Ingredients",content:"",type: DataTypes.string),
@@ -31,6 +32,8 @@ struct JarDetails: View {
     
 //    @State var jarChanges = Jar(copyJar: jar)
     @State var jarChanges : Jar
+    
+    var yesOrNo = ["Yes", "No"]
     
     //    init function bc ReadNfc takes the other struct param ViewModel as a param
     init(vm:IOSJarViewModel, jar: Jar) {
@@ -82,12 +85,12 @@ struct JarDetails: View {
                 }
                 Section(header: Text("Here Since")) {
                     if isEditing {
-//                        DatePicker(selection: $newDate, in: ...Date(), displayedComponents: .date) {
-//                            Text("Select a date")
-//                        }
-//                        .onChange(of: newDate) { (date) in
-//                            jarChanges.hereSince = DateFormatter.formate.string(from: date)
-//                        }
+                        DatePicker(selection: $newDate, in: ...Date(), displayedComponents: .date) {
+                            Text("Select a date")
+                        }
+                        .onChange(of: newDate) { (date) in
+                            jarChanges.hereSince = DateFormatter.formate.string(from: date)
+                        }
                     }
                     else {
                         Text(jar.hereSince)
@@ -114,7 +117,29 @@ struct JarDetails: View {
                         Section(header: Text("\(jarChanges.xtraInfo[element].name)" ))
                         {
                             if isEditing {
-                                TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
+                                if (jarChanges.xtraInfo[element].type == DataTypes.date) {
+                                    DatePicker(selection: $newDate, displayedComponents: .date) {
+                                        Text("Select a date")
+                                    }
+                                    .onChange(of: newDate) { (date) in
+                                        jarChanges.xtraInfo[element].content = DateFormatter.formate.string(from: date)
+                                        jarChanges.xtraInfo[element].type = DataTypes.date
+                                    }
+                                }
+                                else if (jarChanges.xtraInfo[element].type == DataTypes.bool_) {
+                                    Picker(selection: $jarChanges.xtraInfo[element].content, label: Text("Yes or No")) {
+                                                Text("Yes").tag("Yes")
+                                                Text("No").tag("No")
+                                            }
+                                    .onTapGesture {
+                                        jarChanges.xtraInfo[element].type = DataTypes.bool_
+                                        
+                                    }
+                                }
+                                else {
+                                    TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
+                                }
+                                
                             }
                             else {
                                 Text("\(jarChanges.xtraInfo[element].content)")

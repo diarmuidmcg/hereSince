@@ -33,6 +33,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
     @Published var currJar: JarOverview = JarOverview(type: JARTYPE.notregistered, jar: Jar())
     @Published var prevJars: Array<Jar> = Array<Jar>()
     @Published var user: UserDetails = UserDetails()
+
     
 
     private let vm: SharedJarViewModel = SharedJarViewModel()

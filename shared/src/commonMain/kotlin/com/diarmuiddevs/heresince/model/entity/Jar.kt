@@ -25,12 +25,13 @@ enum class DataTypes {
 //}
 
 // Define an embedded object (cannot have primary key)
+//Z
 class JarExtraInfo(
         var name: String = "",
     var content: String = "",
     var type: Enum<DataTypes> = DataTypes.STRING
 ) : EmbeddedRealmObject {
-    constructor() : this(name = "",content="") // Empty constructor for Realm
+    constructor() : this(name = "",content="", type=DataTypes.STRING) // Empty constructor for Realm
     constructor(copyAddInfo: JarExtraInfo) : this() {
        name = copyAddInfo.name
         content = copyAddInfo.content
