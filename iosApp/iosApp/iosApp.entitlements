@@ -8,5 +8,15 @@
 	<array>
 		<string>TAG</string>
 	</array>
+    <key>com.apple.developer.associated-appclip-app-identifiers</key>
+    <array>
+         <string>$(AppIdentifierPrefix)diarmuiddevs.JarringApp.Clip</string>
+    </array>
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+        <string>appclips:diarmuiddevs.JarringApp.Clip</string>
+        <string>appclips:jarring.ie</string>
+        <string>https://www.jarring.ie</string>
+    </array>
 </dict>
 </plist>

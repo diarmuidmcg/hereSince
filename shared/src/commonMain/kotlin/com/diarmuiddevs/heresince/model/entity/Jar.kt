@@ -11,17 +11,24 @@ enum class DataTypes {
     DATE
 }
 
-open class JarAdditionalInfo(
-    var name: String = "",
-    var content: String = "",
-    var type: Enum<DataTypes> = DataTypes.STRING
-) :RealmObject {
-    constructor() : this(name = "",content="") // Empty constructor for Realm
-    constructor(copyAddInfo: JarAdditionalInfo) : this() {
-       name = copyAddInfo.name
-        content = copyAddInfo.content
-        type = copyAddInfo.type
-    }
+//open class JarAdditionalInfo(
+//    var name: String = "",
+//    var content: String = "",
+//    var type: Enum<DataTypes> = DataTypes.STRING
+//) :RealmObject {
+//    constructor() : this(name = "",content="") // Empty constructor for Realm
+//    constructor(copyAddInfo: JarAdditionalInfo) : this() {
+//       name = copyAddInfo.name
+//        content = copyAddInfo.content
+//        type = copyAddInfo.type
+//    }
+//}
+
+// Define an embedded object (cannot have primary key)
+class JarExtraInfo() : EmbeddedRealmObject {
+    var name: String? = null
+    var content: String? = null
+    var type: Enum<DataTypes>? = null
 }
 
 open class Jar(
@@ -32,8 +39,7 @@ open class Jar(
     var jarContentName: String = "",
     var jarOwnerName: String = "",
     var jarOwnerUserId: String? = null,
-    var additionalInfo: MutableSet<JarAdditionalInfo> = mutableSetOf(),
-    var extraInfo: MutableList<JarAdditionalInfo> = mutableListOf<JarAdditionalInfo>(),
+    var extraFields: RealmList<JarExtraInfo> = realmListOf()
 ) :RealmObject {
     constructor() : this(
         _id = ObjectId.create().toString(),
@@ -45,8 +51,6 @@ open class Jar(
         jarContentName = copyJar.jarContentName
         jarOwnerName = copyJar.jarOwnerName
         jarOwnerUserId = copyJar.jarOwnerUserId
-        additionalInfo = copyJar.additionalInfo
-        extraInfo = copyJar.extraInfo
     }
 }
 

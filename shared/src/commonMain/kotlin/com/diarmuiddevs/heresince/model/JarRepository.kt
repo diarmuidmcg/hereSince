@@ -1,7 +1,7 @@
 package com.diarmuiddevs.heresince.model
 
 import com.diarmuiddevs.heresince.model.entity.Jar
-import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
+import com.diarmuiddevs.heresince.model.entity.JarExtraInfo
 import io.realm.kotlin.Realm
 //import io.realm.kotlin.demo.model.entity.Jar
 //import io.realm.kotlin.demo.util.Constants.MONGODB_REALM_APP_ID
@@ -122,7 +122,7 @@ class JarRepository {
     /**
      * Get a jar by its Id
      */
-    fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarAdditionalInfo>) {
+    fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarExtraInfo>) {
         print("finding jar at " + jarId)
         CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
 

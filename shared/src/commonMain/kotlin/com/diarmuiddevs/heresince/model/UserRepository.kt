@@ -1,6 +1,7 @@
 package com.diarmuiddevs.heresince.model
 
 import com.diarmuiddevs.heresince.model.entity.Jar
+import com.diarmuiddevs.heresince.model.entity.JarExtraInfo
 
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
@@ -72,7 +73,7 @@ class UserRepository {
                 app.login(Credentials.anonymous(reuseExisting = true))
             } else app.currentUser!!
 
-            val config = SyncConfiguration.Builder(_userDetails.value.user!!, schema = setOf(Jar::class))
+            val config = SyncConfiguration.Builder(_userDetails.value.user!!, schema = setOf(Jar::class, JarExtraInfo::class))
                 .initialSubscriptions { realm: Realm ->
                     add(realm.query<Jar>())
                 }

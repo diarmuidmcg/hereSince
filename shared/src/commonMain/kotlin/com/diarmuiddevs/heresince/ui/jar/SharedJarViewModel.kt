@@ -9,7 +9,7 @@ import com.diarmuiddevs.heresince.model.JarRepository
 import com.diarmuiddevs.heresince.model.UserDetails
 import com.diarmuiddevs.heresince.model.UserRepository
 import com.diarmuiddevs.heresince.model.entity.Jar
-import com.diarmuiddevs.heresince.model.entity.JarAdditionalInfo
+import com.diarmuiddevs.heresince.model.entity.JarExtraInfo
 import kotlinx.coroutines.flow.SharedFlow
 
 /**
@@ -86,7 +86,7 @@ class SharedJarViewModel: JarViewModel {
     override fun findJarById(jarId: String) {
         jarRepository.findJarById(jarId)
     }
-    override fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarAdditionalInfo>){
+    override fun updateJarById(jarId: String, newJar: Jar, xtraInfo: List<JarExtraInfo>){
         jarRepository.updateJarById(jarId,newJar, xtraInfo)
     }
 

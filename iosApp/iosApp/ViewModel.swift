@@ -59,7 +59,7 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         self.launchModal = true
         vm.findJarById(jarId: jarId)
     }
-    func updateJarById(jarId: String,newJar:Jar, xtraInfo: Array<JarAdditionalInfo>){
+    func updateJarById(jarId: String,newJar:Jar, xtraInfo: Array<JarExtraInfo>){
         self.loadingJar = true
         vm.updateJarById(jarId: jarId.uppercased(),newJar:newJar, xtraInfo: xtraInfo)
     }
@@ -86,9 +86,9 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
     func start() {
         addObserver(observer: vm.observeJarOverview().watch { jarOverviewValue in
             self.currJar = jarOverviewValue! as JarOverview
-            if (self.currJar.type == JARTYPE.jarhasdata) {
-                self.currJar.jar.xtraInfo = self.currJar.jar.extraInfo as! Array<JarAdditionalInfo>
-            }
+//            if (self.currJar.type == JARTYPE.jarhasdata) {
+//                self.currJar.jar.xtraInfo = self.currJar.jar.extraInfo as! Array<JarAdditionalInfo>
+//            }
             self.loadingJar = false
         })
         addObserver(observer: vm.observePrevJars().watch { prevJarsList in
@@ -112,30 +112,30 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         })
     }
 }
-
-// extension so JarAdditionalInfo can be iterated thru a SwiftUI Foreach
-extension JarAdditionalInfo:Comparable, Identifiable {
-    public static func < (lhs: JarAdditionalInfo, rhs: JarAdditionalInfo) -> Bool {
-//       so ingredients always first
-        if (rhs.name.uppercased() == "INGREDIENTS") {return false}
-        else {return true}
-    }
-}
-
-// extension to jar so that the above Additional Info can be iterated thru the SwiftUI Foreach -> otherwise the MutableSet is seen as NSElement
-extension Jar {
-    struct Holder {
-        static var _xtraInfo:Array<JarAdditionalInfo> = Array<JarAdditionalInfo>()
-        }
-    var xtraInfo:Array<JarAdditionalInfo> {
-        get {
-            return Holder._xtraInfo
-        }
-        set(newValue) {
-            Holder._xtraInfo = newValue
-        }
-    }
-}
+//
+//// extension so JarAdditionalInfo can be iterated thru a SwiftUI Foreach
+//extension JarAdditionalInfo:Comparable, Identifiable {
+//    public static func < (lhs: JarAdditionalInfo, rhs: JarAdditionalInfo) -> Bool {
+////       so ingredients always first
+//        if (rhs.name.uppercased() == "INGREDIENTS") {return false}
+//        else {return true}
+//    }
+//}
+//
+//// extension to jar so that the above Additional Info can be iterated thru the SwiftUI Foreach -> otherwise the MutableSet is seen as NSElement
+//extension Jar {
+//    struct Holder {
+//        static var _xtraInfo:Array<JarAdditionalInfo> = Array<JarAdditionalInfo>()
+//        }
+//    var xtraInfo:Array<JarAdditionalInfo> {
+//        get {
+//            return Holder._xtraInfo
+//        }
+//        set(newValue) {
+//            Holder._xtraInfo = newValue
+//        }
+//    }
+//}
 
 // extension so Jar can be iterated thru a SwiftUI Foreach
 extension Jar:Comparable, Identifiable {
