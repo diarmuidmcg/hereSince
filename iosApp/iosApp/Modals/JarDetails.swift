@@ -31,12 +31,8 @@ struct JarDetails: View {
     //    options to be shown after removing existing ones
     var shownJarOptions = Array<JarExtraInfo>()
     
-    //    @State var jarChanges = Jar(copyJar: jar)
     @State var jarChanges : Jar
     @State var jarExtras = Array<JarExtraInfo>()
-    
-    var yesOrNo = ["Yes", "No"]
-    
     //    init function bc ReadNfc takes the other struct param ViewModel as a param
     init(vm:IOSJarViewModel, jar: Jar) {
         self.vm = vm
@@ -93,7 +89,6 @@ struct JarDetails: View {
                                 .font(.system(size: 30))
                             Spacer()
                         }
-                        
                     }
                     .foregroundColor(.primary)
                     .buttonStyle(.borderless)
@@ -107,7 +102,6 @@ struct JarDetails: View {
                                     jarExtras.append(JarExtraInfo(name: element.name, content: "", type: element.type))
                                 }
                             } label: {Text(element.name)}
-                            
                         }
                     }
                     Spacer()
@@ -115,7 +109,6 @@ struct JarDetails: View {
                     // Fallback on earlier versions
                 }
             }
-            
             List {
                 Section(header: Text("Name")) {
                     if isEditing {
@@ -123,7 +116,6 @@ struct JarDetails: View {
                     }
                     else {
                         Text(jar.jarContentName)
-                        
                     }
                 }
                 Section(header: Text("Here Since")) {
@@ -143,7 +135,6 @@ struct JarDetails: View {
                 Section(header: Text("Owned By")) {
                     if isEditing {
                         TextField(jar.jarOwnerName, text: $jarChanges.jarOwnerName)
-                        
                     }
                     else {
                         Text(jar.jarOwnerName)
@@ -159,7 +150,6 @@ struct JarDetails: View {
                                 }
                                 .onChange(of: expirationDate) { (date) in
                                     jarExtras[element].content = DateFormatter.formate.string(from: date)
-                                    //                                    jarExtras[element].type = "d"
                                 }
                             }
                             else if (jarExtras[element].type == "b") {
@@ -172,19 +162,25 @@ struct JarDetails: View {
                             else {
                                 TextField(jarExtras[element].content, text: $jarExtras[element].content)
                             }
-                            
+//                            Button{
+//                                jarExtras.remove(at: element)
+//                                jarChanges.xtraInfo.remove(at: element)
+//                            } label: {
+//                                HStack{
+//                                    Spacer()
+//                                    Image(systemName: "minus.square")
+//                                        .font(.system(size: 20))
+//                                        .foregroundColor(Color(.red))
+//                                    Spacer()
+//                                }
+//                            }
                         }
                         else {
                             Text("\(jarExtras[element].content)")
                         }
                     }
                 }
-                
-                
-                
-
             }
-            
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
             if isEditing {
                 Spacer()
@@ -198,14 +194,12 @@ struct JarDetails: View {
                         .foregroundColor(Color.white)
                         .paragraphTwo()
                         .frame(width: UIScreen.screenWidth * 0.8, height: 40, alignment: .center)
-                    
                 }
                 .foregroundColor(.primary)
                 .buttonStyle(BasicButton(bgColor: .primary, secondaryColor: .white))
                 .padding(.bottom)
             }
             Spacer()
-            
         }
     }
 }
