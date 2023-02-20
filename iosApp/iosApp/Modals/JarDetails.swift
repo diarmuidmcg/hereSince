@@ -14,24 +14,26 @@ struct JarDetails: View {
     @ObservedObject var vm : IOSJarViewModel
     var jar : Jar
     @Environment(\.colorScheme) var colorScheme
-   
+    
     @State var isEditing = false;
     @State var showOptions = false;
     
     @State var newDate = Date()
-//    @State var yesOrNo = false
-//    can eventually create this on backend
+    @State var expirationDate = Date()
+    //    @State var yesOrNo = false
+    //    can eventually create this on backend
     let jarOptions = [
         JarExtraInfo(name: "Ingredients",content:"",type: "s"),
         JarExtraInfo(name: "Expiration Date",content:"",type: "d"),
         JarExtraInfo(name: "Caffeinated",content:"",type: "b"),
         JarExtraInfo(name: "Vegetarian",content:"",type: "b")
     ]
-//    options to be shown after removing existing ones
+    //    options to be shown after removing existing ones
     var shownJarOptions = Array<JarExtraInfo>()
     
-//    @State var jarChanges = Jar(copyJar: jar)
+    //    @State var jarChanges = Jar(copyJar: jar)
     @State var jarChanges : Jar
+    @State var jarExtras = Array<JarExtraInfo>()
     
     var yesOrNo = ["Yes", "No"]
     
@@ -39,19 +41,26 @@ struct JarDetails: View {
     init(vm:IOSJarViewModel, jar: Jar) {
         self.vm = vm
         self.jar = jar
-        _jarChanges = State(initialValue: Jar(copyJar: jar))
         
+        _jarChanges = State(initialValue: Jar(copyJar: jar))
+        _jarExtras = State(initialValue: setJarExtras(setJar: jar))
         populateShownOptions()
     }
     
     mutating func populateShownOptions() {
-
         for option in jarOptions {
             if !jarChanges.xtraInfo.contains(where: {$0.name == option.name}) {
                 self.shownJarOptions.append(option)
-
             }
         }
+    }
+    
+    func setJarExtras(setJar: Jar) -> Array<JarExtraInfo>{
+        var jarDetails = Array<JarExtraInfo>()
+        for option in setJar.xtraInfo {
+            jarDetails.append(JarExtraInfo(copyAddInfo: option))
+        }
+        return jarDetails
     }
     
     var body: some View {
@@ -73,6 +82,40 @@ struct JarDetails: View {
                     .padding()
                 }
             }
+            if (isEditing && shownJarOptions.count > 0) {
+                if #available(iOS 15.0, *) {
+                    Button{
+                        showOptions = true
+                    } label: {
+                        HStack{
+                            Spacer()
+                            Image(systemName: "plus.app")
+                                .font(.system(size: 30))
+                            Spacer()
+                        }
+                        
+                    }
+                    .foregroundColor(.primary)
+                    .buttonStyle(.borderless)
+                    .confirmationDialog("Add More Info",
+                                        isPresented: $showOptions) {
+                        ForEach(shownJarOptions, id: \.name) { element in
+                            Button {
+//                                prevents the user from adding 'ingredients' more than once etc
+                                if !jarChanges.xtraInfo.contains(where: {$0.name == element.name}) {
+                                    jarChanges.xtraInfo.append(JarExtraInfo(name: element.name, content: "", type: element.type))
+                                    jarExtras.append(JarExtraInfo(name: element.name, content: "", type: element.type))
+                                }
+                            } label: {Text(element.name)}
+                            
+                        }
+                    }
+                    Spacer()
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+            
             List {
                 Section(header: Text("Name")) {
                     if isEditing {
@@ -96,6 +139,7 @@ struct JarDetails: View {
                         Text(jar.hereSince)
                     }
                 }
+                
                 Section(header: Text("Owned By")) {
                     if isEditing {
                         TextField(jar.jarOwnerName, text: $jarChanges.jarOwnerName)
@@ -105,76 +149,49 @@ struct JarDetails: View {
                         Text(jar.jarOwnerName)
                     }
                 }
-//                                ForEach(jar.xtraInfo.indices, id: \.self) { element in
-//                                    Section(header: Text("\(element.name)"))
-//                                    {
-//                                        Text("\(element.content)")
-//                                    }
-//                                }
-                
-                
-                    ForEach(jarChanges.xtraInfo.indices, id: \.self) { element in
-                        Section(header: Text("\(jarChanges.xtraInfo[element].name)" ))
-                        {
-                            if isEditing {
-                                if (jarChanges.xtraInfo[element].type == "d") {
-                                    DatePicker(selection: $newDate, displayedComponents: .date) {
-                                        Text("Select a date")
-                                    }
-                                    .onChange(of: newDate) { (date) in
-                                        jarChanges.xtraInfo[element].content = DateFormatter.formate.string(from: date)
-                                        jarChanges.xtraInfo[element].type = "d"
-                                    }
+                ForEach(jarExtras.indices, id: \.self) { element in
+                    Section(header: Text("\(jarExtras[element].name)" ))
+                    {
+                        if isEditing {
+                            if (jarExtras[element].type == "d") {
+                                DatePicker(selection: $expirationDate, displayedComponents: .date) {
+                                    Text("Select a date")
                                 }
-                                else if (jarChanges.xtraInfo[element].type == "b") {
-                                    Picker("Yes or No", selection: $jarChanges.xtraInfo[element].content) {
-                                                    ForEach(yesOrNo, id: \.self) {
-                                                        Text($0)
-                                                    }
-                                                }
+                                .onChange(of: expirationDate) { (date) in
+                                    jarExtras[element].content = DateFormatter.formate.string(from: date)
+                                    //                                    jarExtras[element].type = "d"
                                 }
-                                else {
-                                    TextField(jarChanges.xtraInfo[element].content, text: $jarChanges.xtraInfo[element].content)
-                                }
-                                
+                            }
+                            else if (jarExtras[element].type == "b") {
+                                Picker("Yes or No", selection: $jarExtras[element].content, content: {
+                                    Text("Yes").tag("Yes")
+                                    Text("No").tag("No")
+                                })
+                                .pickerStyle(SegmentedPickerStyle())
                             }
                             else {
-                                Text("\(jarChanges.xtraInfo[element].content)")
+                                TextField(jarExtras[element].content, text: $jarExtras[element].content)
                             }
+                            
+                        }
+                        else {
+                            Text("\(jarExtras[element].content)")
                         }
                     }
+                }
+                
+                
+                
+
             }
+            
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
             if isEditing {
-                if #available(iOS 15.0, *) {
-                    Button{
-                        showOptions = true
-                    } label: {
-                        Image(systemName: "plus.app")
-                            .font(.system(size: 30))
-                    }
-                    .foregroundColor(.primary)
-                    .buttonStyle(.borderless)
-                    .padding()
-                    .confirmationDialog("Add More Info",
-                                        isPresented: $showOptions) {
-                        ForEach(shownJarOptions, id: \.name) { element in
-                            Button {
-                                jarChanges.xtraInfo.append(JarExtraInfo(name: element.name, content: "", type: element.type))
-                            } label: {Text(element.name)}
-
-                        }
-                    }
-                    Spacer()
-                } else {
-                    // Fallback on earlier versions
-                }
                 Spacer()
                 Button{
                     withAnimation {
                         isEditing = false
-                        
-                        vm.updateJarById(jarId: jar._id, newJar: jarChanges, xtraInfo: jar.xtraInfo)
+                        vm.updateJarById(jarId: jar._id, newJar: jarChanges, xtraInfo: jarExtras)
                     }
                 } label:{
                     Text("Save")
@@ -188,7 +205,7 @@ struct JarDetails: View {
                 .padding(.bottom)
             }
             Spacer()
-                
+            
         }
     }
 }
