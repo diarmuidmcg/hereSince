@@ -52,9 +52,10 @@ struct JarDetails: View {
     }
     
     func setJarExtras(setJar: Jar) -> Array<JarExtraInfo>{
+        print("setting jar")
         var jarDetails = Array<JarExtraInfo>()
-        for option in setJar.xtraInfo {
-            jarDetails.append(JarExtraInfo(copyAddInfo: option))
+        for option in setJar.extraFields {
+            jarDetails.append(JarExtraInfo(copyAddInfo: option as! JarExtraInfo))
         }
         return jarDetails
     }
