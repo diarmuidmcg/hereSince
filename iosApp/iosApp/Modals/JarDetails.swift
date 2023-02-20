@@ -63,7 +63,7 @@ struct JarDetails: View {
     var body: some View {
         VStack {
             HStack{
-                Text("Jar")
+                Text(jarChanges.jarContentName)
                     .foregroundColor(Color("TextColor"))
                     .padding(20)
                     .padding(.top, 20)
@@ -111,12 +111,9 @@ struct JarDetails: View {
                 }
             }
             List {
-                Section(header: Text("Name")) {
-                    if isEditing {
+                if isEditing {
+                    Section(header: Text("Name")) {
                         TextField(jarChanges.jarContentName, text: $jarChanges.jarContentName)
-                    }
-                    else {
-                        Text(jar.jarContentName)
                     }
                 }
                 Section(header: Text("Here Since")) {
