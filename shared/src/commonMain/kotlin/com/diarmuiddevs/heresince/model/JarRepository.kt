@@ -174,6 +174,15 @@ class JarRepository {
         }
     }
 
+    fun fetchJarOptions() : List<JarExtraInfo> {
+        return listOf(
+            JarExtraInfo(name = "Ingredients", content = "", type = "s"),
+            JarExtraInfo(name = "Expiration Date", content = "", type = "d"),
+            JarExtraInfo(name = "Caffeinated", content = "", type = "b"),
+            JarExtraInfo(name = "Vegetarian", content = "", type = "b")
+        )
+    }
+
     /**
      * Listen to changes to the counter.
      */

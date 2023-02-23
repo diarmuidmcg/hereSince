@@ -17,10 +17,10 @@ import kotlinx.coroutines.flow.StateFlow
 interface JarViewModel: SharedViewModel {
     fun observeJarOverview(): CommonStateFlow<JarOverview>
     fun observePrevJars(): CommonStateFlow<MutableList<Jar>>
-//    fun observeUserJars(): CommonStateFlow<MutableList<Jar>>
     fun signUserUpEmail(email: String, password:String)
     fun signUserInEmail(email: String, password:String)
     fun signOut()
+    fun fetchJarOptions() : List<JarExtraInfo>
 //    may not export this
     fun userHasCreatedAcc()
     fun observeUserDetails(): CommonStateFlow<UserDetails>

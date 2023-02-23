@@ -54,6 +54,10 @@ class SharedJarViewModel: JarViewModel {
             .asCommonStateFlow()
     }
 
+    override  fun fetchJarOptions() : List<JarExtraInfo> {
+        return jarRepository.fetchJarOptions()
+    }
+
     override fun enableWifi() {
         userRepository.enableSync(true)
     }

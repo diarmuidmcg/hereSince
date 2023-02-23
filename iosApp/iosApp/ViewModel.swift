@@ -82,6 +82,11 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         vm.userHasCreatedAcc()
     }
     
+    func fetchJarOptions() -> Array<JarExtraInfo> {
+        return vm.fetchJarOptions()
+    }
+    
+    
        
     
     func start() {
