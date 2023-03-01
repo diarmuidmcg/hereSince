@@ -19,7 +19,8 @@ struct JarDetails: View {
     @State var newDate = Date()
     @State var jarChanges : Jar
     @State var jarExtras = Array<JarExtraInfo>()
-    //    init function bc ReadNfc takes the other struct param ViewModel as a param
+    //    init function bc you need to create copies of both current jar & current jar extras
+//    this is bc the data types in kotlin are diff than swift & can not map a foreach
     init(vm:IOSJarViewModel, jar: Jar) {
         self.vm = vm
         self.jar = jar
@@ -27,14 +28,14 @@ struct JarDetails: View {
         _jarChanges = State(initialValue: Jar(copyJar: jar))
         _jarExtras = State(initialValue: setJarExtras(setJar: jar))
     }
-//    used to convert kotlin data type to swift data type of Jar Extra Infos
+    //    used to convert kotlin data type to swift data type of Jar Extra Infos
     func setJarExtras(setJar: Jar) -> Array<JarExtraInfo>{
-            print("setting jar")
-            var jarDetails = Array<JarExtraInfo>()
-            for option in setJar.extraFields {
-                jarDetails.append(JarExtraInfo(copyAddInfo: option as! JarExtraInfo))
-            }
-            return jarDetails
+        print("setting jar")
+        var jarDetails = Array<JarExtraInfo>()
+        for option in setJar.extraFields {
+            jarDetails.append(JarExtraInfo(copyAddInfo: option as! JarExtraInfo))
+        }
+        return jarDetails
     }
     
     var body: some View {
@@ -56,7 +57,7 @@ struct JarDetails: View {
                     .padding()
                 }
             }
-//            jar Extra Add button
+            //            jar Extra Add button
             JarExtraAddButton(vm: vm, jarExtras: $jarExtras, isEditing: isEditing)
             List {
                 
@@ -69,6 +70,12 @@ struct JarDetails: View {
                     if isEditing {
                         DatePicker(selection: $newDate, in: ...Date(), displayedComponents: .date) {
                             Text("Select a date")
+                        }
+                        .onAppear {
+    //                        so default is today
+                            if (jarChanges.hereSince == ""){
+                                jarChanges.hereSince = DateFormatter.formate.string(from: newDate)
+                            }
                         }
                         .onChange(of: newDate) { (date) in
                             jarChanges.hereSince = DateFormatter.formate.string(from: date)
@@ -87,13 +94,13 @@ struct JarDetails: View {
                         Text(jar.jarOwnerName)
                     }
                 }
-//                jar extra details
+                //                jar extra details
                 JarExtraItemsList(vm: vm, jarExtras: $jarExtras, isEditing: isEditing)
             }
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
             Spacer()
             if isEditing {
-               
+                
                 Button{
                     withAnimation {
                         isEditing = false

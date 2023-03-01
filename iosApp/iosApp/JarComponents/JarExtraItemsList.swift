@@ -25,6 +25,12 @@ struct JarExtraItemsList: View {
                         DatePicker(selection: $expirationDate, displayedComponents: .date) {
                             Text("Select a date")
                         }
+                        .onAppear {
+    //                        so default is today
+                            if (jarExtras[element].content == ""){
+                                jarExtras[element].content = DateFormatter.formate.string(from: expirationDate)
+                            }
+                        }
                         .onChange(of: expirationDate) { (date) in
                             jarExtras[element].content = DateFormatter.formate.string(from: date)
                         }
