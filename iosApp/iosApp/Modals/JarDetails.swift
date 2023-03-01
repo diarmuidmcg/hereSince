@@ -16,23 +16,7 @@ struct JarDetails: View {
     @Environment(\.colorScheme) var colorScheme
     
     @State var isEditing = false;
-//    @State var showOptions = false;
-    
     @State var newDate = Date()
-//    @State var expirationDate = Date()
-    //    @State var yesOrNo = false
-    //    can eventually create this on backend
-//    var jarOptions = [
-//        JarExtraInfo(name: "Ingredients",content:"",type: "s"),
-//        JarExtraInfo(name: "Expiration Date",content:"",type: "d"),
-//        JarExtraInfo(name: "Caffeinated",content:"",type: "b"),
-//        JarExtraInfo(name: "Vegetarian",content:"",type: "b")
-//    ]
-//
-//
-//    //    options to be shown after removing existing ones
-//    var shownJarOptions = Array<JarExtraInfo>()
-    
     @State var jarChanges : Jar
     @State var jarExtras = Array<JarExtraInfo>()
     //    init function bc ReadNfc takes the other struct param ViewModel as a param
@@ -42,18 +26,7 @@ struct JarDetails: View {
         
         _jarChanges = State(initialValue: Jar(copyJar: jar))
         _jarExtras = State(initialValue: setJarExtras(setJar: jar))
-//        populateShownOptions()
-        // still need to test
-//        jarOptions = vm.fetchJarOptions()
     }
-    
-//    mutating func populateShownOptions() {
-//        for option in jarOptions {
-//            if !jarChanges.xtraInfo.contains(where: {$0.name == option.name}) {
-//                self.shownJarOptions.append(option)
-//            }
-//        }
-//    }
 //    used to convert kotlin data type to swift data type of Jar Extra Infos
     func setJarExtras(setJar: Jar) -> Array<JarExtraInfo>{
             print("setting jar")
@@ -84,7 +57,7 @@ struct JarDetails: View {
                 }
             }
 //            jar Extra Add button
-            JarExtraAddButton(vm: vm, jarChanges: $jarChanges, jarExtras: $jarExtras, isEditing: isEditing)
+            JarExtraAddButton(vm: vm, jarExtras: $jarExtras, isEditing: isEditing)
             List {
                 
                 if isEditing {
@@ -115,11 +88,12 @@ struct JarDetails: View {
                     }
                 }
 //                jar extra details
-                JarExtraItemsList(vm: vm, jarChanges: $jarChanges, jarExtras: $jarExtras, isEditing: isEditing)
+                JarExtraItemsList(vm: vm, jarExtras: $jarExtras, isEditing: isEditing)
             }
             .foregroundColor(isEditing ? Color.gray : colorScheme == .light ? Color.black: Color.white)
+            Spacer()
             if isEditing {
-                Spacer()
+               
                 Button{
                     withAnimation {
                         isEditing = false
