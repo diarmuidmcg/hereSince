@@ -75,6 +75,10 @@ class SharedJarViewModel: JarViewModel {
         return userRepository.signOut()
     }
 
+    override fun deleteAccount() {
+        return userRepository.deleteAccount()
+    }
+
     override fun userHasCreatedAcc() {
         userRepository.userHasCreatedAcc()
     }

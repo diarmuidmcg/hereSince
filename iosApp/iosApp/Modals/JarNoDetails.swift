@@ -55,7 +55,6 @@ struct JarNoDetails: View {
             Spacer()
             Button{
                 withAnimation {
-                   
                     vm.updateJarById(jarId: vm.currJar.jar._id, newJar: newJar, xtraInfo: jarExtras)
                 }
             } label:{

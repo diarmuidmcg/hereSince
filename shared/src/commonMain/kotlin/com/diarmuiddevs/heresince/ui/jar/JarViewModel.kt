@@ -20,6 +20,7 @@ interface JarViewModel: SharedViewModel {
     fun signUserUpEmail(email: String, password:String)
     fun signUserInEmail(email: String, password:String)
     fun signOut()
+    fun deleteAccount()
     fun fetchJarOptions() : List<JarExtraInfo>
 //    may not export this
     fun userHasCreatedAcc()

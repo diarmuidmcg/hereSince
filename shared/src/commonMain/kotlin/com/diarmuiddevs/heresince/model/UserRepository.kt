@@ -182,6 +182,38 @@ class UserRepository {
         }
     }
     /**
+     * Delete Account
+     */
+    fun deleteAccount() {
+        CoroutineScope(Dispatchers.Default).launch { // wrap in coroutine
+            async { // wrap on async call
+                try { // wrap try catch to avoid nothing being returned
+                    val newUserD = UserDetails(_userDetails.value)
+//                  log user out
+                    newUserD.user?.delete()
+                    newUserD.hasAccount = false
+//                    create a new anon user to use sync
+                    newUserD.user = app.login(Credentials.anonymous(reuseExisting = true))
+//                    reset prev & user jars
+                    newUserD.userJars.clear()
+//                    reset error
+                    newUserD.error = RealmException()
+                    _userDetails.value = newUserD
+//                   TODO should make jars free too
+
+
+                } catch (e: AppException) {
+                    println("error deleting user $e")
+//                    need to copy & create new UserDetails to update mutable state flow before saving
+                    val newUserD = UserDetails(_userDetails.value)
+                    newUserD.error = e
+                    _userDetails.value = newUserD
+                }
+            }
+        }
+    }
+
+    /**
      * small func to determine if user has set up account instead of anon
      */
     fun userHasCreatedAcc()  {

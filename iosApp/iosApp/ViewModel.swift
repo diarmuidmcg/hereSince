@@ -78,6 +78,13 @@ class IOSJarViewModel: ObservableViewModel, ObservableObject {
         vm.signOut()
     }
     
+    func deleteAccount(){
+        self.launchAccount = false
+        vm.deleteAccount()
+    }
+    
+    
+    
     func userHasCreatedAcc(){
         vm.userHasCreatedAcc()
     }

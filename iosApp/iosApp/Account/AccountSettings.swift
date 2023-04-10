@@ -31,6 +31,17 @@ struct AccountSettings: View {
             }
             .buttonStyle(BasicButton(bgColor: .secondary, secondaryColor: .primary))
             .padding(.vertical)
+            Button {
+            // sign in button
+                vm.deleteAccount()
+            } label: {
+                Text("Delete Account")
+                    .foregroundColor(Color.white)
+                    .paragraphTwo()
+                    .frame(width: UIScreen.screenWidth * 0.8, height: 40, alignment: .center)
+            }
+            .buttonStyle(BasicButton(bgColor: .secondary, secondaryColor: .primary))
+            .padding(.vertical)
             Spacer()
         }
         
