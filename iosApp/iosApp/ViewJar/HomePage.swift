@@ -41,6 +41,16 @@ struct HomePage: View {
                 })
             }
             Spacer()
+//            Button(action: {
+//                Task {
+//                    do { let myResult = try await Network().getProductInfo(productName:"chai tea", dateAdded: "12-12-2022")
+//                        print(myResult)
+//                    }
+//                }
+//                
+//            }, label: {
+//                Text("test me")
+//            })
             TapJarButton(vm: vm)
             Spacer()
         }

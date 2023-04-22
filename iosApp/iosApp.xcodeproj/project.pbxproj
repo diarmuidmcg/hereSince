@@ -18,7 +18,7 @@
 		261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegistered.swift */; };
 		261550C1295B57F000CEC9DC /* SingleJarMinimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */; };
 		261550C3295B602C00CEC9DC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* Account.swift */; };
-		2637B43E2971BCF30079151C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		2637B43E2971BCF30079151C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		2637B44229721CBC0079151C /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B44129721CBC0079151C /* SignIn.swift */; };
 		2637B444297220170079151C /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B443297220160079151C /* SignUp.swift */; };
 		2637B446297223370079151C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B445297223370079151C /* UIConstants.swift */; };
@@ -65,9 +65,9 @@
 		26CF9C3E299EA51100B778B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		26D884A62965FA51003BA81C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D884A52965FA51003BA81C /* ViewModel.swift */; };
 		26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
-		2A0EC768563FFF8003DD5ABB /* Pods_JarRingClip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD55DD8A19D38FB846C2A7C7 /* Pods_JarRingClip.framework */; };
+		3157B018686453389E8A77CF /* Pods_JarRingClip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF11AE39322427B03EB5989 /* Pods_JarRingClip.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
-		C384D8AF2A8F42426085C57F /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AC0E092996ADB00044496B /* Pods_iosApp.framework */; };
+		F0DCC46A3D0433CAAD07F3D8 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF3D2D28407257F5780B64E /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +97,8 @@
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1FF3D2D28407257F5780B64E /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		256DFE90201F9EE17E65ABAC /* Pods-JarRingClip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.debug.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.debug.xcconfig"; sourceTree = "<group>"; };
 		26054B7A29A7C6EA00C6DF3C /* JarExtraItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarExtraItemsList.swift; sourceTree = "<group>"; };
 		26054B7D29A7C71A00C6DF3C /* JarExtraAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarExtraAddButton.swift; sourceTree = "<group>"; };
 		261550BB295B572600CEC9DC /* JarNoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarNoDetails.swift; sourceTree = "<group>"; };
@@ -119,7 +119,6 @@
 		2683058D29560FDF004BF8C4 /* TapJarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapJarButton.swift; sourceTree = "<group>"; };
 		2683059029561039004BF8C4 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		26830592295610A9004BF8C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		26AC0E092996ADB00044496B /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B7D2C2296F9E30006D5228 /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
 		26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNFC.swift; sourceTree = "<group>"; };
 		26C04EB8296F5E9E00640FDC /* JarModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarModal.swift; sourceTree = "<group>"; };
@@ -131,13 +130,14 @@
 		26CF9C1A299E5A2700B778B9 /* JarRingClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JarRingClip.entitlements; sourceTree = "<group>"; };
 		26D884A52965FA51003BA81C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		26FC5B4B295B4406001C4881 /* JarDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarDetails.swift; sourceTree = "<group>"; };
-		2D0246D5738060BFD2BCC1B7 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
-		6A04AFE761E2F40178AACF9D /* Pods-JarRingClip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.release.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.release.xcconfig"; sourceTree = "<group>"; };
+		51CF9274603F37A5E016D3EF /* Pods-JarRingClip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.debug.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.debug.xcconfig"; sourceTree = "<group>"; };
+		57ED7188CB5F33E2A8AEEAE5 /* Pods-JarRingClip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.release.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.release.xcconfig"; sourceTree = "<group>"; };
+		63DBA1C64EB6895F68D5B220 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD55DD8A19D38FB846C2A7C7 /* Pods_JarRingClip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JarRingClip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1062D517B5F35304B67EB09 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		E0D1AA9F3F56DDE3FFDF9AA2 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		FAF11AE39322427B03EB5989 /* Pods_JarRingClip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JarRingClip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A0EC768563FFF8003DD5ABB /* Pods_JarRingClip.framework in Frameworks */,
+				3157B018686453389E8A77CF /* Pods_JarRingClip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2637B43E2971BCF30079151C /* (null) in Frameworks */,
-				C384D8AF2A8F42426085C57F /* Pods_iosApp.framework in Frameworks */,
+				2637B43E2971BCF30079151C /* BuildFile in Frameworks */,
+				F0DCC46A3D0433CAAD07F3D8 /* Pods_iosApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,10 +279,10 @@
 		48C12D0A5416E1A860A36182 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2D0246D5738060BFD2BCC1B7 /* Pods-iosApp.debug.xcconfig */,
-				D1062D517B5F35304B67EB09 /* Pods-iosApp.release.xcconfig */,
-				256DFE90201F9EE17E65ABAC /* Pods-JarRingClip.debug.xcconfig */,
-				6A04AFE761E2F40178AACF9D /* Pods-JarRingClip.release.xcconfig */,
+				51CF9274603F37A5E016D3EF /* Pods-JarRingClip.debug.xcconfig */,
+				57ED7188CB5F33E2A8AEEAE5 /* Pods-JarRingClip.release.xcconfig */,
+				63DBA1C64EB6895F68D5B220 /* Pods-iosApp.debug.xcconfig */,
+				E0D1AA9F3F56DDE3FFDF9AA2 /* Pods-iosApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -293,8 +293,8 @@
 				7555FF7D242A565900829871 /* iosApp */,
 				26CF9C0F299E5A2500B778B9 /* JarRingClip */,
 				7555FF7C242A565900829871 /* Products */,
-				7555FFB0242A642200829871 /* Frameworks */,
 				48C12D0A5416E1A860A36182 /* Pods */,
+				93944C3F72062B2B787FEDE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -329,11 +329,11 @@
 			path = iosApp;
 			sourceTree = "<group>";
 		};
-		7555FFB0242A642200829871 /* Frameworks */ = {
+		93944C3F72062B2B787FEDE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26AC0E092996ADB00044496B /* Pods_iosApp.framework */,
-				CD55DD8A19D38FB846C2A7C7 /* Pods_JarRingClip.framework */,
+				FAF11AE39322427B03EB5989 /* Pods_JarRingClip.framework */,
+				1FF3D2D28407257F5780B64E /* Pods_iosApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26CF9C1E299E5A2700B778B9 /* Build configuration list for PBXNativeTarget "JarRingClip" */;
 			buildPhases = (
-				C8941EF53AA4742230655BA2 /* [CP] Check Pods Manifest.lock */,
+				7A3937E1147E97DF69CE03D9 /* [CP] Check Pods Manifest.lock */,
 				26CF9C0A299E5A2400B778B9 /* Sources */,
 				26CF9C0B299E5A2400B778B9 /* Frameworks */,
 				26CF9C0C299E5A2400B778B9 /* Resources */,
@@ -363,7 +363,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
-				26D7489CBCCB3EA78976CC04 /* [CP] Check Pods Manifest.lock */,
+				33E78AEBEF46031CCDFBAEEF /* [CP] Check Pods Manifest.lock */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
@@ -438,9 +438,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		26D7489CBCCB3EA78976CC04 /* [CP] Check Pods Manifest.lock */ = {
+		33E78AEBEF46031CCDFBAEEF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
@@ -460,7 +460,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C8941EF53AA4742230655BA2 /* [CP] Check Pods Manifest.lock */ = {
+		7A3937E1147E97DF69CE03D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -564,7 +564,7 @@
 /* Begin XCBuildConfiguration section */
 		26CF9C1F299E5A2700B778B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 256DFE90201F9EE17E65ABAC /* Pods-JarRingClip.debug.xcconfig */;
+			baseConfigurationReference = 51CF9274603F37A5E016D3EF /* Pods-JarRingClip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -603,7 +603,7 @@
 		};
 		26CF9C20299E5A2700B778B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A04AFE761E2F40178AACF9D /* Pods-JarRingClip.release.xcconfig */;
+			baseConfigurationReference = 57ED7188CB5F33E2A8AEEAE5 /* Pods-JarRingClip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -757,7 +757,7 @@
 		};
 		7555FFA6242A565B00829871 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D0246D5738060BFD2BCC1B7 /* Pods-iosApp.debug.xcconfig */;
+			baseConfigurationReference = 63DBA1C64EB6895F68D5B220 /* Pods-iosApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -798,7 +798,7 @@
 		};
 		7555FFA7242A565B00829871 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1062D517B5F35304B67EB09 /* Pods-iosApp.release.xcconfig */;
+			baseConfigurationReference = E0D1AA9F3F56DDE3FFDF9AA2 /* Pods-iosApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

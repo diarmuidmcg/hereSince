@@ -9,6 +9,7 @@ plugins {
 
 version = "1.0"
 
+
 kotlin {
     android()
 
@@ -32,10 +33,13 @@ kotlin {
     }
 
     sourceSets {
+        val ktorVersion = "2.1.3"
+
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
                 implementation("io.realm.kotlin:library-sync:1.4.0")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
             }
         }
         val commonTest by getting {
@@ -44,15 +48,29 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+            }
+        }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
+
             }
         }
 
-        val iosMain by getting
+        val iosMain by getting {
+//        val iosMain by creating {
+            dependsOn(commonMain)
+//            iosX64Main.dependsOn(this)
+//            iosArm64Main.dependsOn(this)
+//            iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+            }
+        }
         val iosTest by getting
         val jvmMain by getting
     }
