@@ -22,7 +22,7 @@ class ReadNFC: NSObject, ObservableObject, NFCTagReaderSessionDelegate {
     func launchNfcScan() {
         self.session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
         // this createss nfc alert
-        self.session?.alertMessage = "Tap the Fonz Coaster"
+        self.session?.alertMessage = "Tap the Jar!"
         // this begins the alert
         self.session?.begin()
     }

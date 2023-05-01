@@ -19,7 +19,7 @@ struct ContentView: View {
                 if vm.user.userJars.count > 0 {
                     MyJars(vm: vm).tabItem { Label("My Jars", systemImage: "loupe")}.tag(TabIdentifier.mine)
                 }
-                ViewJar(vm: vm).tabItem { Label("View", systemImage: "tag.circle")}.tag(TabIdentifier.view)
+                HomePage(vm: vm).tabItem { Label("View", systemImage: "tag.circle")}.tag(TabIdentifier.view)
                 PreviousJars(vm: vm).tabItem { Label("Previous", systemImage: "memories")}.tag(TabIdentifier.prev)
             }
             .accentColor(Color.primary)

@@ -19,6 +19,9 @@ struct JarDetails: View {
     @State var newDate = Date()
     @State var jarChanges : Jar
     @State var jarExtras = Array<JarExtraInfo>()
+    
+    // test
+    @State var foodItemSearchText = ""
     //    init function bc you need to create copies of both current jar & current jar extras
 //    this is bc the data types in kotlin are diff than swift & can not map a foreach
     init(vm:IOSJarViewModel, jar: Jar) {
@@ -60,6 +63,23 @@ struct JarDetails: View {
             //            jar Extra Add button
             JarExtraAddButton(vm: vm, jarExtras: $jarExtras, isEditing: isEditing)
             List {
+                
+                if isEditing {
+                    Section(header: Text("What are you storing?")) {
+                        TextField(foodItemSearchText, text: $foodItemSearchText)
+                    }
+                    // ideally have state here that has loading, maybe "another option for submitting the second time
+                    Button{
+                        withAnimation {
+                            // ask LLM
+                        }
+                    } label:{
+                        Text("Submit")
+                            .foregroundColor(Color.white)
+                            .paragraphTwo()
+                            .frame(width: UIScreen.screenWidth * 0.8, height: 40, alignment: .center)
+                    }
+                }
                 
                 if isEditing {
                     Section(header: Text("Name")) {

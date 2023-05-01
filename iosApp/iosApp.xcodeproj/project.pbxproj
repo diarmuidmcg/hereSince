@@ -14,22 +14,21 @@
 		26054B7C29A7C6EA00C6DF3C /* JarExtraItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26054B7A29A7C6EA00C6DF3C /* JarExtraItemsList.swift */; };
 		26054B7E29A7C71A00C6DF3C /* JarExtraAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26054B7D29A7C71A00C6DF3C /* JarExtraAddButton.swift */; };
 		26054B7F29A7C71A00C6DF3C /* JarExtraAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26054B7D29A7C71A00C6DF3C /* JarExtraAddButton.swift */; };
-		261550BC295B572600CEC9DC /* JarNoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BB295B572600CEC9DC /* JarNoDetails.swift */; };
-		261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegistered.swift */; };
+		261550BC295B572600CEC9DC /* JarNoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BB295B572600CEC9DC /* JarNoDetailsView.swift */; };
+		261550BE295B574800CEC9DC /* NotRegisteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegisteredView.swift */; };
 		261550C1295B57F000CEC9DC /* SingleJarMinimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */; };
-		261550C3295B602C00CEC9DC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* Account.swift */; };
-		2637B43E2971BCF30079151C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		261550C3295B602C00CEC9DC /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* AccountView.swift */; };
+		2637B43E2971BCF30079151C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		2637B44229721CBC0079151C /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B44129721CBC0079151C /* SignIn.swift */; };
 		2637B444297220170079151C /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B443297220160079151C /* SignUp.swift */; };
 		2637B446297223370079151C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B445297223370079151C /* UIConstants.swift */; };
 		2637B4482972236A0079151C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B4472972236A0079151C /* Font.swift */; };
 		2637B44A297223F20079151C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B449297223F20079151C /* Color.swift */; };
-		266948DB298041FE0006A2F2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DA298041FE0006A2F2 /* UserAuth.swift */; };
-		266948DE2980421C0006A2F2 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DD2980421C0006A2F2 /* AccountSettings.swift */; };
-		2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058329560CA9004BF8C4 /* ViewJar.swift */; };
-		2683058629560CB8004BF8C4 /* MyJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJars.swift */; };
-		2683058829560CC4004BF8C4 /* PreviousJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJars.swift */; };
-		2683058B29560D00004BF8C4 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058A29560D00004BF8C4 /* HomePage.swift */; };
+		266948DB298041FE0006A2F2 /* UserAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DA298041FE0006A2F2 /* UserAuthView.swift */; };
+		266948DE2980421C0006A2F2 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DD2980421C0006A2F2 /* AccountSettingsView.swift */; };
+		2683058629560CB8004BF8C4 /* MyJarsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJarsTab.swift */; };
+		2683058829560CC4004BF8C4 /* PreviousJarsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJarsTab.swift */; };
+		2683058B29560D00004BF8C4 /* HomePageTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058A29560D00004BF8C4 /* HomePageTab.swift */; };
 		2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058D29560FDF004BF8C4 /* TapJarButton.swift */; };
 		2683059129561039004BF8C4 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683059029561039004BF8C4 /* Buttons.swift */; };
 		26830593295610A9004BF8C4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26830592295610A9004BF8C4 /* Extensions.swift */; };
@@ -41,30 +40,29 @@
 		26CF9C1D299E5A2700B778B9 /* JarRingClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 26CF9C0E299E5A2400B778B9 /* JarRingClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		26CF9C24299EA46B00B778B9 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B443297220160079151C /* SignUp.swift */; };
 		26CF9C25299EA46B00B778B9 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B44129721CBC0079151C /* SignIn.swift */; };
-		26CF9C26299EA46B00B778B9 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DA298041FE0006A2F2 /* UserAuth.swift */; };
-		26CF9C27299EA46B00B778B9 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DD2980421C0006A2F2 /* AccountSettings.swift */; };
+		26CF9C26299EA46B00B778B9 /* UserAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DA298041FE0006A2F2 /* UserAuthView.swift */; };
+		26CF9C27299EA46B00B778B9 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266948DD2980421C0006A2F2 /* AccountSettingsView.swift */; };
 		26CF9C2A299EA46B00B778B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		26CF9C2C299EA47D00B778B9 /* ReadNFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7D2C4296F9F8C006D5228 /* ReadNFC.swift */; };
 		26CF9C2D299EA47D00B778B9 /* SingleJarMinimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */; };
-		26CF9C2E299EA47D00B778B9 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
-		26CF9C2F299EA47D00B778B9 /* JarNoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BB295B572600CEC9DC /* JarNoDetails.swift */; };
-		26CF9C30299EA47D00B778B9 /* NotRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegistered.swift */; };
-		26CF9C31299EA47D00B778B9 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* Account.swift */; };
+		26CF9C2E299EA47D00B778B9 /* JarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetailsView.swift */; };
+		26CF9C2F299EA47D00B778B9 /* JarNoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BB295B572600CEC9DC /* JarNoDetailsView.swift */; };
+		26CF9C30299EA47D00B778B9 /* NotRegisteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550BD295B574800CEC9DC /* NotRegisteredView.swift */; };
+		26CF9C31299EA47D00B778B9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261550C2295B602C00CEC9DC /* AccountView.swift */; };
 		26CF9C32299EA47D00B778B9 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683059029561039004BF8C4 /* Buttons.swift */; };
 		26CF9C33299EA47D00B778B9 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B445297223370079151C /* UIConstants.swift */; };
 		26CF9C34299EA47D00B778B9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B4472972236A0079151C /* Font.swift */; };
 		26CF9C35299EA47D00B778B9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637B449297223F20079151C /* Color.swift */; };
 		26CF9C36299EA47D00B778B9 /* TapJarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058D29560FDF004BF8C4 /* TapJarButton.swift */; };
-		26CF9C37299EA47D00B778B9 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058A29560D00004BF8C4 /* HomePage.swift */; };
+		26CF9C37299EA47D00B778B9 /* HomePageTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058A29560D00004BF8C4 /* HomePageTab.swift */; };
 		26CF9C38299EA47D00B778B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26830592295610A9004BF8C4 /* Extensions.swift */; };
-		26CF9C39299EA47D00B778B9 /* ViewJar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058329560CA9004BF8C4 /* ViewJar.swift */; };
-		26CF9C3A299EA47D00B778B9 /* MyJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJars.swift */; };
-		26CF9C3B299EA47D00B778B9 /* PreviousJars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJars.swift */; };
+		26CF9C3A299EA47D00B778B9 /* MyJarsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058529560CB8004BF8C4 /* MyJarsTab.swift */; };
+		26CF9C3B299EA47D00B778B9 /* PreviousJarsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683058729560CC4004BF8C4 /* PreviousJarsTab.swift */; };
 		26CF9C3C299EA4DC00B778B9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D884A52965FA51003BA81C /* ViewModel.swift */; };
 		26CF9C3D299EA4DC00B778B9 /* JarModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C04EB8296F5E9E00640FDC /* JarModal.swift */; };
 		26CF9C3E299EA51100B778B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		26D884A62965FA51003BA81C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D884A52965FA51003BA81C /* ViewModel.swift */; };
-		26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetails.swift */; };
+		26FC5B4C295B4406001C4881 /* JarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC5B4B295B4406001C4881 /* JarDetailsView.swift */; };
 		3157B018686453389E8A77CF /* Pods_JarRingClip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF11AE39322427B03EB5989 /* Pods_JarRingClip.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		F0DCC46A3D0433CAAD07F3D8 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF3D2D28407257F5780B64E /* Pods_iosApp.framework */; };
@@ -101,21 +99,20 @@
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		26054B7A29A7C6EA00C6DF3C /* JarExtraItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarExtraItemsList.swift; sourceTree = "<group>"; };
 		26054B7D29A7C71A00C6DF3C /* JarExtraAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarExtraAddButton.swift; sourceTree = "<group>"; };
-		261550BB295B572600CEC9DC /* JarNoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarNoDetails.swift; sourceTree = "<group>"; };
-		261550BD295B574800CEC9DC /* NotRegistered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotRegistered.swift; sourceTree = "<group>"; };
+		261550BB295B572600CEC9DC /* JarNoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarNoDetailsView.swift; sourceTree = "<group>"; };
+		261550BD295B574800CEC9DC /* NotRegisteredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotRegisteredView.swift; sourceTree = "<group>"; };
 		261550C0295B57F000CEC9DC /* SingleJarMinimized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleJarMinimized.swift; sourceTree = "<group>"; };
-		261550C2295B602C00CEC9DC /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		261550C2295B602C00CEC9DC /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		2637B44129721CBC0079151C /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		2637B443297220160079151C /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		2637B445297223370079151C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		2637B4472972236A0079151C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		2637B449297223F20079151C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		266948DA298041FE0006A2F2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
-		266948DD2980421C0006A2F2 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
-		2683058329560CA9004BF8C4 /* ViewJar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJar.swift; sourceTree = "<group>"; };
-		2683058529560CB8004BF8C4 /* MyJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJars.swift; sourceTree = "<group>"; };
-		2683058729560CC4004BF8C4 /* PreviousJars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousJars.swift; sourceTree = "<group>"; };
-		2683058A29560D00004BF8C4 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		266948DA298041FE0006A2F2 /* UserAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthView.swift; sourceTree = "<group>"; };
+		266948DD2980421C0006A2F2 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
+		2683058529560CB8004BF8C4 /* MyJarsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJarsTab.swift; sourceTree = "<group>"; };
+		2683058729560CC4004BF8C4 /* PreviousJarsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousJarsTab.swift; sourceTree = "<group>"; };
+		2683058A29560D00004BF8C4 /* HomePageTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTab.swift; sourceTree = "<group>"; };
 		2683058D29560FDF004BF8C4 /* TapJarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapJarButton.swift; sourceTree = "<group>"; };
 		2683059029561039004BF8C4 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		26830592295610A9004BF8C4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -129,7 +126,7 @@
 		26CF9C19299E5A2700B778B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CF9C1A299E5A2700B778B9 /* JarRingClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JarRingClip.entitlements; sourceTree = "<group>"; };
 		26D884A52965FA51003BA81C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		26FC5B4B295B4406001C4881 /* JarDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarDetails.swift; sourceTree = "<group>"; };
+		26FC5B4B295B4406001C4881 /* JarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarDetailsView.swift; sourceTree = "<group>"; };
 		51CF9274603F37A5E016D3EF /* Pods-JarRingClip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.debug.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.debug.xcconfig"; sourceTree = "<group>"; };
 		57ED7188CB5F33E2A8AEEAE5 /* Pods-JarRingClip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JarRingClip.release.xcconfig"; path = "Target Support Files/Pods-JarRingClip/Pods-JarRingClip.release.xcconfig"; sourceTree = "<group>"; };
 		63DBA1C64EB6895F68D5B220 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,7 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2637B43E2971BCF30079151C /* BuildFile in Frameworks */,
+				2637B43E2971BCF30079151C /* (null) in Frameworks */,
 				F0DCC46A3D0433CAAD07F3D8 /* Pods_iosApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,8 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				266948DC298042020006A2F2 /* UserAuth */,
-				266948DA298041FE0006A2F2 /* UserAuth.swift */,
-				266948DD2980421C0006A2F2 /* AccountSettings.swift */,
+				266948DA298041FE0006A2F2 /* UserAuthView.swift */,
+				266948DD2980421C0006A2F2 /* AccountSettingsView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -198,43 +195,42 @@
 			path = UserAuth;
 			sourceTree = "<group>";
 		};
-		2683058229560C89004BF8C4 /* Tabs */ = {
-			isa = PBXGroup;
-			children = (
-				2683058329560CA9004BF8C4 /* ViewJar.swift */,
-				2683058529560CB8004BF8C4 /* MyJars.swift */,
-				2683058729560CC4004BF8C4 /* PreviousJars.swift */,
-			);
-			path = Tabs;
-			sourceTree = "<group>";
-		};
-		2683058929560CED004BF8C4 /* ViewJar */ = {
-			isa = PBXGroup;
-			children = (
-				2683058C29560FCC004BF8C4 /* Comps */,
-				2683058A29560D00004BF8C4 /* HomePage.swift */,
-				26830592295610A9004BF8C4 /* Extensions.swift */,
-			);
-			path = ViewJar;
-			sourceTree = "<group>";
-		};
-		2683058C29560FCC004BF8C4 /* Comps */ = {
-			isa = PBXGroup;
-			children = (
-				2683058D29560FDF004BF8C4 /* TapJarButton.swift */,
-			);
-			path = Comps;
-			sourceTree = "<group>";
-		};
 		2683058F29561025004BF8C4 /* GlobalStyles */ = {
 			isa = PBXGroup;
 			children = (
+				26830592295610A9004BF8C4 /* Extensions.swift */,
 				2683059029561039004BF8C4 /* Buttons.swift */,
 				2637B445297223370079151C /* UIConstants.swift */,
 				2637B4472972236A0079151C /* Font.swift */,
 				2637B449297223F20079151C /* Color.swift */,
 			);
 			path = GlobalStyles;
+			sourceTree = "<group>";
+		};
+		26B6BE8329FDA36500B768CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				26C04EB8296F5E9E00640FDC /* JarModal.swift */,
+				261550BF295B579700CEC9DC /* JarComponents */,
+				2683058729560CC4004BF8C4 /* PreviousJarsTab.swift */,
+				2683058529560CB8004BF8C4 /* MyJarsTab.swift */,
+				26B6BE8429FDA4A500B768CC /* HomePage */,
+				2683058A29560D00004BF8C4 /* HomePageTab.swift */,
+				26FC5B4B295B4406001C4881 /* JarDetailsView.swift */,
+				261550BB295B572600CEC9DC /* JarNoDetailsView.swift */,
+				261550BD295B574800CEC9DC /* NotRegisteredView.swift */,
+				261550C2295B602C00CEC9DC /* AccountView.swift */,
+				2637B44029721CA20079151C /* Account */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		26B6BE8429FDA4A500B768CC /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				2683058D29560FDF004BF8C4 /* TapJarButton.swift */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 		26B7D2C3296F9F4D006D5228 /* NFC */ = {
@@ -263,17 +259,6 @@
 				26CF9C17299E5A2700B778B9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		26FC5B4A295B43F9001C4881 /* Modals */ = {
-			isa = PBXGroup;
-			children = (
-				26FC5B4B295B4406001C4881 /* JarDetails.swift */,
-				261550BB295B572600CEC9DC /* JarNoDetails.swift */,
-				261550BD295B574800CEC9DC /* NotRegistered.swift */,
-				261550C2295B602C00CEC9DC /* Account.swift */,
-			);
-			path = Modals;
 			sourceTree = "<group>";
 		};
 		48C12D0A5416E1A860A36182 /* Pods */ = {
@@ -310,21 +295,16 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				2637B44029721CA20079151C /* Account */,
+				26B6BE8329FDA36500B768CC /* Views */,
 				26B7D2C3296F9F4D006D5228 /* NFC */,
 				26B7D2C2296F9E30006D5228 /* iosApp.entitlements */,
-				261550BF295B579700CEC9DC /* JarComponents */,
-				26FC5B4A295B43F9001C4881 /* Modals */,
 				2683058F29561025004BF8C4 /* GlobalStyles */,
-				2683058929560CED004BF8C4 /* ViewJar */,
-				2683058229560C89004BF8C4 /* Tabs */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				26D884A52965FA51003BA81C /* ViewModel.swift */,
-				26C04EB8296F5E9E00640FDC /* JarModal.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -494,25 +474,24 @@
 				26CF9C3D299EA4DC00B778B9 /* JarModal.swift in Sources */,
 				26CF9C2C299EA47D00B778B9 /* ReadNFC.swift in Sources */,
 				26CF9C2D299EA47D00B778B9 /* SingleJarMinimized.swift in Sources */,
-				26CF9C2E299EA47D00B778B9 /* JarDetails.swift in Sources */,
-				26CF9C2F299EA47D00B778B9 /* JarNoDetails.swift in Sources */,
-				26CF9C30299EA47D00B778B9 /* NotRegistered.swift in Sources */,
-				26CF9C31299EA47D00B778B9 /* Account.swift in Sources */,
+				26CF9C2E299EA47D00B778B9 /* JarDetailsView.swift in Sources */,
+				26CF9C2F299EA47D00B778B9 /* JarNoDetailsView.swift in Sources */,
+				26CF9C30299EA47D00B778B9 /* NotRegisteredView.swift in Sources */,
+				26CF9C31299EA47D00B778B9 /* AccountView.swift in Sources */,
 				26CF9C32299EA47D00B778B9 /* Buttons.swift in Sources */,
 				26CF9C33299EA47D00B778B9 /* UIConstants.swift in Sources */,
 				26CF9C34299EA47D00B778B9 /* Font.swift in Sources */,
 				26CF9C35299EA47D00B778B9 /* Color.swift in Sources */,
 				26CF9C36299EA47D00B778B9 /* TapJarButton.swift in Sources */,
 				26054B7F29A7C71A00C6DF3C /* JarExtraAddButton.swift in Sources */,
-				26CF9C37299EA47D00B778B9 /* HomePage.swift in Sources */,
+				26CF9C37299EA47D00B778B9 /* HomePageTab.swift in Sources */,
 				26CF9C38299EA47D00B778B9 /* Extensions.swift in Sources */,
-				26CF9C39299EA47D00B778B9 /* ViewJar.swift in Sources */,
-				26CF9C3A299EA47D00B778B9 /* MyJars.swift in Sources */,
-				26CF9C3B299EA47D00B778B9 /* PreviousJars.swift in Sources */,
+				26CF9C3A299EA47D00B778B9 /* MyJarsTab.swift in Sources */,
+				26CF9C3B299EA47D00B778B9 /* PreviousJarsTab.swift in Sources */,
 				26CF9C24299EA46B00B778B9 /* SignUp.swift in Sources */,
 				26CF9C25299EA46B00B778B9 /* SignIn.swift in Sources */,
-				26CF9C26299EA46B00B778B9 /* UserAuth.swift in Sources */,
-				26CF9C27299EA46B00B778B9 /* AccountSettings.swift in Sources */,
+				26CF9C26299EA46B00B778B9 /* UserAuthView.swift in Sources */,
+				26CF9C27299EA46B00B778B9 /* AccountSettingsView.swift in Sources */,
 				26CF9C2A299EA46B00B778B9 /* ContentView.swift in Sources */,
 				26CF9C11299E5A2500B778B9 /* JarRingClipApp.swift in Sources */,
 			);
@@ -522,7 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				266948DB298041FE0006A2F2 /* UserAuth.swift in Sources */,
+				266948DB298041FE0006A2F2 /* UserAuthView.swift in Sources */,
 				26054B7B29A7C6EA00C6DF3C /* JarExtraItemsList.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				2637B44229721CBC0079151C /* SignIn.swift in Sources */,
@@ -531,23 +510,22 @@
 				26B7D2C5296F9F8C006D5228 /* ReadNFC.swift in Sources */,
 				26830593295610A9004BF8C4 /* Extensions.swift in Sources */,
 				26C04EB9296F5E9E00640FDC /* JarModal.swift in Sources */,
-				2683058B29560D00004BF8C4 /* HomePage.swift in Sources */,
+				2683058B29560D00004BF8C4 /* HomePageTab.swift in Sources */,
 				2637B446297223370079151C /* UIConstants.swift in Sources */,
-				261550C3295B602C00CEC9DC /* Account.swift in Sources */,
+				261550C3295B602C00CEC9DC /* AccountView.swift in Sources */,
 				2683058E29560FDF004BF8C4 /* TapJarButton.swift in Sources */,
-				26FC5B4C295B4406001C4881 /* JarDetails.swift in Sources */,
+				26FC5B4C295B4406001C4881 /* JarDetailsView.swift in Sources */,
 				26054B7E29A7C71A00C6DF3C /* JarExtraAddButton.swift in Sources */,
-				261550BE295B574800CEC9DC /* NotRegistered.swift in Sources */,
-				266948DE2980421C0006A2F2 /* AccountSettings.swift in Sources */,
+				261550BE295B574800CEC9DC /* NotRegisteredView.swift in Sources */,
+				266948DE2980421C0006A2F2 /* AccountSettingsView.swift in Sources */,
 				2637B44A297223F20079151C /* Color.swift in Sources */,
-				2683058629560CB8004BF8C4 /* MyJars.swift in Sources */,
-				2683058429560CA9004BF8C4 /* ViewJar.swift in Sources */,
+				2683058629560CB8004BF8C4 /* MyJarsTab.swift in Sources */,
 				26D884A62965FA51003BA81C /* ViewModel.swift in Sources */,
-				2683058829560CC4004BF8C4 /* PreviousJars.swift in Sources */,
+				2683058829560CC4004BF8C4 /* PreviousJarsTab.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				2637B444297220170079151C /* SignUp.swift in Sources */,
 				2683059129561039004BF8C4 /* Buttons.swift in Sources */,
-				261550BC295B572600CEC9DC /* JarNoDetails.swift in Sources */,
+				261550BC295B572600CEC9DC /* JarNoDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
